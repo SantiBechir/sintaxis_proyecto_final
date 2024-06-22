@@ -10,7 +10,7 @@ VInstruccion, VAsignacion, VEA1, VEA2 ,VEA3 , VEA4, VEM , VEM1 ,VEM2 , VEM3, VEM
 VEMM, VLectura, VEscritura, VListaCad, VCondicional, VCiclo, VCond, VOPR, VL, VT ,
 VM , VFTAM,
 TllaveL, TllaveR , Tprint , TmayorR{<}, TmayorL{>} , Tigual{==} ,
-TmayorIgualL{>=} , TmayorIgualR{<=} , TReal ,TEntera, Tid , Tcoma ,
+TmayorIgualL{>=} , TmayorIgualR{<=} , TConstReal ,TEntera, Tid , Tcoma ,
 Tdospuntos , TProgram , TWhile , Tdo , TIf , Tthen , Telse , Tread ,
 TparentesisL{(} , TparentesisR{)} , TCad , Tmas ,Tsqrt, Tmenos ,Tdiv{/}, Texp{^}
 , Tmult{*} , TMTr , TcorcheteL{[} , TcorcheteR{]} , Tnumeral , Tpuntocoma {;} ,
