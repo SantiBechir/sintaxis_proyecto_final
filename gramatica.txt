@@ -1,0 +1,73 @@
+
+Forma BNF:
+
+<Programa>::= "Program" <Dec> "{" <Cuerpo> "}" 
+
+<Dec>::= "id" ":" <Variable> ";"
+<Variable>::= "constReal" | <MatrizReal> | "ConstCad" | "ConstEntera"
+<MatrizReal>::= "[" <Tam> "#" <Tam>  "]"
+<Tam>::= "1...300"  ----------------------------------------------Verificar
+
+<Cuerpo>::= <Sent> <Cuerpo> | <Sent>
+<Sent>::= <Instruccion> 
+<Instruccion>::= <Asignacion> ";"| <Lectura> ";"| <Escritura> ";"| <Condicional> | <Ciclo> | <FTAM>
+<Asignacion>::= "id" "=" <EA1> | "id" "=" <EM>  
+
+
+<EA1>::= <EA1> "+" <EA2> | <EA1> "-" <EA2>| <EA2>
+<EA2>::= <EA2> "*" <EA3> | <EA2> "/" <EA3> | <EA3>
+<EA3>::= <EA3> "^" <EA4>| "Sqrt" "(" <EA4> ")" | <EA4> 
+<EA4>::= "id" | "ConstReal" | "id""[" "ConstEntera" "," "ConstEntera" "]" | "(" <EA1> ")" 
+
+
+<EM>::=	<MatrizReal> "+" <MatrizReal> | <MatrizReal> "-" <MatrizReal>	| <EM1>
+<EM1>::= <MatrizReal> "*" <MatrizReal> | <EM2>		
+<EM2>::= "Tr" "(" <MatrizReal> ")" | <EM3>
+<EM3>::= <EA1> "*" <MatrizReal>	| <EM4>
+<EM4>::= "[" "[" <EMM> "]" "[" <EMM> "]" "]" | <EM> 									 	
+<EMM>::= "ConstReal" "," <EMM> | "ConstReal"
+
+<Lectura>::= "print" "ConstCad" "read" "(" "id" ")"
+
+<Escritura>::= "print" <EA1> | "print" <MatrizReal> |  "print" <ListaCad>
+<ListaCad>::= <ListaCad> "ConstCad" | "ConstCad"
+
+
+
+<Condicional>::= "If" <Cond> "then" "{" <Cuerpo> "}" | "If" <Cond> "then" "{" <Cuerpo> "} "else" "{" <Cuerpo> "}"
+
+<Ciclo>::= "While" <Cond> "do" "{" <Cuerpo> "}"
+
+<Cond>::= <EA1> <OPR> <EA1> | <EM> <OPR> <EM> | <Cond> <L>
+
+<OPR>::= "<" | ">" | "==" | "<=" | ">=" 
+
+<L>::= <L> "or" <T> | <T>
+<T>::= <T> "and" <M> | <M>
+<M>::= "not" <M> | "("<L>")"
+
+
+<FTAM>::= "fTam" "(" <MatrizReal> "," "ConstEntera" ")" 
+ 
+//{->Begin
+//}->End
+
+
+*****DUDAS******
+Un indice para acceder a un elemento (o la carga de un elemento) de la matriz puede ser un "id", en este caso como hacer para que el mismo sea una constEntera  (a=1+2  =>  d[a,a])
+Como verificar dimensiones para operaciones entre matrices
+Estan bien planteadas las operaciones entre matrices
+Como plantear el tamaño 0...300 o 1..300? y como definirlo
+Operadores Logicos
+Sqrt o Raiz se puede plantear como potencia ?  
+
+
+
+
+
+
+
+ 
+
+Variables: {Programa, Dec, Variable, MatrizReal, Tam, Cuerpo ,Sent, Instruccion, Asignacion, EA1, EA2 ,EA3 , EA4, EM , EM1 ,EM2 , EM3, EM4, EMM, Lectura, Escritura, ListaCad, Condicional, Ciclo, Cond, OPR, L, T , M , FTAM }
+Terminales: { , { , } , print , < , > , == , >= , <= , ConstReal ,Const Entera, id , , , : , Program , While , do , If , then , else , read , ( , ) , ConstCad , + ,sqrt, - , / , ^ , * , Tr , [ , ] , # , ; , or , and, not, ¿¿1..300??, "fTam"}
