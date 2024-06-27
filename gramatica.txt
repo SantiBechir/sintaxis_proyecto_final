@@ -3,51 +3,55 @@ Forma BNF:
 
 <Programa>::= "Program" <Dec> "{" <Cuerpo> "}" 
 
-<Dec>::= "id" ":" <Variable> ";"
-<Variable>::= "constReal" | <MatrizReal> | "ConstCad" | "ConstEntera"
-<MatrizReal>::= "[" <Tam> "#" <Tam>  "]"
-<Tam>::= "1...300"  ----------------------------------------------Verificar
+<Dec>::= <Dec>"id" ":" <Variable> ";" | eps
+<Variable>::= "real" | <MatrizReal> 
+<MatrizReal>::= "[" <constReal> "#" <constReal>  "]"
 
 <Cuerpo>::= <Sent> <Cuerpo> | <Sent>
-<Sent>::= <Instruccion> 
-<Instruccion>::= <Asignacion> ";"| <Lectura> ";"| <Escritura> ";"| <Condicional> | <Ciclo> | <FTAM>
-<Asignacion>::= "id" "=" <EA1> | "id" "=" <EM>  
+<Sent>::= <Asignacion> ";"| <Lectura> ";"| <Escritura> ";"| <Condicional> | <Ciclo> 
+<Asignacion>::= "id" "=" <EA1> | "id" ":==" <EM> | "id""[" <EA1> "," <EA1> "]" "=" <EA1>  
 
+// las raices se resuelven en forma de potencia
+// hacer constantes reales solo positivas
 
 <EA1>::= <EA1> "+" <EA2> | <EA1> "-" <EA2>| <EA2>
 <EA2>::= <EA2> "*" <EA3> | <EA2> "/" <EA3> | <EA3>
-<EA3>::= <EA3> "^" <EA4>| "Sqrt" "(" <EA4> ")" | <EA4> 
-<EA4>::= "id" | "ConstReal" | "id""[" "ConstEntera" "," "ConstEntera" "]" | "(" <EA1> ")" 
+<EA3>::= <EA3> "^" <EA4> | <EA4> 
+<EA4>::= "id" | "ConstReal" | "id""[" <EA1> "," <EA1> "]" | "(" <EA1> ")" | <FTAM> | "-" <EA4>
 
+//pUEDE CONVENIR DIFERENCIAR LOS OPERADORES ARITMETICOS DE LOS MATRICIALES.
+<EM>::=	<EM> "+" <EM1> | <EM> "-" <EM1>	| <EM1>
+<EM1>::= <EM1> "**" <EM2> | <EM2>		
+<EM2>::= "Tr" "(" <EM> ")" | <EM3>
+<EM3>::= <EA1> "*" <EM>	| <EMM>									 	
+<EMM>::= "id" | <constMatriz>
 
-<EM>::=	<MatrizReal> "+" <MatrizReal> | <MatrizReal> "-" <MatrizReal>	| <EM1>
-<EM1>::= <MatrizReal> "*" <MatrizReal> | <EM2>		
-<EM2>::= "Tr" "(" <MatrizReal> ")" | <EM3>
-<EM3>::= <EA1> "*" <MatrizReal>	| <EM4>
-<EM4>::= "[" "[" <EMM> "]" "[" <EMM> "]" "]" | <EM> 									 	
-<EMM>::= "ConstReal" "," <EMM> | "ConstReal"
+//A :== [[1,2,3],[4,5,6]]
 
-<Lectura>::= "print" "ConstCad" "read" "(" "id" ")"
+<constMatriz> ::= "["<filas>"]"
+<filas> ::= "["<columnas>"]" | "["<columnas>"]" "," <filas>
+<columnas> ::= <EA1> | <EA1> "," <columnas>
 
-<Escritura>::= "print" <EA1> | "print" <MatrizReal> |  "print" <ListaCad>
-<ListaCad>::= <ListaCad> "ConstCad" | "ConstCad"
+<Lectura>::= "read" "(" "constCadena" "," "id" ")"
 
+<Escritura>::= "print" "(" <listaElementos> ")"
+<listaElementos>::= <listaElementos> "," "elemento" | "elemento"
+<elemento> ::= "constCad" | <EA1> | <constMatriz> 
 
 
 <Condicional>::= "If" <Cond> "then" "{" <Cuerpo> "}" | "If" <Cond> "then" "{" <Cuerpo> "} "else" "{" <Cuerpo> "}"
 
 <Ciclo>::= "While" <Cond> "do" "{" <Cuerpo> "}"
 
-<Cond>::= <EA1> <OPR> <EA1> | <EM> <OPR> <EM> | <Cond> <L>
 
-<OPR>::= "<" | ">" | "==" | "<=" | ">=" 
+<Cond>::= <EA1> "OPR" <EA1> | <Cond> <L>
 
 <L>::= <L> "or" <T> | <T>
 <T>::= <T> "and" <M> | <M>
-<M>::= "not" <M> | "("<L>")"
+<M>::= "not" <M> | "{"<L>"}"
 
 
-<FTAM>::= "fTam" "(" <MatrizReal> "," "ConstEntera" ")" 
+<FTAM>::= "fTam" "(" "id" "," "constReal" ")" 
  
 //{->Begin
 //}->End
