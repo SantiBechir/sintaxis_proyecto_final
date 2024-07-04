@@ -1,10 +1,10 @@
+// REVISAR LA LL(1).
 
 Forma BNF:
 
 <Programa>::= "Program" <Dec> "{" <Cuerpo> "}" 
 
 <Dec>::= "id" ":" <Variable> ";" <Dec> | eps
-
 
 <Variable>::= "real" | <MatrizReal> 
 <MatrizReal>::= "[" <constReal> "#" <constReal>  "]"
@@ -16,8 +16,8 @@ Forma BNF:
 <Asignacion>::= "id" <OperacionAsig>  
 <OperacionAsig>::= "=" <EA1> | ":==" <EM> | "["<EA1> "," <EA1> "]" "=" <EA1>
 
-// las raices se resuelven en forma de potencia
-// hacer constantes reales solo positivas
+// LAS RAÍCES SE RESUELVEN EN FORMA DE POTENCIA.
+// HACER CONSTANTES REALES SÓLO POSITIVAS.
 
 <EA1>::= <EA2> <E1>
 <E1>::= "+" <EA2> <E1> | "-" <EA2> <E1> | eps	
@@ -25,14 +25,15 @@ Forma BNF:
 <E2>::= "*" <EA3> | "/" <EA3> | eps 
 <EA3>::= <EA4> <E3>
 <E3>::= "^" <EA4> | eps
-<EA4>::= "ConstReal" | "id" <E4> | "(" <EA1> ")" | <FTAM> | "-" <EA4>
+<EA4>::= "constReal" | "id" <E4> | "(" <EA1> ")" | <FTAM> | "-" <EA4>
 <E4>::= eps | "[" <EA1> "," <EA1> "]"
 
-//pUEDE CONVENIR DIFERENCIAR LOS OPERADORES ARITMETICOS DE LOS MATRICIALES.
+// PUEDE CONVENIR DIFERENCIAR LOS OPERADORES ARITMETICOS DE LOS MATRICIALES.
+
 <EM>::= <EM1> <M1>
 <M1>::= "+" <EM1> <M1> | "-" <EM1> <M1> | eps
 <EM1>::= <EM2> <M2>
-<M2>::= "**" <EM2> <M2> | eps	(**=?)	
+<M2>::= "**" <EM2> <M2> | eps	
 <EM2>::= "Tr" "(" <EM> ")" | <EM3>
 <EM3>::= <EA1> "*" <EM>	| <EMM>									 	
 <EMM>::= "id" | <constMatriz>
@@ -40,27 +41,23 @@ Forma BNF:
 //A :== [[1,2,3],[4,5,6]]
 
 <constMatriz> ::= "["<Filas>"]"
-<Filas> ::= "[" <Columnas> ] <FacFilas>
+<Filas> ::= "[" <Columnas> "]" <FacFilas>
 <FacFilas>::= eps | "," <Filas>
 
 <Columnas> ::= <EA1> <FacColumnas>
 <FacColumnas>::= eps | "," <Columnas>
 
-
-<Lectura>::= "read" "(" "constCadena" "," "id" ")"
+<Lectura>::= "read" "(" "constCad" "," "id" ")"
 
 <Escritura>::= "print" "(" <listaElementos> ")"
 <listaElementos>::= <Elemento> <FacListElem>
 <FacListElem>::= "," <listaElementos> | eps
 <Elemento> ::= "constCad" | <EA1> | <constMatriz> 
 
-
 <Condicional>::= "If" <Cond> "then" "{" <Cuerpo> "}" <FacCondicional>
 <FacCondicional>::= eps | "else" "{" <Cuerpo> "}"
 
-
 <Ciclo>::= "While" <Cond> "do" "{" <Cuerpo> "}"
-
 
 <Cond>::= <EA1> "OPR" <EA1> 
 
@@ -69,10 +66,11 @@ Forma BNF:
 
 
 
-
-
-
- 
-
 Variables: {Programa, Dec, Variable, MatrizReal, Tam, Cuerpo ,Sent, Instruccion, Asignacion, EA1, EA2 ,EA3 , EA4, EM , EM1 ,EM2 , EM3, EM4, EMM, Lectura, Escritura, ListaCad, Condicional, Ciclo, Cond, OPR, L, T , M , FTAM }
+<<<<<<< HEAD
 Terminales: { , { , } , print , < , > , == , >= , <= , ConstReal ,Const Entera, id , , , : , Program , While , do , If , then , else , read , ( , ) , ConstCad , + , - , / , ^ , * , Tr , [ , ] , # , ; , or , and, not,, "fTam"}
+=======
+
+
+Terminales: {  , } , print, constReal , id , , , : , Program , While , do , If , then , else , read , ( , ) , constCad , + , - , / , ^ , * , Tr , [ , ] , # , ;  , fTam, real, = , :== , ** , constMatriz , OPR
+>>>>>>> 6eb740de4788adb585937ecccb69029f4e127990
