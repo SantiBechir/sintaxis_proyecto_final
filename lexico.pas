@@ -56,11 +56,5 @@ begin
   palabra.lexema:= 'Print';
   palabra.complex:=  Tprint;
   InsertarEnLista(TS,palabra);
-
-
-  palabra.lexema:= 'entero';
-  palabra.complex:=  TEntera;
-  InsertarEnLista(TS,palabra);
-
   end;
 end.
