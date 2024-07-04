@@ -5,7 +5,7 @@ Forma BNF:
 <Dec>::= "id" ":" <Variable> ";" <Dec> | eps
 
 <Variable>::= "real" | <MatrizReal> 
-<MatrizReal>::= "[" <constReal> "#" <constReal>  "]"
+<MatrizReal>::= "[" "constReal" "#" "constReal"  "]"
 
 <Cuerpo>::= <Sent> <Seguido> 
 <Seguido>::= <Cuerpo> | eps
