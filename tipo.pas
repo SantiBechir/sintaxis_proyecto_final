@@ -4,7 +4,7 @@ interface
 
 uses
   crt;
-
+type  // Simbolos gramaticales
 ComponentesLexicos=(VPrograma, VDec, VVariable, VMatrizReal, VTam, VCuerpo ,VSent,
 VInstruccion, VAsignacion, VEA1, VEA2 ,VEA3 , VEA4, VEM , VEM1 ,VEM2 , VEM3, VEM4,
 VEMM, VLectura, VEscritura, VListaCad, VCondicional, VCiclo, VCond, VOPR, VL, VT ,
@@ -22,7 +22,7 @@ TipoTerminal=(TllaveL..Tnot);
 
 
 TelemTS = record
-  complex: ComponentesLexicos;
+  complex: ComponentesLexicos;  //Simbolos gramaticales
   Lexema: String;
   end;
 
@@ -34,7 +34,7 @@ TelemTS = record
       end;
 
  TablaSimbolos = record
-     cab:puntero;
+     act,cab:puntero;
      tam:integer;
     end;
 implementation
