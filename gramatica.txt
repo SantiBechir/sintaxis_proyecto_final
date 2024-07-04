@@ -3,67 +3,68 @@ Forma BNF:
 
 <Programa>::= "Program" <Dec> "{" <Cuerpo> "}" 
 
-<Dec>::= <Dec>"id" ":" <Variable> ";" | eps
+<Dec>::= "id" ":" <Variable> ";" <Dec> | eps
+
+
 <Variable>::= "real" | <MatrizReal> 
 <MatrizReal>::= "[" <constReal> "#" <constReal>  "]"
 
-<Cuerpo>::= <Sent> <Cuerpo> | <Sent>
+<Cuerpo>::= <Sent> <Seguido> 
+<Seguido>::= <Cuerpo> | eps
+
 <Sent>::= <Asignacion> ";"| <Lectura> ";"| <Escritura> ";"| <Condicional> | <Ciclo> 
-<Asignacion>::= "id" "=" <EA1> | "id" ":==" <EM> | "id""[" <EA1> "," <EA1> "]" "=" <EA1>  
+<Asignacion>::= "id" <OperacionAsig>  
+<OperacionAsig>::= "=" <EA1> | ":==" <EM> | "["<EA1> "," <EA1> "]" "=" <EA1>
 
 // las raices se resuelven en forma de potencia
 // hacer constantes reales solo positivas
 
-<EA1>::= <EA1> "+" <EA2> | <EA1> "-" <EA2>| <EA2>
-<EA2>::= <EA2> "*" <EA3> | <EA2> "/" <EA3> | <EA3>
-<EA3>::= <EA3> "^" <EA4> | <EA4> 
-<EA4>::= "id" | "ConstReal" | "id""[" <EA1> "," <EA1> "]" | "(" <EA1> ")" | <FTAM> | "-" <EA4>
+<EA1>::= <EA2> <E1>
+<E1>::= "+" <EA2> <E1> | "-" <EA2> <E1> | eps	
+<EA2>::= <EA3> <E2>
+<E2>::= "*" <EA3> | "/" <EA3> | eps 
+<EA3>::= <EA4> <E3>
+<E3>::= "^" <EA4> | eps
+<EA4>::= "ConstReal" | "id" <E4> | "(" <EA1> ")" | <FTAM> | "-" <EA4>
+<E4>::= eps | "[" <EA1> "," <EA1> "]"
 
 //pUEDE CONVENIR DIFERENCIAR LOS OPERADORES ARITMETICOS DE LOS MATRICIALES.
-<EM>::=	<EM> "+" <EM1> | <EM> "-" <EM1>	| <EM1>
-<EM1>::= <EM1> "**" <EM2> | <EM2>		
+<EM>::= <EM1> <M1>
+<M1>::= "+" <EM1> <M1> | "-" <EM1> <M1> | eps
+<EM1>::= <EM2> <M2>
+<M2>::= "**" <EM2> <M2> | eps	(**=?)	
 <EM2>::= "Tr" "(" <EM> ")" | <EM3>
 <EM3>::= <EA1> "*" <EM>	| <EMM>									 	
 <EMM>::= "id" | <constMatriz>
 
 //A :== [[1,2,3],[4,5,6]]
 
-<constMatriz> ::= "["<filas>"]"
-<filas> ::= "["<columnas>"]" | "["<columnas>"]" "," <filas>
-<columnas> ::= <EA1> | <EA1> "," <columnas>
+<constMatriz> ::= "["<Filas>"]"
+<Filas> ::= "[" <Columnas> ] <FacFilas>
+<FacFilas>::= eps | "," <Filas>
+
+<Columnas> ::= <EA1> <FacColumnas>
+<FacColumnas>::= eps | "," <Columnas>
+
 
 <Lectura>::= "read" "(" "constCadena" "," "id" ")"
 
 <Escritura>::= "print" "(" <listaElementos> ")"
-<listaElementos>::= <listaElementos> "," "elemento" | "elemento"
-<elemento> ::= "constCad" | <EA1> | <constMatriz> 
+<listaElementos>::= <Elemento> <FacListElem>
+<FacListElem>::= "," <listaElementos> | eps
+<Elemento> ::= "constCad" | <EA1> | <constMatriz> 
 
 
-<Condicional>::= "If" <Cond> "then" "{" <Cuerpo> "}" | "If" <Cond> "then" "{" <Cuerpo> "} "else" "{" <Cuerpo> "}"
+<Condicional>::= "If" <Cond> "then" "{" <Cuerpo> "}" <FacCondicional>
+<FacCondicional>::= eps | "else" "{" <Cuerpo> "}"
+
 
 <Ciclo>::= "While" <Cond> "do" "{" <Cuerpo> "}"
 
 
-<Cond>::= <EA1> "OPR" <EA1> | <Cond> <L>
+<Cond>::= <EA1> "OPR" <EA1> 
 
-<L>::= <L> "or" <T> | <T>
-<T>::= <T> "and" <M> | <M>
-<M>::= "not" <M> | "{"<L>"}"
-
-
-<FTAM>::= "fTam" "(" "id" "," "constReal" ")" 
- 
-//{->Begin
-//}->End
-
-
-*****DUDAS******
-Un indice para acceder a un elemento (o la carga de un elemento) de la matriz puede ser un "id", en este caso como hacer para que el mismo sea una constEntera  (a=1+2  =>  d[a,a])
-Como verificar dimensiones para operaciones entre matrices
-Estan bien planteadas las operaciones entre matrices
-Como plantear el tamaño 0...300 o 1..300? y como definirlo
-Operadores Logicos
-Sqrt o Raiz se puede plantear como potencia ?  
+<FTAM>::= "fTam" "(" "id" "," "constReal" ")"
 
 
 
