@@ -75,4 +75,4 @@ Forma BNF:
  
 
 Variables: {Programa, Dec, Variable, MatrizReal, Tam, Cuerpo ,Sent, Instruccion, Asignacion, EA1, EA2 ,EA3 , EA4, EM , EM1 ,EM2 , EM3, EM4, EMM, Lectura, Escritura, ListaCad, Condicional, Ciclo, Cond, OPR, L, T , M , FTAM }
-Terminales: { , { , } , print , < , > , == , >= , <= , ConstReal ,Const Entera, id , , , : , Program , While , do , If , then , else , read , ( , ) , ConstCad , + ,sqrt, - , / , ^ , * , Tr , [ , ] , # , ; , or , and, not, ¿¿1..300??, "fTam"}
+Terminales: { , { , } , print , < , > , == , >= , <= , ConstReal ,Const Entera, id , , , : , Program , While , do , If , then , else , read , ( , ) , ConstCad , + , - , / , ^ , * , Tr , [ , ] , # , ; , or , and, not,, "fTam"}
