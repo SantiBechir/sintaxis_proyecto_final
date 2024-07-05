@@ -71,12 +71,6 @@ begin
   palabra.lexema:= 'print';
   palabra.complex:=  Tprint;
   InsertarEnLista(TS,palabra);
-
-
-  palabra.lexema:= 'entero';
-  palabra.complex:=  TEntera;
-  InsertarEnLista(TS,palabra);
-
   end;
 Function EsSimboloEspecial (var lexema: string; var compLex:GramaticalSymbol; var Fuente: T_Arch;var control: longint): boolean;
 var
