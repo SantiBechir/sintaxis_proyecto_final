@@ -33,7 +33,7 @@ Forma BNF:
 <EM1>::= <EM2> <M2>
 <M2>::= "**" <EM2> <M2> | eps	
 <EM2>::= "Tr" "(" <EM> ")" | <EM3>
-<EM3>::= <EA1> "*" <EM>	| <EMM>								 	
+<EM3>::= "ProdEscMat" ( <EA1> "," <EM> )  | <EMM>								 	
 <EMM>::= "id" | <constMatriz>
 
 //A :== [[1,2,3],[4,5,6]]
