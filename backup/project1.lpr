@@ -11,7 +11,7 @@ begin
   assign(fuente,'prueba.txt');
   reset(fuente);
   control:= 0;
-  CargarTS(TS);
+  CrearTS(TS);
   ObtenerSiguienteCompLex(fuente,Control,CompLex,Lexema,TS);
   while (complex <> pesos) and (complex <> LexicError) do
   begin

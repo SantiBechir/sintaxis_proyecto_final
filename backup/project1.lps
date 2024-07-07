@@ -8,16 +8,16 @@
       <Unit>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="12" Y="21"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="12" Y="7"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="lexico.pas"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="287"/>
-        <CursorPos X="14" Y="302"/>
+        <TopLine Value="443"/>
+        <CursorPos X="55" Y="462"/>
         <UsageCount Value="10"/>
         <Loaded Value="True"/>
       </Unit>
@@ -26,7 +26,7 @@
         <UnitName Value="Tipo"/>
         <EditorIndex Value="1"/>
         <TopLine Value="2"/>
-        <CursorPos X="46" Y="16"/>
+        <CursorPos X="55" Y="14"/>
         <UsageCount Value="10"/>
         <Loaded Value="True"/>
       </Unit>
@@ -48,7 +48,7 @@
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="18">
+    <JumpHistory HistoryIndex="21">
       <Position>
         <Filename Value="project1.lpr"/>
         <Caret Line="21" Column="12"/>
@@ -99,10 +99,6 @@
       </Position>
       <Position>
         <Filename Value="lexico.pas"/>
-        <Caret Line="126" Column="26" TopLine="151"/>
-      </Position>
-      <Position>
-        <Filename Value="lexico.pas"/>
         <Caret Line="162" Column="21" TopLine="146"/>
       </Position>
       <Position>
@@ -124,6 +120,22 @@
       <Position>
         <Filename Value="lexico.pas"/>
         <Caret Line="283" Column="100" TopLine="266"/>
+      </Position>
+      <Position>
+        <Filename Value="lexico.pas"/>
+        <Caret Line="302" Column="14" TopLine="287"/>
+      </Position>
+      <Position>
+        <Filename Value="project1.lpr"/>
+        <Caret Line="21" Column="12"/>
+      </Position>
+      <Position>
+        <Filename Value="tipo.pas"/>
+        <Caret Line="12" Column="43" TopLine="2"/>
+      </Position>
+      <Position>
+        <Filename Value="lexico.pas"/>
+        <Caret Line="462" Column="41" TopLine="443"/>
       </Position>
     </JumpHistory>
     <RunParams>
