@@ -9,16 +9,17 @@ ComponentesLexicos=(VPrograma, VDec, VVariable, VMatrizReal, VTam, VCuerpo ,VSen
 VInstruccion, VAsignacion, VEA1, VEA2 ,VEA3 , VEA4, VEM , VEM1 ,VEM2 , VEM3, VEM4,
 VEMM, VLectura, VEscritura, VListaCad, VCondicional, VCiclo, VCond, VOPR, VL, VT ,
 VM , VFTAM,
-TllaveL, TllaveR , Tprint , TmayorR{<}, TmayorL{>} , Tigual{==} ,
-TmayorIgualL{>=} , TmayorIgualR{<=} , TReal ,TEntera, Tid , Tcoma ,
+TllaveL, TllaveR , Tprint , Toprel , TReal ,TEntera, Tid , Tcoma ,
 Tdospuntos , TProgram , TWhile , Tdo , TIf , Tthen , Telse , Tread ,
-TparentesisL{(} , TparentesisR{)} , TCad , Tmas ,Tsqrt, Tmenos ,Tdiv{/}, Texp{^}
+TparentesisL{(} , TparentesisR{)} , TCad , Tvar , Tmas ,Tsqrt, Tmenos ,Tdiv{/}, Texp{^}
 , Tmult{*} , TMTr , TcorcheteL{[} , TcorcheteR{]} , Tnumeral , Tpuntocoma {;} ,
-Tor , Tand, Tnot);
+Tor , Tand,Tasignacion, Tnot,pesos,lexicerror);
 
-TipoVariable=(Vprogram..VFTAM);
+TipoVariable=Vprograma..VFTAM;
 
-TipoTerminal=(TllaveL..Tnot);
+TipoTerminal=TllaveL..Tnot;
+
+Archtexto = file of char;
 
 
 TelemTS = record

@@ -1,0 +1,8 @@
+program primerPrograma;
+
+var
+
+y < z
+
+y := n
+
