@@ -8,16 +8,16 @@
       <Unit>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <CursorPos X="11" Y="14"/>
-        <UsageCount Value="20"/>
+        <UsageCount Value="21"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="lexico.pas"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="443"/>
-        <CursorPos X="55" Y="462"/>
+        <TopLine Value="31"/>
+        <CursorPos X="113" Y="45"/>
         <UsageCount Value="10"/>
         <Loaded Value="True"/>
       </Unit>
