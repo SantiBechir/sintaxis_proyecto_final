@@ -28,9 +28,6 @@ Forma BNF:
 
 // PUEDE CONVENIR DIFERENCIAR LOS OPERADORES ARITMETICOS DE LOS MATRICIALES.
 
-EA1 => EA2 E1 => EA3 E2 + EA2 E1 => EA4 E3 eps + EA2 E1 => id eps + EA3 E2 => id eps + EA4 E3 eps => id eps + id E4
-
-
 <EM>::= <EM1> <M1>
 <M1>::= "SumMat" "(" <EM> "," <EM> )" | "RestMat" "(" <EM> "," <EM> )"  | eps
 <EM1>::= <EM2> <M2> 
@@ -40,9 +37,6 @@ EA1 => EA2 E1 => EA3 E2 + EA2 E1 => EA4 E3 eps + EA2 E1 => id eps + EA3 E2 => id
 <EMM>::= "id" | <constMatriz>
 
 //A :== [[1,2,3],[4,5,6]]
-
-EM => EM1 M1 => EM2 M2 SumMat (EM1 , M1) => EM3 M2 SumMat (EM1 , M1) => EMM 
-EM => EM1 M1 => EM2 M2 eps => EM3 eps eps => EMM
 
 <constMatriz> ::= "["<Filas>"]"
 <Filas> ::= "[" <Columnas> "]" <FacFilas>
