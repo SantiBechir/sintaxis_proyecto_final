@@ -29,11 +29,11 @@ Forma BNF:
 // PUEDE CONVENIR DIFERENCIAR LOS OPERADORES ARITMETICOS DE LOS MATRICIALES.
 
 <EM>::= <EM1> <M1>
-<M1>::= "+" <EM1> <M1> | "-" <EM1> <M1> | eps
-<EM1>::= <EM2> <M2>
-<M2>::= "**" <EM2> <M2> | eps	
+<M1>::= "SumMat" "(" <EM> "," <EM> )" | "RestMat" "(" <EM> "," <EM> )"  | eps
+<EM1>::= <EM2> <M2> 
+<M2>::= "MultMat" "(" <EM> "," <EM> )"  | eps	
 <EM2>::= "Tr" "(" <EM> ")" | <EM3>
-<EM3>::= "ProdEscMat" ( <EA1> "," <EM> )  | <EMM>								 	
+<EM3>::= "ProdEscMat" ( <EA1> "," <EM> )  | <EMM>							 	
 <EMM>::= "id" | <constMatriz>
 
 //A :== [[1,2,3],[4,5,6]]
