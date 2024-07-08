@@ -74,7 +74,7 @@ print -> p
 constReal -> k
 id -> z
 , -> ,
-: -> ;
+: -> :
 Program -> y
 While -> w
 do -> d
