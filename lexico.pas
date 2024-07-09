@@ -38,39 +38,57 @@ Procedure CargarTS (var TS:TablaSimbolos);
    Palabra:TelemTS;
 begin
     CrearLista(TS);
-    palabra.lexema:= 'program';
-    palabra.complex:= Tprogram;
-    InsertarEnLista(TS,palabra);
+     palabra.lexema:= 'program';
+     palabra.complex:= Tprogram;
+     InsertarEnLista(TS,palabra);
 
+     palabra.lexema:= 'read';
+     palabra.complex:=  Tread;
+     InsertarEnLista(TS,palabra);
 
-  palabra.lexema:= 'var';
-  palabra.complex:=  Tvar;
-  InsertarEnLista(TS,palabra);
+     palabra.lexema:= 'while';
+     palabra.complex:= twhile;
+     InsertarEnLista(TS,palabra);
 
+     palabra.lexema:='do';
+     palabra.compLex:=tdo;
+     InsertarEnLista(TS,palabra);
 
-  palabra.lexema:= 'read';
-  palabra.complex:=  Tread;
-  InsertarEnLista(TS,palabra);
+     palabra.lexema:= 'if';
+     palabra.complex:=  tif;
+     InsertarEnLista(TS,palabra);
 
+     palabra.lexema:= 'else';
+     palabra.complex:=  telse;
+     InsertarEnLista(TS,palabra);
 
-  palabra.lexema:= 'while';
-  palabra.complex:= twhile;
-  InsertarEnLista(TS,palabra);
+     palabra.lexema:= 'print';
+     palabra.complex:=  Tprint;
+     InsertarEnLista(TS,palabra);
 
+     palabra.lexema:='Tr';
+     palabra.complex:=Ttr;
+     InsertarEnLista(TS,palabra);
 
-  palabra.lexema:= 'if';
-  palabra.complex:=  tif;
-  InsertarEnLista(TS,palabra);
+     palabra.lexema:='fTam';
+     palabra.compLex:=TfTam;
+     InsertarEnLista(TS,palabra);
+     
+     palabra.lexema:='SumMat';
+     palabra.compLex:=TSumMat;
+     InsertarEnLista(TS,palabra);
 
+     palabra.lexema:='RestMat';
+     palabra.compLex:=TRestMat;
+     InsertarEnLista(TS,palabra);
 
-  palabra.lexema:= 'else';
-  palabra.complex:=  telse;
-  InsertarEnLista(TS,palabra);
+     palabra.lexema:='MultMat';
+     palabra.compLex:=TMultMat;
+     InsertarEnLista(TS,palabra);
 
-
-  palabra.lexema:= 'print';
-  palabra.complex:=  Tprint;
-  InsertarEnLista(TS,palabra);
+     palabra.lexema:='ProdEscMat';
+     palabra.compLex:=TProdEscMat;
+     InsertarEnLista(TS,palabra);
   end;
 
 procedure instalarenTS (var TS:TablaSimbolos; var lexema:string; var complex:GramaticalSymbol);
@@ -166,6 +184,12 @@ case car of
 '&': begin
      CompLex:= tand;
      lexema:= '&';
+     Essimboloespecial:=true;
+     inc(control);
+     end;
+'#': begin
+     complex:=Tnumeral;
+     lexema:='#';
      Essimboloespecial:=true;
      inc(control);
      end;

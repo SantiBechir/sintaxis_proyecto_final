@@ -8,16 +8,16 @@
       <Unit>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <CursorPos X="11" Y="14"/>
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="lexico.pas"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="31"/>
-        <CursorPos X="113" Y="45"/>
+        <TopLine Value="179"/>
+        <CursorPos X="10" Y="195"/>
         <UsageCount Value="10"/>
         <Loaded Value="True"/>
       </Unit>
@@ -26,7 +26,7 @@
         <UnitName Value="Tipo"/>
         <EditorIndex Value="1"/>
         <TopLine Value="2"/>
-        <CursorPos X="55" Y="14"/>
+        <CursorPos X="75" Y="16"/>
         <UsageCount Value="10"/>
         <Loaded Value="True"/>
       </Unit>
@@ -48,7 +48,7 @@
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="22">
+    <JumpHistory HistoryIndex="27">
       <Position>
         <Filename Value="project1.lpr"/>
         <Caret Line="21" Column="12"/>
@@ -140,6 +140,26 @@
       <Position>
         <Filename Value="project1.lpr"/>
         <Caret Line="7" Column="12"/>
+      </Position>
+      <Position>
+        <Filename Value="lexico.pas"/>
+        <Caret Line="45" Column="113" TopLine="31"/>
+      </Position>
+      <Position>
+        <Filename Value="lexico.pas"/>
+        <Caret Line="53" Column="27" TopLine="31"/>
+      </Position>
+      <Position>
+        <Filename Value="lexico.pas"/>
+        <Caret Line="55" Column="34" TopLine="44"/>
+      </Position>
+      <Position>
+        <Filename Value="tipo.pas"/>
+        <Caret Line="16" Column="75" TopLine="2"/>
+      </Position>
+      <Position>
+        <Filename Value="lexico.pas"/>
+        <Caret Line="196" Column="6" TopLine="182"/>
       </Position>
     </JumpHistory>
     <RunParams>
