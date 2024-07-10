@@ -1,6 +1,9 @@
+// LISTA DE VARIABLES Y TERMINALES
+
 Variables: Programa , Dec , Variable , MatrizReal , Cuerpo , Sent , Asignacion , EA1 , EA2 , EA3 , EA4 , EM , EM1 , EM2 , EM3 , EMM , Lectura , Escritura , Condicional , Ciclo , Cond , FTAM , Seguido , OperacionAsig , E1 , E2 , E3 , E4 , M1 , M2 , constMatriz , Filas , FacFilas , Columnas , FacColumnas , listaElementos , FacListElem , Elemento , FacCondicional
 
-Terminales: { , } , print, constReal , id , , , : , Program , While , do , If , then , else , read , ( , ) , constCad , + , - , / , ^ , * , Tr , [ , ] , # , ; , fTam, real, = , :== , ** , OPR
+
+Terminales: { , } , print, constReal , id , , , : , Program , While , do , If , then , else , read , ( , ) , constCad , + , - , / , ^ , * , Tr , [ , ] , # , ; , fTam, = , :== , OPR, real, SumMat, RestMat, MultMat, ProdEscMat
 
 
 Variables:
@@ -36,8 +39,8 @@ E2 -> Ü
 E3 -> Ä
 E4 -> Ö
 
-M1 -> å
-M2 -> µ
+M1 -> Å
+M2 -> Ð
 
 constMatriz -> Ñ
 
@@ -71,7 +74,7 @@ print -> p
 constReal -> k
 id -> z
 , -> ,
-: -> ;
+: -> :
 Program -> y
 While -> w
 do -> d
@@ -96,8 +99,11 @@ fTam -> f
 real -> r
 = -> =
 :== -> a
-** -> b
 OPR -> o
+MultMat -> m
+SumMat -> s
+RestMat -> ñ
+ProdEscMat -> x 
 
 La gramática quedaría así:
 
@@ -126,11 +132,11 @@ K -> k | zÖ | (X) | T | -K
 Ö -> eps | [X,X]
 
 Q -> GÅ
-Å -> +GÅ | -GÅ | eps
-G -> Jµ
-µ -> bJµ | eps	
+Å -> s(Q,Q) | ñ(Q,Q) | eps
+G -> JÐ
+Ð -> m(Q,Q) | eps	
 J -> t(Q) | L
-L -> X*Q | H								 	
+L -> x(X,Q) | H								 	
 H -> z | Ñ
 
 Ñ -> [F]

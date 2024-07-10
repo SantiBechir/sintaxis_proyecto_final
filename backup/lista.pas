@@ -4,7 +4,7 @@ unit Lista;
 interface
 
 uses
-  Classes, SysUtils,tipo;
+  Classes, SysUtils;
 
 Procedure CrearLista(VAR TS:TablaSimbolos);
 Procedure InsertarEnLista (var TS:TablaSimbolos; palabra:TelemTS);

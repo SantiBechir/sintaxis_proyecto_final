@@ -63,8 +63,13 @@ Forma BNF:
 
 
 
+// LISTA DE VARIABLES Y TERMINALES
 
-Variables: {Programa, Dec, Variable, MatrizReal, Tam, Cuerpo ,Sent, Instruccion, Asignacion, EA1, EA2 ,EA3 , EA4, EM , EM1 ,EM2 , EM3, EM4, EMM, Lectura, Escritura, ListaCad, Condicional, Ciclo, Cond, OPR, L, T , M , FTAM }
+Variables: Programa , Dec , Variable , MatrizReal , Cuerpo , Sent , Asignacion , EA1 , EA2 , EA3 , EA4 , EM , EM1 , EM2 , EM3 , EMM , Lectura , Escritura , Condicional , Ciclo , Cond , FTAM , Seguido , OperacionAsig , E1 , E2 , E3 , E4 , M1 , M2 , constMatriz , Filas , FacFilas , Columnas , FacColumnas , listaElementos , FacListElem , Elemento , FacCondicional
 
 
+<<<<<<< HEAD
 Terminales: {  , } , print, constReal , id , , , : , Program , While , do , If , then , else , read , ( , ) , constCad , + , - , / , ^ , * , Tr , [ , ] , # , ;  , fTam, real, = , :== , ** , constMatriz , OPR , ProdEscMat
+=======
+Terminales: { , } , print, constReal , id , , , : , Program , While , do , If , then , else , read , ( , ) , constCad , + , - , / , ^ , * , Tr , [ , ] , # , ; , fTam, = , :== , OPR, real, SumMat, RestMat, MultMat, ProdEscMat
+>>>>>>> 6bfdacf690f7988dce891b2dc00fbc786736baeb
