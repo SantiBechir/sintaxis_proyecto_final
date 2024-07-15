@@ -12,7 +12,8 @@ Forma BNF:
 
 <Sent>::= <Asignacion> ";"| <Lectura> ";"| <Escritura> ";"| <Condicional> | <Ciclo> 
 <Asignacion>::= "id" <OperacionAsig>  
-<OperacionAsig>::= "=" <EA1> | ":==" <EM> | "["<EA1> "," <EA1> "]" "=" <EA1>
+<OperacionAsig>::= "=" <EA1> | ":==" <EM> |"["<EA1> "," <EA1> "]" "=" <EA1> 
+//Puede que este mal lo ultimo de opasig
 
 // LAS RAÍCES SE RESUELVEN EN FORMA DE POTENCIA.
 // HACER CONSTANTES REALES SÓLO POSITIVAS.
@@ -33,7 +34,7 @@ Forma BNF:
 <EM1>::= <EM2> <M2> 
 <M2>::= "MultMat" "(" <EM> "," <EM> )"  | eps	
 <EM2>::= "Tr" "(" <EM> ")" | <EM3>
-<EM3>::= "ProdEscMat" ( <EA1> "," <EM> )  | <EMM>							 	
+<EM3>::= "ProdEscMat" ( <EA1> "," <EM> )  | <EMM>				 	
 <EMM>::= "id" | <constMatriz>
 
 //A :== [[1,2,3],[4,5,6]]

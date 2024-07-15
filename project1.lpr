@@ -1,6 +1,6 @@
 program project1;
 uses
-    Tipo,lexico;
+    Tipo,lexico, AnalizadorSintactico;
 var
   fuente:Archtexto;
   control:longint;

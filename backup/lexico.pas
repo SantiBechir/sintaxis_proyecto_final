@@ -178,7 +178,8 @@ case car of
          Lexema:=':==';
          CompLex:= tasigmatriz;
          inc(control);
-        end
+         end;
+        end;
      end;
 '[': begin
      CompLex:= tcorcheteL;

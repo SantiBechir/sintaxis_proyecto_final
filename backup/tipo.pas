@@ -1,44 +1,43 @@
-unit Tipo;
+Unit Tipo;
 
-interface
+Interface
 
-uses
-  crt;
-type  // Simbolos gramaticales
-  GramaticalSymbol=(VPrograma, VDec, VVariable, VMatrizReal, VTam, VCuerpo ,VSent,
-  VInstruccion, VAsignacion, VEA1, VEA2 ,VEA3 , VEA4, VEM , VEM1 ,VEM2 , VEM3, VEM4,
-  VEMM, VLectura, VEscritura, VListaCad, VCondicional, VCiclo, VCond, VOPR, VL, VT ,
-  VM , VFTAM,
-  TllaveL, TllaveR , Tprint , Toprel , TReal, Tid , Tcoma ,
-  Tdospuntos , TProgram , TWhile , Tdo , TIf , Tthen , Telse , Tread ,
-  TparentesisL{(} , TparentesisR{)} , TCad , Ttr , Tmas, Tmenos ,Tdiv{/}, Texp{^}
-  , Tmult{*} , TMTr , TcorcheteL{[} , TcorcheteR{]} , Tnumeral , Tpuntocoma {;} ,
-  Tor , Tand, Tasignacion, TfTam,TasigMat, TSumMat,TRestMat,TMultMat,TProdEscMat, Tnot,pesos,lexicerror);
+Uses
+  Crt;
+Type  // Simbolos gramaticales
+  GramaticalSymbol=(VPrograma, VDec, VVariable, VMatrizReal, VCuerpo, VSeguido,VSent,
+  VAsignacion, VOperacionASig, VEA1, VEA2 ,VEA3 , VEA4, VE1, VE2 ,VE3 , VE4, VEM, VM1, VM2 , VEM1 ,VEM2 , VEM3, VEMM,
+  VConstMatriz, VFilas, VFacFilas, VColumnas,VFacColumnas, VLectura, VEscritura, VListaElementos, VFacListElem, VElemento,
+  VCondicional, VFacCondicional, VCiclo, VCond, VFTAM,
 
-TipoVariable=Vprograma..VFTAM;
+  TProgram, TllaveL, TllaveR, Tid, Tdospuntos, Tpuntocoma {;}, TReal, TcorcheteL{[},TconstReal, TNumeral, TcorcheteR{]},
+  Tasignacion{=}, TasigMatriz{:==}, TComa, {TIgual,} TMas, TMenos, TMult{*}, TDiv{/}, TExp{^}, TParentesisL{(}, TParentesisR{)},
+  TSumMat, TRestMat, TMultMat , TTr, TProdEscMat, TRead, TConstCad, TPrint, TIf, TThen, TElse, TWhile , TDo , TOPR, TfTam, TCad,pesos,lexicerror;
 
-TipoTerminal=TllaveL..Tnot;
+  TipoVariable=Vprograma..VFTAM;
 
-Archtexto = file of char;
+  TipoTerminal=TProgram..lexicerror;
+
+  Archtexto = File of Char;
 
 
-TelemTS = record
+  TelemTS = Record
   complex: GramaticalSymbol;  //Simbolos gramaticales
   Lexema: String;
-  end;
+            End;
 
- puntero = ^nodo;
+ Puntero = ^nodo;
 
- nodo = record
+ Nodo = Record
       info: TelemTS;
       sig: puntero;
-      end;
+        End;
 
- TablaSimbolos = record
-     act,cab:puntero;
-     tam:integer;
-    end;
-implementation
+ TablaSimbolos = Record
+     Act,Cab:puntero;
+     Tam:integer;
+                 End;
+Implementation
 end.
 
 

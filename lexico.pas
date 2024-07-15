@@ -193,30 +193,30 @@ case car of
      Essimboloespecial:=true;
      inc(control);
      end;
-'&': begin
+{'&': begin
      CompLex:= tand;
      lexema:= '&';
      Essimboloespecial:=true;
      inc(control);
-     end;
+     end;}
 '#': begin
      complex:=Tnumeral;
      lexema:='#';
      Essimboloespecial:=true;
      inc(control);
      end;
-'~': begin
+{'~': begin
      CompLex:= tnot;
      lexema:= '~';
      Essimboloespecial:=true;
      inc(control);
-     end;
-'|': begin
+     end; }
+{'|': begin
      CompLex:= tor;
      lexema:= '|';
      Essimboloespecial:=true;
      inc(control);
-     end;
+     end;}
 '+': begin
      CompLex:= tmas;
      lexema:= '+';
@@ -248,7 +248,7 @@ case car of
      inc(control);
      end;
 '<': begin
-     CompLex:= toprel;
+     CompLex:= TOPR;
      lexema:='<';
      essimboloespecial:=true;
      inc(control);
@@ -260,7 +260,7 @@ case car of
         end
      end;
 '>': begin
-     CompLex:= toprel;
+     CompLex:= TOPR;
      lexema:='>';
      essimboloespecial:=true;
      inc(control);
@@ -278,7 +278,7 @@ case car of
          begin
            essimboloespecial:=true;
            Lexema:='!=';
-           CompLex:= toprel;
+           CompLex:= TOPR;
            inc(control);
            end
       end;
@@ -291,7 +291,7 @@ case car of
       if car = '=' then
       begin
            Lexema:='==';
-           CompLex:= toprel;
+           CompLex:= TOPR;
             inc(control);
            end
       end;
@@ -487,7 +487,7 @@ Begin
   else
       If EsIdentificador(Fuente,Control,Lexema) then
       begin
-           cargarTS(ts);
+           //cargarTS(ts);
            InstalarEnTS(TS,Lexema,CompLex);
       end
          else
