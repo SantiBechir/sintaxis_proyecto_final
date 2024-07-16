@@ -10,11 +10,11 @@ const
 
 procedure Crear (VAR arch:t_arch);
 procedure recupera_arch(var pos:integer;var caracter:char);
-procedure abrir_Arch(var arch:t_archivo);
-procedure asigna_abre_arch2(var arch2:t_archivo;ruta2:string);
+procedure abrir_Arch(var arch:t_arch);
+procedure asigna_abre_arch2(var arch2:t_arch;ruta2:string);
 implementation
 
-PROCEDURE CREAR(VAR ARCH:t_archivo);
+PROCEDURE CREAR(VAR ARCH:t_arch);
 BEGIN
 Assign(arch,ruta);
 Rewrite(ARCH);
@@ -22,7 +22,7 @@ END;
 
 procedure recuperar_arch(var pos:integer;var caracter:char);
    var
-     arch:t_archivo;
+     arch:t_arch;
    begin
      abrir_arch(arch);                //Abre el archivo, si no es el fin de archivo
      if pos < filesize(arch) then

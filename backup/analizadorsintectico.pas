@@ -720,7 +720,7 @@ Procedure AnalizadorPredictivo(RutaFuente:string; Var Raiz:TApuntNodo; Var Error
 
 procedure MOSTRAR_TAS(var TAS: TTAS);  //procedure para ver TAS como testeo para ver la matriz de la TAS aunque no logre arreglarlo
 VAR i,j:GramaticalSymbol;
- k:integer;
+ k:byte;
 begin
  CrearTAS(TAS);
  for i:= VPrograma to VFTAM do

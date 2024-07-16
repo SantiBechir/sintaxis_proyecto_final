@@ -4,10 +4,11 @@ Unit Lista;
 Interface
 
 Uses
-  Classes, SysUtils,tipo;
+  Classes, SysUtils, Tipo;
 
-Procedure CrearLista(VAR TS:TablaSimbolos);
-Procedure InsertarEnLista (var TS:TablaSimbolos; palabra:TelemTS);
+Procedure CrearLista(Var TS:TablaSimbolos);
+Procedure Cargar (Var L:TablaSimbolos; E:TElemTS);
+Procedure InsertarEnLista(Var TS:TablaSimbolos; Palabra:TelemTS);
 
 Implementation
 
@@ -15,6 +16,32 @@ Procedure CrearLista(VAR TS:TablaSimbolos);
  Begin
   TS.tam:= 0;
   TS.cab:= NIL;
+ End;
+
+Procedure Cargar(Var L:TablaSimbolos; E:TElemTS);
+ Var
+  Dir,Ant:Puntero;
+ Begin
+  New(Dir);
+  Dir^.Info:=E;
+   If (L.Cab=NIL) then
+    Begin
+     Dir^.Sig:=L.cab;
+     L.Cab:=Dir;
+    End
+     Else
+      Begin
+       Ant:=L.Cab;
+       L.Act:=L.Cab^.Sig;
+        While (L.Act<>NIL) do
+         Begin
+          Ant:=L.Act;
+          L.Act:=L.Act^.Sig;
+         End;
+        Ant^.Sig:=Dir;
+        Dir^.Sig:=L.Act;
+      End;
+      Inc(L.tam);
  End;
 
 Procedure InsertarEnLista (var TS:TablaSimbolos; Palabra:TelemTS);
@@ -42,5 +69,8 @@ Procedure InsertarEnLista (var TS:TablaSimbolos; Palabra:TelemTS);
        END;
     Inc(TS.tam);
 END;
+
+
+
 end.
 

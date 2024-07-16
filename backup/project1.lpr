@@ -1,12 +1,13 @@
 program project1;
 uses
-    Tipo,lexico;
+    Tipo,lexico, AnalizadorSintectico;
 var
   fuente:Archtexto;
   control:longint;
   complex:GramaticalSymbol;
   TS:TablaSimbolos;
   lexema:string;
+  TAS:TTAS
 begin
   assign(fuente,'prueba.txt');
   reset(fuente);
@@ -18,6 +19,7 @@ begin
     writeln(control,':',complex,' ',lexema);
     ObtenerSiguienteCompLex(fuente,Control,CompLex,Lexema,TS);
   end;
+  MOSTRAR_TAS(TAS);
   readln();
   close(fuente);
 end.

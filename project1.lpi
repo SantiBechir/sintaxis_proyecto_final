@@ -34,6 +34,16 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="AnalizadorSintectico"/>
       </Unit>
+      <Unit>
+        <Filename Value="arbol.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Arbol"/>
+      </Unit>
+      <Unit>
+        <Filename Value="pila.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Pila"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

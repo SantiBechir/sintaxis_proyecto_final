@@ -1,303 +1,302 @@
-unit lexico;
+Unit Lexico;
 
-{$mode ObjFPC}{$H+}
+Interface
 
-interface
-
-uses
-   Tipo, crt, lista;
-const
+Uses
+   Tipo, Crt, Lista;
+Const
      FinArch = #0;
-procedure instalarenTS (var TS:TablaSimbolos; var lexema:string; var complex:GramaticalSymbol);
-procedure LeerCar(var Fuente:Archtexto ;var control:Longint; var car:char);
-Function EsSimboloEspecial (var lexema: string; var compLex: Gramaticalsymbol; var Fuente: ArchTexto;var control: longint): boolean;
-Function EsConstanteReal(var Fuente: Archtexto;var Control: longint;var Lexema: string):boolean;
-Function EsIdentificador(Var Fuente:Archtexto;Var Control:Longint;Var Lexema:String):boolean;
-function EsCadena(Var Fuente:Archtexto; var Control : Longint; Var Lexema:String):boolean;
+Procedure InstalarenTS (Var TS:TablaSimbolos; Var Lexema:String; Var complex:GramaticalSymbol);
+procedure LeerCar(Var Fuente:Archtexto ;Var Control:Longint; Var Car:char);
+Function EsSimboloEspecial (Var Lexema: String; Var compLex: Gramaticalsymbol; Var Fuente: ArchTexto;Var Control: longint): Boolean;
+Function EsConstanteReal(Var Fuente: Archtexto;Var Control:longint; Var Lexema: String):Boolean;
+Function EsIdentificador(Var Fuente:Archtexto;Var Control:Longint;Var Lexema:String):Boolean;
+Function EsCadena(Var Fuente:Archtexto; Var Control : Longint; Var Lexema:String):Boolean;
 Procedure ObtenerSiguienteCompLex(Var Fuente:ArchTexto;Var Control:Longint; Var CompLex:GramaticalSymbol;Var Lexema:String;Var TS:TablaSimbolos);
-procedure cargarTS (var TS:TablaSimbolos);
+Procedure CargarTS (Var TS:TablaSimbolos);
+
 Implementation
 
 
-procedure LeerCar(var Fuente:Archtexto;var control:Longint; var car:char);
-begin
-  if (control< filesize(Fuente)) then
-    begin
-      seek(Fuente,control);
-      read(Fuente,car);   //extrae el caracter del codigo fuente
-    end
-  else
-      begin
-        car:= FinArch;
-      end;
-end;
+Procedure LeerCar(Var Fuente:Archtexto;Var Control:Longint; Var Car:char);
+Begin
+  if (Control< filesize(Fuente)) then
+    Begin
+      seek(Fuente,Control);
+      read(Fuente,Car);   //extrae el caracter del codigo fuente
+    End
+  Else
+      Begin
+        Car:= FinArch;
+      End;
+End;
 
-Procedure CargarTS (var TS:TablaSimbolos);
+Procedure CargarTS (Var TS:TablaSimbolos);
 
- var
+ Var
    Palabra:TelemTS;
-begin
+Begin
     CrearLista(TS);
-     palabra.lexema:= 'program';
+     palabra.Lexema:= 'program';
      palabra.complex:= Tprogram;
      InsertarEnLista(TS,palabra);
 
-     palabra.lexema:= 'read';
+     palabra.Lexema:= 'read';
      palabra.complex:=  Tread;
      InsertarEnLista(TS,palabra);
 
-     palabra.lexema:= 'while';
+     palabra.Lexema:= 'while';
      palabra.complex:= twhile;
      InsertarEnLista(TS,palabra);
 
-     palabra.lexema:='do';
+     palabra.Lexema:='do';
      palabra.compLex:=tdo;
      InsertarEnLista(TS,palabra);
 
-     palabra.lexema:= 'if';
+     palabra.Lexema:= 'if';
      palabra.complex:=  tif;
      InsertarEnLista(TS,palabra);
 
-     palabra.lexema:= 'else';
+     palabra.Lexema:= 'Else';
      palabra.complex:=  telse;
      InsertarEnLista(TS,palabra);
 
-     palabra.lexema:= 'print';
+     palabra.Lexema:= 'print';
      palabra.complex:=  Tprint;
      InsertarEnLista(TS,palabra);
 
-     palabra.lexema:='Tr';
+     palabra.Lexema:='Tr';
      palabra.complex:=Ttr;
      InsertarEnLista(TS,palabra);
 
-     palabra.lexema:='fTam';
+     palabra.Lexema:='fTam';
      palabra.compLex:=TfTam;
      InsertarEnLista(TS,palabra);
      
-     palabra.lexema:='SumMat';
+     palabra.Lexema:='SumMat';
      palabra.compLex:=TSumMat;
      InsertarEnLista(TS,palabra);
 
-     palabra.lexema:='RestMat';
+     palabra.Lexema:='RestMat';
      palabra.compLex:=TRestMat;
      InsertarEnLista(TS,palabra);
 
-     palabra.lexema:='MultMat';
+     palabra.Lexema:='MultMat';
      palabra.compLex:=TMultMat;
      InsertarEnLista(TS,palabra);
 
-     palabra.lexema:='ProdEscMat';
+     palabra.Lexema:='ProdEscMat';
      palabra.compLex:=TProdEscMat;
      InsertarEnLista(TS,palabra);
-  end;
+  End;
 
-procedure instalarenTS (var TS:TablaSimbolos; var lexema:string; var complex:GramaticalSymbol);
-var
-   existe: boolean;
+Procedure InstalarenTS (Var TS:TablaSimbolos; Var Lexema:String; Var complex:GramaticalSymbol);
+Var
+   existe: Boolean;
    aux: puntero;
    x: TelemTS;
-BEGIN
+Begin
 existe := false;
 aux := TS.cab;
-WHILE (aux <> nil) and (not existe) DO
-      BEGIN
-      IF aux^.info.lexema <> Lexema THEN
-         BEGIN
+While (aux <> nil) and (not existe) DO
+      Begin
+      If aux^.info.Lexema <> Lexema Then
+         Begin
               aux := aux^.sig
-         END
-      ELSE
-          IF aux^.info.lexema = Lexema THEN
-          BEGIN
+         End
+      Else
+          If aux^.info.Lexema = Lexema Then
+          Begin
                existe := true;
                CompLex := aux^.info.CompLex;
-          END;
-       END;
-IF (not existe) THEN
-BEGIN
+          End;
+       End;
+If (not existe) Then
+Begin
      CompLex := tid;
-     x.lexema := Lexema;
+     x.Lexema := Lexema;
      x.CompLex := tid;
      InsertarEnLista (TS,x);
-END;
-END;  
-Function EsSimboloEspecial (var lexema: string; var compLex:GramaticalSymbol; var Fuente:Archtexto;var control: longint): boolean;
-var
-   car: char;
-BEGIN
+End;
+End;  
+Function EsSimboloEspecial (Var Lexema: String; Var compLex:GramaticalSymbol; Var Fuente:Archtexto;Var Control: longint): Boolean;
+Var
+   Car: char;
+Begin
 EsSimboloEspecial:= false;
-LeerCar(fuente,control,car);
-case car of
-';': begin
+LeerCar(fuente,Control,Car);
+case Car of
+';': Begin
      CompLex:= tpuntocoma;
-     lexema:= ';';
+     Lexema:= ';';
      Essimboloespecial:=true;
-     inc(control);
-     end;
-',': begin
+     inc(Control);
+     End;
+',': Begin
      CompLex:= tcoma;
-     lexema:= ',';
+     Lexema:= ',';
      Essimboloespecial:=true;
-     inc(control);
-     end;
-'(': begin
+     inc(Control);
+     End;
+'(': Begin
      CompLex:= tparentesisL;
-     lexema:= '(';
+     Lexema:= '(';
      Essimboloespecial:=true;
-     inc(control);
-     end;
-')': begin
+     inc(Control);
+     End;
+')': Begin
      CompLex:= tparentesisR;
-     lexema:= ')';
+     Lexema:= ')';
      Essimboloespecial:=true;
-     inc(control);
-     end;
-'{': begin
+     inc(Control);
+     End;
+'{': Begin
      CompLex:= tllaveL;
-     lexema:= '{';
+     Lexema:= '{';
      Essimboloespecial:=true;
-     inc(control);
-     end;
-'}': begin
+     inc(Control);
+     End;
+'}': Begin
      CompLex:= tllaveR;
-     lexema:= '}';
+     Lexema:= '}';
      Essimboloespecial:=true;
-     inc(control);
-     end;
-':': begin
+     inc(Control);
+     End;
+':': Begin
      CompLex:= tdospuntos;
-     lexema:= ':';
+     Lexema:= ':';
      Essimboloespecial:=true;
-     inc(control);
-     LeerCar(fuente,control,car);
-     if car='=' then
-      begin
-       inc(control);
-       LeerCar(fuente,control,car);
-        if car='=' then
-         begin
+     inc(Control);
+     LeerCar(fuente,Control,Car);
+     if Car='=' then
+      Begin
+       inc(Control);
+       LeerCar(fuente,Control,Car);
+        if Car='=' then
+         Begin
          Lexema:=':==';
          CompLex:= tasigmatriz;
-         inc(control);
-         end;
-        end;
-     end;
-'[': begin
+         inc(Control);
+         End;
+        End;
+     End;
+'[': Begin
      CompLex:= tcorcheteL;
-     lexema:= '[';
+     Lexema:= '[';
      Essimboloespecial:=true;
-     inc(control);
-     end;
-']': begin
+     inc(Control);
+     End;
+']': Begin
      CompLex:= tcorcheteR;
-     lexema:= ']';
+     Lexema:= ']';
      Essimboloespecial:=true;
-     inc(control);
-     end;
-{'&': begin
+     inc(Control);
+     End;
+{'&': Begin
      CompLex:= tand;
-     lexema:= '&';
+     Lexema:= '&';
      Essimboloespecial:=true;
-     inc(control);
-     end;}
-'#': begin
+     inc(Control);
+     End;}
+'#': Begin
      complex:=Tnumeral;
-     lexema:='#';
+     Lexema:='#';
      Essimboloespecial:=true;
-     inc(control);
-     end;
-{'~': begin
+     inc(Control);
+     End;
+{'~': Begin
      CompLex:= tnot;
-     lexema:= '~';
+     Lexema:= '~';
      Essimboloespecial:=true;
-     inc(control);
-     end; }
-{'|': begin
+     inc(Control);
+     End; }
+{'|': Begin
      CompLex:= tor;
-     lexema:= '|';
+     Lexema:= '|';
      Essimboloespecial:=true;
-     inc(control);
-     end;}
-'+': begin
+     inc(Control);
+     End;}
+'+': Begin
      CompLex:= tmas;
-     lexema:= '+';
+     Lexema:= '+';
      Essimboloespecial:=true;
-     inc(control);
-     end;
-'-': begin
+     inc(Control);
+     End;
+'-': Begin
      CompLex:= tmenos;
-     lexema:= '-';
+     Lexema:= '-';
      Essimboloespecial:=true;
-     inc(control);
-     end;
-'*': begin
+     inc(Control);
+     End;
+'*': Begin
      CompLex:= tmult;
-     lexema:= '*';
+     Lexema:= '*';
      Essimboloespecial:=true;
-     inc(control);
-     end;
-'/': begin
+     inc(Control);
+     End;
+'/': Begin
      CompLex:= tdiv;
-     lexema:= '/';
+     Lexema:= '/';
      Essimboloespecial:=true;
-     inc(control);
-     end;
-'^': begin
+     inc(Control);
+     End;
+'^': Begin
      CompLex:= texp;
-     lexema:= '^';
+     Lexema:= '^';
      Essimboloespecial:=true;
-     inc(control);
-     end;
-'<': begin
+     inc(Control);
+     End;
+'<': Begin
      CompLex:= TOPR;
-     lexema:='<';
+     Lexema:='<';
      essimboloespecial:=true;
-     inc(control);
-     LeerCar(fuente,control,car);
-     if car='=' then
-        begin
+     inc(Control);
+     LeerCar(fuente,Control,Car);
+     if Car='=' then
+        Begin
         Lexema:='<=';
-        inc(control);
-        end
-     end;
-'>': begin
+        inc(Control);
+        End
+     End;
+'>': Begin
      CompLex:= TOPR;
-     lexema:='>';
+     Lexema:='>';
      essimboloespecial:=true;
-     inc(control);
-     LeerCar(fuente,control,car);
-     if car='=' then
-        begin
+     inc(Control);
+     LeerCar(fuente,Control,Car);
+     if Car='=' then
+        Begin
         Lexema:='>=';
-        inc(control);
-        end
-     end;
-'!': begin
-      inc(control);
-      LeerCar(fuente,control,car);
-      if car = '=' then
-         begin
+        inc(Control);
+        End
+     End;
+'!': Begin
+      inc(Control);
+      LeerCar(fuente,Control,Car);
+      if Car = '=' then
+         Begin
            essimboloespecial:=true;
            Lexema:='!=';
            CompLex:= TOPR;
-           inc(control);
-           end
-      end;
-'=': begin
+           inc(Control);
+           End
+      End;
+'=': Begin
       essimboloespecial:=true;
       CompLex:= tasignacion;
-      lexema:='=';
-      inc(control);
-      LeerCar(fuente,control,car);
-      if car = '=' then
-      begin
+      Lexema:='=';
+      inc(Control);
+      LeerCar(fuente,Control,Car);
+      if Car = '=' then
+      Begin
            Lexema:='==';
            CompLex:= TOPR;
-            inc(control);
-           end
-      end;
-end;
-end;
-Function EsIdentificador(Var Fuente:Archtexto; Var Control:Longint;Var Lexema:String):boolean;
+            inc(Control);
+           End
+      End;
+End;
+End;
+Function EsIdentificador(Var Fuente:Archtexto; Var Control:Longint;Var Lexema:String):Boolean;
 Const
   q0=0;
   F=[2];
@@ -309,19 +308,19 @@ Var
   EstadoActual:Q;
   Delta:TipoDelta;
   control_aux : longint;
-  car:char;
+  Car:char;
   Function CarASimb (Car:Char):Sigma;
-  begin
+  Begin
        Case Car of
        'a'..'z', 'A'..'Z':  CarASimb:= letra;
        '0'..'9':  CarASimb:= Digito;
        '_':CarASimb:=guionBajo;
-       else
+       Else
        CarASimb:=Otro
-       end;
-  end;
+       End;
+  End;
 
-BEGIN
+Begin
   Delta[0,Letra]:=1;
   Delta[0,Digito]:=3;
   Delta[0,Otro]:=3;
@@ -331,26 +330,26 @@ BEGIN
   Delta[1,Letra]:=1;
   Delta[1,Otro]:=2;
    EstadoActual := q0;
-   control_aux := control;
-   lexema := '';
+   control_aux := Control;
+   Lexema := '';
   while (EstadoActual <>3) and (EstadoActual <>2) do
-      begin
-         leercar(fuente,control_aux,car);
+      Begin
+         leercar(fuente,control_aux,Car);
          EstadoActual:=Delta[EstadoActual,CarASimb(Car)];
         control_aux:=control_aux+1;
         if  EstadoActual = 1 then
-        lexema:= lexema + car;
-      end;
+        Lexema:= Lexema + Car;
+      End;
     If EstadoActual in F then
-    begin
+    Begin
      EsIdentificador:= true;
-     control:=control_aux-1
-    end
-    else
+     Control:=control_aux-1
+    End
+    Else
      EsIdentificador:= false;
-END; 
+End; 
 
-Function EsConstanteReal(var Fuente: Archtexto;var Control: longint;var Lexema: string):boolean;
+Function EsConstanteReal(Var Fuente: Archtexto;Var Control: longint;Var Lexema: String):Boolean;
 Const
   q0=0;
   F =[5];
@@ -362,18 +361,18 @@ Var
   EstadoActual:longint;
   Delta:TipoDelta;
   control_aux : longint;
-  car:char;
+  Car:char;
   Function CarASimb (Car:Char):Sigma;
-  begin
+  Begin
     Case Car of
     '0'..'9':  CarASimb:= Digito;
     '.':  CarASimb:= Punto;
-    else
+    Else
     CarASimb:=Otro
-    end;
-  end;
+    End;
+  End;
 
-BEGIN
+Begin
   Delta[0,Digito]:=1;
   Delta[0,Punto]:=4;
   Delta[0,Otro]:=4;
@@ -387,27 +386,27 @@ BEGIN
   Delta[3,Punto]:=4;
   Delta[3,Otro]:=4;
   EstadoActual := q0;
-  control_aux := control;
-  lexema := '';
+  control_aux := Control;
+  Lexema := '';
   EstadoActual:=q0;
   While (EstadoActual <> 5) and (EstadoActual <> 4)do
-  begin
-         leercar(fuente,control_aux,car);
+  Begin
+         leercar(fuente,control_aux,Car);
          EstadoActual:=Delta[EstadoActual,CarASimb(Car)];
         control_aux:=control_aux+1;
         if  (EstadoActual = 1) or (EstadoActual = 2) or (EstadoActual = 3) then
-        lexema:= lexema + car;
-      end;
+        Lexema:= Lexema + Car;
+      End;
     If EstadoActual in F then
-       begin
+       Begin
        EsConstanteReal:= true;
-       control:=control_aux-1
-       end
-    else
+       Control:=control_aux-1
+       End
+    Else
          EsConstanteReal:= false;
-END;   
+End;   
 
-function EsCadena(Var Fuente:Archtexto; var Control : Longint; Var Lexema:String):boolean;
+Function EsCadena(Var Fuente:Archtexto; Var Control : Longint; Var Lexema:String):Boolean;
 Const
   q0=0;
   F=[4];
@@ -419,18 +418,18 @@ Var
   EstadoActual:Q;
   Delta:TipoDelta;
   control_aux : longint;
-   car:char;
+   Car:char;
    tam:integer;
 Function CarASimb (Car:Char):Sigma;
-begin
+Begin
   Case Car of
   'a'..'z', 'A'..'Z':  CarASimb:= letra;
   '0'..'9':  CarASimb:= Digito;
   '"': CarASimb:= Comilla;
-  else
+  Else
   CarASimb:=Otro
-  end;
-end;
+  End;
+End;
 
 Begin
   Delta[0,Comilla]:=1;
@@ -446,61 +445,61 @@ Begin
   Delta[3,Letra]:=4;
   Delta[3,Otro]:=4;
   EstadoActual := q0;
-  control_aux := control;
-  lexema := '';
-  while (EstadoActual <>4) and (EstadoActual <>2) do
-      begin
-         leercar(fuente,control_aux,car);
+  control_aux := Control;
+  Lexema := '';
+  While (EstadoActual <>4) and (EstadoActual <>2) do
+      Begin
+         leercar(fuente,control_aux,Car);
          EstadoActual:=Delta[EstadoActual,CarASimb(Car)];
         control_aux:=control_aux+1;
         if  (EstadoActual = 1) or (EstadoActual = 3) then
-        lexema:= lexema + car;
-      end;
-    delete(lexema,1,1);
-    tam:=length(lexema);
-    delete(lexema,tam,1);
+        Lexema:= Lexema + Car;
+      End;
+    delete(Lexema,1,1);
+    tam:=length(Lexema);
+    delete(Lexema,tam,1);
     If EstadoActual in F then
-    begin
+    Begin
      EsCadena:= true;
-     control:=control_aux-1;
+     Control:=control_aux-1;
 
-    end
-    else
+    End
+    Else
      EsCadena:= false;
-end;
+End;
 
 Procedure ObtenerSiguienteCompLex(Var Fuente:Archtexto;Var Control:Longint; Var CompLex:GramaticalSymbol;Var Lexema:String;Var TS:TablaSimbolos);
-var
-  car: char;
+Var
+  Car: char;
 Begin
-  LeerCar (Fuente,control,car);
-  while car in [#1..#32] do
-      begin
-        control:=control+1;
-        LeerCar (Fuente,control,car);
-        end;
-  if car = FinArch then
-     begin
-      lexema:='$';
+  LeerCar (Fuente,Control,Car);
+  While Car in [#1..#32] do
+      Begin
+        Control:=Control+1;
+        LeerCar (Fuente,Control,Car);
+        End;
+  If Car = FinArch then
+     Begin
+      Lexema:='$';
       complex:= pesos
-     end
-  else
+     End
+  Else
       If EsIdentificador(Fuente,Control,Lexema) then
-      begin
+      Begin
            //cargarTS(ts);
            InstalarEnTS(TS,Lexema,CompLex);
-      end
-         else
+      End
+         Else
                If EsConstanteReal(Fuente,Control,Lexema) then
 		          CompLex:=treal
-                         else
+                         Else
                               If EsCadena(Fuente,Control,Lexema) then
 		                         CompLex:=tcad
-                              else   
+                              Else   
                                    if (Not EsSimboloEspecial(Lexema,CompLex,Fuente,Control)) then
-                                   begin
+                                   Begin
                                         CompLex:=LexicError;
-                                        control:=control+1;
-                                   end;
+                                        Control:=Control+1;
+                                   End;
 End;  
-end.
+End.
