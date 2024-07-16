@@ -18,8 +18,8 @@
         <UnitName Value="AnalizadorSintectico"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="720"/>
-        <CursorPos X="11" Y="723"/>
+        <TopLine Value="3"/>
+        <CursorPos X="33" Y="21"/>
         <UsageCount Value="120"/>
         <Loaded Value="True"/>
       </Unit>
@@ -128,14 +128,6 @@
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="archivo.pas"/>
-        <Caret Line="17" Column="32"/>
-      </Position>
-      <Position>
-        <Filename Value="archivo.pas"/>
-        <Caret Line="25" Column="17" TopLine="7"/>
-      </Position>
       <Position>
         <Filename Value="archivo.pas"/>
         <Caret Line="12" Column="61" TopLine="8"/>
@@ -247,6 +239,14 @@
       <Position>
         <Filename Value="analizadorsintectico.pas"/>
         <Caret Line="744" Column="11" TopLine="719"/>
+      </Position>
+      <Position>
+        <Filename Value="analizadorsintectico.pas"/>
+        <Caret Line="723" Column="11" TopLine="720"/>
+      </Position>
+      <Position>
+        <Filename Value="analizadorsintectico.pas"/>
+        <Caret Line="740" Column="28" TopLine="720"/>
       </Position>
     </JumpHistory>
     <RunParams>
