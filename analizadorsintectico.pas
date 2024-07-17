@@ -18,8 +18,8 @@ Type
   TTAS = Array [TVariable, TTerminales] of ^TProduccion;
 
 
- Procedure AnalizadorPredictivo(RutaFuente:string; Var Raiz:TApuntNodo; Var Error:Boolean);
- Procedure AnalizadorSintactico;
+ Procedure AnalizadorPredictivo(Var Fuente:t_arch; Var Raiz:TApuntNodo; Var Error:Boolean);
+ Procedure AnalizadorSintactico(Var FFuente:t_arch);
  procedure MOSTRAR_TAS(var TAS: TTAS);
 
 Implementation
@@ -105,7 +105,7 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VVariable,TCorcheteL]^.Elem[1]:= VMatrizReal;
    TAS[VVariable,TCorcheteL]^.Cant:=1;
 
-   //MatrizReal -> "[" "constReal" "#" "constReal"  "]"         FALTABA ----------
+   //MatrizReal -> "[" "constReal" "#" "constReal"  "]"
    New(TAS[VMatrizReal,TCorcheteL]);
    TAS[VMatrizReal,TCorcheteL]^.Elem[1]:= TCorcheteL;
    TAS[VMatrizReal,TCorcheteL]^.Elem[2]:= TconstReal;
@@ -169,9 +169,11 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VSeguido,TWhile]^.Elem[1]:= VCuerpo;
    TAS[VSeguido,TWhile]^.Cant:=1;
 
-   //Seguido -> Epsilon
-  { New(TAS[VSeguido,]);            ///NO SE QUE PONER ACA
-   TAS[VSeguido,]^.Cant:=0;}
+
+   //Seguido -> Eps
+   New(TAS[VSeguido,TllaveR]);                 ///--------EPS--------
+   TAS[VSeguido,TllaveR]^.Cant:=0;
+
 
    //Sent -> <Asignacion> ";"
    New(TAS[VSent,Tid]);
@@ -191,10 +193,10 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VSent,TPrint]^.Elem[2]:= TPuntoComa;
    TAS[VSent,TPrint]^.Cant:=2;
 
-  { //Sent -> <Condicional>
-   New(TAS[VCondicional,TIf]);
+   //Sent -> <Condicional>
+   New(TAS[VSent,TIf]);
    TAS[VSent,TIf]^.Elem[1]:= VCondicional;
-   TAS[VSent,TIf]^.Cant:=1;   } //PRUEBA
+   TAS[VSent,TIf]^.Cant:=1;
 
    //Sent -> <Ciclo>
    New(TAS[VSent,TWhile]);
@@ -274,9 +276,41 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VE1,TMenos]^.Elem[3]:= VE1;
    TAS[VE1,TMenos]^.Cant:= 3;
 
+
+   {//E1 -> Epsilon
+   New(TAS[VE1,TComa]);                     ///--------EPS--------
+   TAS[VE1,TComa]^.Cant:=0;
+
    //E1 -> Epsilon
- {  New(TAS[VE1,]);            ///NO SE QUE PONER
-   TAS[VE1,]^.Cant:=0;    }
+   New(TAS[VE1,TcorcheteR]);
+   TAS[VE1,TcorcheteR]^.Cant:=0;
+
+   //E1 -> Epsilon
+   New(TAS[VE1,Tpuntocoma]);
+   TAS[VE1,Tpuntocoma]^.Cant:=0;
+
+   //E1 -> Epsilon
+   New(TAS[VE1,TOPR]);
+   TAS[VE1,TOPR]^.Cant:=0;
+
+   //E1 -> Epsilon
+   New(TAS[VE1,TDo]);
+   TAS[VE1,TDo]^.Cant:=0;
+
+   //E1 -> Epsilon
+   New(TAS[VE1,TThen]);
+   TAS[VE1,TThen]^.Cant:=0;
+
+   //E1 -> Epsilon
+   New(TAS[VE1,]);
+   TAS[VE1,]^.Cant:=0;
+
+   //E1 -> Epsilon
+   New(TAS[VE1,]);
+   TAS[VE1,]^.Cant:=0;
+
+                            }
+
 
    //EA2 -> <EA3> <E2>
    New(TAS[VEA2,TconstReal]);
@@ -321,8 +355,23 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VE2,TDiv]^.Cant:= 2;
 
    //E2 -> Epsilon
-  { New(TAS[VE2,]);            ///NO SE QUE PONER
-   TAS[VE2,]^.Cant:=0;     }
+  { New(TAS[VE2,TMenos]);
+   TAS[VE2,TMenos]^.Cant:=0;
+
+   New(TAS[VE2,TMas]);
+   TAS[VE2,TMas]^.Cant:=0
+
+   New(TAS[VE2,]);
+   TAS[VE2,]^.Cant:=0
+                                             //SIG DE E1
+   New(TAS[VE2,]);
+   TAS[VE2,]^.Cant:=0
+
+   New(TAS[VE2,]);
+   TAS[VE2,]^.Cant:=0
+
+
+   }
 
    //EA3 -> <EA4> <E3>                                      --- SANTI G ---
    New(TAS[VEA3,TconstReal]);
@@ -362,7 +411,23 @@ Procedure CargarTAS(Var TAS:TTAS);
 
    //E3 -> eps                        ///NO SE QUE PONER
  {  New(TAS[VE3,]);
-   TAS[VEA3,]^.Cant:= 0; }
+   TAS[VEA3,]^.Cant:= 0;
+
+    New(TAS[VE3,]);
+   TAS[VEA3,]^.Cant:= 0;
+
+    New(TAS[VE3,]);
+   TAS[VEA3,]^.Cant:= 0;
+
+    New(TAS[VE3,]);
+   TAS[VEA3,]^.Cant:= 0;
+
+    New(TAS[VE3,]);
+   TAS[VEA3,]^.Cant:= 0;
+
+    New(TAS[VE3,]);
+   TAS[VEA3,]^.Cant:= 0;
+   }
 
    //EA4 -> "constReal"
    New(TAS[VEA4,TconstReal]);
@@ -581,15 +646,219 @@ Procedure CargarTAS(Var TAS:TTAS);
    New(TAS[VFacFilas,TcorcheteL]);
    TAS[VFacFilas,TcorcheteL]^.Elem[1]:= TComa;
    TAS[VFacFilas,TcorcheteL]^.Elem[2]:= VFilas;
-   TAS[VFacFilas,TcorcheteL]^.Cant:= 3;
+   TAS[VFacFilas,TcorcheteL]^.Cant:= 2;
 
    // Columnas -> <EA1> <FacColumnas>
+   New(TAS[VColumnas,TconstReal]);
+   TAS[VColumnas,TconstReal]^.Elem[1]:= VEA1;
+   TAS[VColumnas,TconstReal]^.Elem[2]:= VFacColumnas;
+   TAS[VColumnas,TconstReal]^.Cant:= 2;
+
+   New(TAS[VColumnas,Tid]);
+   TAS[VColumnas,Tid]^.Elem[1]:= VEA1;
+   TAS[VColumnas,Tid]^.Elem[2]:= VFacColumnas;
+   TAS[VColumnas,Tid]^.Cant:= 2;
+
+   New(TAS[VColumnas,TParentesisL]);
+   TAS[VColumnas,TParentesisL]^.Elem[1]:= VEA1;
+   TAS[VColumnas,TParentesisL]^.Elem[2]:= VFacColumnas;
+   TAS[VColumnas,TParentesisL]^.Cant:= 2;
+
+   New(TAS[VColumnas,TfTam]);
+   TAS[VColumnas,TfTam]^.Elem[1]:= VEA1;
+   TAS[VColumnas,TfTam]^.Elem[2]:= VFacColumnas;
+   TAS[VColumnas,TfTam]^.Cant:= 2;
+
+   New(TAS[VColumnas,TMenos]);
+   TAS[VColumnas,TMenos]^.Elem[1]:= VEA1;
+   TAS[VColumnas,TMenos]^.Elem[2]:= VFacColumnas;
+   TAS[VColumnas,TMenos]^.Cant:= 2;
+
+   // FacColumnas -> eps
+
+   New(TAS[VFacColumnas,TcorcheteR]);
+   TAS[VFacColumnas,TcorcheteR]^.Cant:= 0;
+
+   // FacColumnas -> "," <Columnas>
+
+   New(TAS[VFacColumnas,TComa]);
+   TAS[VFacColumnas,TComa]^.Elem[1]:= TComa;
+   TAS[VFacColumnas,TComa]^.Elem[2]:= VColumnas;
+   TAS[VFacColumnas,TComa]^.Cant:= 2;
+
+   //Lectura -> "read" "(" "constCad" "," "id" ")"
+   New(TAS[VLectura,TRead]);
+   TAS[VLectura,TRead]^.Elem[1]:= TRead;
+   TAS[VLectura,TRead]^.Elem[2]:= TParentesisL;
+   TAS[VLectura,TRead]^.Elem[3]:= TconstReal;
+   TAS[VLectura,TRead]^.Elem[4]:= TComa;
+   TAS[VLectura,TRead]^.Elem[5]:= Tid;
+   TAS[VLectura,TRead]^.Elem[6]:= TParentesisR;
+   TAS[VLectura,TRead]^.Cant:= 6;
+
+   //Escritura -> "print" "(" <listaElementos> ")"
+   New(TAS[VEscritura,TPrint]);
+   TAS[VEscritura,TPrint]^.Elem[1]:= TPrint;
+   TAS[VEscritura,TPrint]^.Elem[2]:= TParentesisL;
+   TAS[VEscritura,TPrint]^.Elem[3]:= VListaElementos;
+   TAS[VEscritura,TPrint]^.Elem[4]:= TParentesisR;
+   TAS[VEscritura,TPrint]^.Cant:= 4;
+
+   //listaElementos -> <Elemento> <FacListElem>
+   New(TAS[VListaElementos,TConstCad]);
+   TAS[VListaElementos,TConstCad]^.Elem[1]:= VElemento;
+   TAS[VListaElementos,TConstCad]^.Elem[2]:= VFacListElem;
+   TAS[VListaElementos,TConstCad]^.Cant:= 2;
+
+   New(TAS[VListaElementos,Tid]);
+   TAS[VListaElementos,Tid]^.Elem[1]:= VElemento;
+   TAS[VListaElementos,Tid]^.Elem[2]:= VFacListElem;
+   TAS[VListaElementos,Tid]^.Cant:= 2;
+
+   New(TAS[VListaElementos,TParentesisL]);
+   TAS[VListaElementos,TParentesisL]^.Elem[1]:= VElemento;
+   TAS[VListaElementos,TParentesisL]^.Elem[2]:= VFacListElem;
+   TAS[VListaElementos,TParentesisL]^.Cant:= 2;
+
+   New(TAS[VListaElementos,TfTam]);
+   TAS[VListaElementos,TfTam]^.Elem[1]:= VElemento;
+   TAS[VListaElementos,TfTam]^.Elem[2]:= VFacListElem;
+   TAS[VListaElementos,TfTam]^.Cant:= 2;
+
+   New(TAS[VListaElementos,TMenos]);
+   TAS[VListaElementos,TMenos]^.Elem[1]:= VElemento;
+   TAS[VListaElementos,TMenos]^.Elem[2]:= VFacListElem;
+   TAS[VListaElementos,TMenos]^.Cant:= 2;
+
+   New(TAS[VListaElementos,TcorcheteL]);
+   TAS[VListaElementos,TcorcheteL]^.Elem[1]:= VElemento;
+   TAS[VListaElementos,TcorcheteL]^.Elem[2]:= VFacListElem;
+   TAS[VListaElementos,TcorcheteL]^.Cant:= 2;
+
+   // FacListElem -> "," <listaElementos>
+   New(TAS[VFacListElem,TComa]);
+   TAS[VFacListElem,TComa]^.Elem[1]:= TComa;
+   TAS[VFacListElem,TComa]^.Elem[2]:= VListaElementos;
+   TAS[VFacListElem,TComa]^.Cant:= 2;
+
+   // FacListElem -> eps
+
+   New(TAS[VFacListElem,TParentesisR]);
+   TAS[VFacListElem,TParentesisR]^.Cant:= 0;
+
+   //Elemento -> "constCad"
+
+   New(TAS[VElemento,TConstCad]);
+   TAS[VElemento,TConstCad]^.Elem[1]:= TConstCad;
+   TAS[VElemento,TConstCad]^.Cant:= 1;
+
+   //Elemento -> <EA1>
+
+   New(TAS[VElemento,TConstCad]);
+   TAS[VElemento,TConstCad]^.Elem[1]:= VEA1;
+   TAS[VElemento,TConstCad]^.Cant:= 1;
+
+   New(TAS[VElemento,Tid]);
+   TAS[VElemento,Tid]^.Elem[1]:= VEA1;
+   TAS[VElemento,Tid]^.Cant:= 1;
+
+   New(TAS[VElemento,TParentesisL]);
+   TAS[VElemento,TParentesisL]^.Elem[1]:= VEA1;
+   TAS[VElemento,TParentesisL]^.Cant:= 1;
+
+   New(TAS[VElemento,TfTam]);
+   TAS[VElemento,TfTam]^.Elem[1]:= VEA1;
+   TAS[VElemento,TfTam]^.Cant:= 1;
+
+   New(TAS[VElemento,TMenos]);
+   TAS[VElemento,TMenos]^.Elem[1]:= VEA1;
+   TAS[VElemento,TMenos]^.Cant:= 1;
+
+   // Elemento -> <constMatriz>
+
+   New(TAS[VElemento,TcorcheteL]);
+   TAS[VElemento,TcorcheteL]^.Elem[1]:= VConstMatriz;
+   TAS[VElemento,TcorcheteL]^.Cant:= 1;
+
+
+   // Condicional -> "If" <Cond> "then" "{" <Cuerpo> "}" <FacCondicional>
+
+   New(TAS[VCondicional,TIf]);
+   TAS[VCondicional,TIf]^.Elem[1]:= TIf;
+   TAS[VCondicional,TIf]^.Elem[2]:= VCond;
+   TAS[VCondicional,TIf]^.Elem[3]:= TThen;
+   TAS[VCondicional,TIf]^.Elem[4]:= TllaveL;
+   TAS[VCondicional,TIf]^.Elem[5]:= VCuerpo;
+   TAS[VCondicional,TIf]^.Elem[6]:= TllaveR;
+   TAS[VCondicional,TIf]^.Elem[7]:= VFacCondicional;
+   TAS[VCondicional,TIf]^.Cant:= 7;
+
+   // FacCondicional -> "else" "{" <Cuerpo> "}"
+
+   New(TAS[VFacCondicional,TElse]);
+   TAS[VFacCondicional,TElse]^.Elem[1]:= TElse;
+   TAS[VFacCondicional,TElse]^.Elem[2]:= TllaveL;
+   TAS[VFacCondicional,TElse]^.Elem[3]:= VCuerpo;
+   TAS[VFacCondicional,TElse]^.Elem[4]:= TllaveR;
+   TAS[VFacCondicional,TElse]^.Cant:= 4;
+
+   // FacCondicional -> eps
 
 
 
+   // Ciclo -> "While" <Cond> "do" "{" <Cuerpo> "}"
 
+   New(TAS[VCiclo,TWhile]);
+   TAS[VCiclo,TWhile]^.Elem[1]:= TWhile;
+   TAS[VCiclo,TWhile]^.Elem[2]:= VCond;
+   TAS[VCiclo,TWhile]^.Elem[3]:= TDo;
+   TAS[VCiclo,TWhile]^.Elem[4]:= TllaveL;
+   TAS[VCiclo,TWhile]^.Elem[5]:= VCuerpo;
+   TAS[VCiclo,TWhile]^.Elem[6]:= TllaveR;
+   TAS[VCiclo,TWhile]^.Cant:= 6;
 
+   // Cond -> <EA1> "OPR" <EA1>
 
+   New(TAS[VCond,TconstReal]);
+   TAS[VCond,TconstReal]^.Elem[1]:= VEA1;
+   TAS[VCond,TconstReal]^.Elem[2]:= TOPR;
+   TAS[VCond,TconstReal]^.Elem[3]:= VEA1;
+   TAS[VCond,TconstReal]^.Cant:= 3;
+
+   New(TAS[VCond,Tid]);
+   TAS[VCond,Tid]^.Elem[1]:= VEA1;
+   TAS[VCond,Tid]^.Elem[2]:= TOPR;
+   TAS[VCond,Tid]^.Elem[3]:= VEA1;
+   TAS[VCond,Tid]^.Cant:= 3;
+
+   New(TAS[VCond,TParentesisL]);
+   TAS[VCond,TParentesisL]^.Elem[1]:= VEA1;
+   TAS[VCond,TParentesisL]^.Elem[2]:= TOPR;
+   TAS[VCond,TParentesisL]^.Elem[3]:= VEA1;
+   TAS[VCond,TParentesisL]^.Cant:= 3;
+
+   New(TAS[VCond,TfTam]);
+   TAS[VCond,TfTam]^.Elem[1]:= VEA1;
+   TAS[VCond,TfTam]^.Elem[2]:= TOPR;
+   TAS[VCond,TfTam]^.Elem[3]:= VEA1;
+   TAS[VCond,TfTam]^.Cant:= 3;
+
+   New(TAS[VCond,TMenos]);
+   TAS[VCond,TMenos]^.Elem[1]:= VEA1;
+   TAS[VCond,TMenos]^.Elem[2]:= TOPR;
+   TAS[VCond,TMenos]^.Elem[3]:= VEA1;
+   TAS[VCond,TMenos]^.Cant:= 3;
+
+   // FTAM -> "fTam" "(" "id" "," "constReal" ")"
+
+   New(TAS[VFTAM,TElse]);
+   TAS[VFTAM,TElse]^.Elem[1]:= TfTam;
+   TAS[VFTAM,TElse]^.Elem[2]:= TParentesisL;
+   TAS[VFTAM,TElse]^.Elem[3]:= Tid;
+   TAS[VFTAM,TElse]^.Elem[4]:= TComa;
+   TAS[VFTAM,TElse]^.Elem[4]:= TconstReal;
+   TAS[VFTAM,TElse]^.Elem[4]:= TParentesisR;
+   TAS[VFTAM,TElse]^.Cant:= 4;
 
   End;
 
@@ -599,14 +868,14 @@ Procedure CrearTAS(Var TAS: TTAS);
   CargarTAS(TAS);
  End;
 
-Procedure AnalizadorSintactico;
+Procedure AnalizadorSintactico(Var FFuente:t_arch);
 Const
- RutaArbol= 'Arbol.txt';
+ RutaArbol= 'C:\Users\Nicol\OneDrive\Escritorio\Proyecto Final SSL\sintaxis_proyecto_final\Arbol.txt';
 Var
  Arbol:TApuntNodo;
  Error:Boolean;
 Begin
- AnalizadorPredictivo(Ruta,Arbol,Error);
+ AnalizadorPredictivo(FFuente, Arbol,Error);
   If Error = False then   { not(FALSE) =TRUE --> es cierto q no hubo error }
    Begin
     GuardarArbol(RutaArbol,Arbol);
@@ -628,13 +897,13 @@ Procedure ApilarSimbolos(Var Celda:Tproduccion; Var Padre:TApuntNodo; Var Pila: 
    End;
  End;
 
-Procedure AnalizadorPredictivo(RutaFuente:string; Var Raiz:TApuntNodo; Var Error:Boolean);
+Procedure AnalizadorPredictivo(Var Fuente:t_arch; Var Raiz:TApuntNodo; Var Error:Boolean);
  Var
   Estado:(Exito,ErrorSintactico,EnProceso);
   TAS:TTAS;
   Pila:TPila;
   ElementoPila:TElemPila;
-  Fuente:t_arch;
+  //Fuente:t_arch;
   Control:Longint;
   Lexema:String;
   Complex:GramaticalSymbol;
@@ -677,7 +946,7 @@ Procedure AnalizadorPredictivo(RutaFuente:string; Var Raiz:TApuntNodo; Var Error
         Else
          If ElementoPila.Simbolo In [Vprograma..VFTAM] then      //Si X es Variable
           Begin
-           If TAS[ElementoPila.Simbolo,Complex]= Nil then   //si la tas apunta a una celda vacia
+           If TAS[ElementoPila.Simbolo,Complex] = Nil then   //si la tas apunta a una celda vacia
             Begin
              Estado:=ErrorSintactico;
              WriteLn('Error Sintactico: desde la variable ', ElementoPila.Simbolo, ' no se puede llegar a ', CompLex);

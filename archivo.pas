@@ -3,7 +3,7 @@ interface
 uses
 crt,SysUtils;
 const
- ruta= '';
+ ruta= 'prueba.txt';
 
  type
    t_arch=file of char; //archivo de texo

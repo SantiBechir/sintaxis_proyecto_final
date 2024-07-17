@@ -9,7 +9,7 @@ const
    t_arch=file of char; //archivo de texo
 
 procedure Crear (VAR arch:t_arch);
-procedure recupera_arch(var pos:integer;var caracter:char);
+procedure recuperar_arch(var pos:integer;var caracter:char);
 procedure abrir_Arch(var arch:t_arch);
 procedure asigna_abre_arch2(var arch2:t_arch;ruta2:string);
 implementation

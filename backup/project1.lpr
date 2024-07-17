@@ -1,16 +1,16 @@
 program project1;
 uses
-    Tipo,lexico, AnalizadorSintectico;
+    Crt,Tipo,lexico, AnalizadorSintectico;
 var
   fuente:Archtexto;
   control:longint;
   complex:GramaticalSymbol;
   TS:TablaSimbolos;
   lexema:string;
-  TAS:TTAS
+  TAS:TTAS;
 begin
   assign(fuente,'prueba.txt');
-  reset(fuente);
+ { reset(fuente);
   control:= 0;
   CargarTS(TS);
   ObtenerSiguienteCompLex(fuente,Control,CompLex,Lexema,TS);
@@ -18,8 +18,10 @@ begin
   begin
     writeln(control,':',complex,' ',lexema);
     ObtenerSiguienteCompLex(fuente,Control,CompLex,Lexema,TS);
-  end;
-  MOSTRAR_TAS(TAS);
+  end;  }
+  //MOSTRAR_TAS(TAS);
+  AnalizadorSintactico(fuente);
+  Readkey;
   readln();
   close(fuente);
 end.

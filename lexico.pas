@@ -20,7 +20,7 @@ Implementation
 
 Procedure LeerCar(Var Fuente:Archtexto;Var Control:Longint; Var Car:char);
 Begin
-  if (Control< filesize(Fuente)) then
+  if (Control < filesize(Fuente)) then
     Begin
       seek(Fuente,Control);
       read(Fuente,Car);   //extrae el caracter del codigo fuente
@@ -347,8 +347,7 @@ Begin
     End
     Else
      EsIdentificador:= false;
-End; 
-
+End;
 Function EsConstanteReal(Var Fuente: Archtexto;Var Control: longint;Var Lexema: String):Boolean;
 Const
   q0=0;
