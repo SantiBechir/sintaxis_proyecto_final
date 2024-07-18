@@ -1,6 +1,6 @@
 program project1;
 uses
-    Crt,Tipo,lexico, AnalizadorSintectico;
+    Crt,Tipo,lexico, AnalizadorSintectico,Evaluador;
 var
   fuente:Archtexto;
   control:longint;
@@ -9,8 +9,8 @@ var
   lexema:string;
   TAS:TTAS;
 begin
-  assign(fuente,'prueba.txt');
- { reset(fuente);
+  {assign(fuente,'prueba.txt');
+  reset(fuente);
   control:= 0;
   CargarTS(TS);
   ObtenerSiguienteCompLex(fuente,Control,CompLex,Lexema,TS);
@@ -18,9 +18,9 @@ begin
   begin
     writeln(control,':',complex,' ',lexema);
     ObtenerSiguienteCompLex(fuente,Control,CompLex,Lexema,TS);
-  end;  }
-  //MOSTRAR_TAS(TAS);
-  AnalizadorSintactico(fuente);
+  end;
+  //MOSTRAR_TAS(TAS);}
+  TestingAnalizadorSintactico(fuente);
   Readkey;
   readln();
   close(fuente);

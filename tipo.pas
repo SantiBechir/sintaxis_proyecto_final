@@ -12,7 +12,7 @@ Type  // Simbolos gramaticales
 
   TProgram, TllaveL, TllaveR, Tid, Tdospuntos, Tpuntocoma {;}, TReal, TcorcheteL{[},TconstReal, TNumeral, TcorcheteR{]},
   Tasignacion{=}, TasigMatriz{:==}, TComa, {TIgual,} TMas, TMenos, TMult{*}, TDiv{/}, TExp{^}, TParentesisL{(}, TParentesisR{)},
-  TSumMat, TRestMat, TMultMat , TTr, TProdEscMat, TRead, TConstCad, TPrint, TIf, TThen, TElse, TWhile , TDo , TOPR, TfTam, TCad,pesos,lexicerror);
+  TSumMat, TRestMat, TMultMat , TTr, TProdEscMat, TRead, TConstCad, TPrint, TIf, TThen, TElse, TWhile , TDo , TOPR, TfTam,pesos,lexicerror);
 
   TipoVariable=Vprograma..VFTAM;
 

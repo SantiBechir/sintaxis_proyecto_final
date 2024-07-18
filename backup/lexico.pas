@@ -20,15 +20,15 @@ Implementation
 
 Procedure LeerCar(Var Fuente:Archtexto;Var Control:Longint; Var Car:char);
 Begin
-  //if (Control < filesize(Fuente)) then
-   // Begin
+  if (Control < filesize(Fuente)) then
+    Begin
       seek(Fuente,Control);
       read(Fuente,Car);   //extrae el caracter del codigo fuente
-   // End
- // Else
-    //  Begin
+    End
+  Else
+      Begin
         Car:= FinArch;
-    //  End;
+      End;
 End;
 
 Procedure CargarTS (Var TS:TablaSimbolos);
@@ -100,12 +100,12 @@ existe := false;
 aux := TS.cab;
 While (aux <> nil) and (not existe) DO
       Begin
-      If aux^.info.Lexema <> Lexema Then
+      If  Upcase(aux^.info.Lexema) <> Upcase(Lexema) Then
          Begin
               aux := aux^.sig
          End
       Else
-          If aux^.info.Lexema = Lexema Then
+          If UpCase(aux^.info.Lexema) = Upcase(Lexema) Then
           Begin
                existe := true;
                CompLex := aux^.info.CompLex;
@@ -493,7 +493,7 @@ Begin
 		          CompLex:=treal
                          Else
                               If EsCadena(Fuente,Control,Lexema) then
-		                         CompLex:=tcad
+		                         CompLex:=TConstCad
                               Else   
                                    if (Not EsSimboloEspecial(Lexema,CompLex,Fuente,Control)) then
                                    Begin

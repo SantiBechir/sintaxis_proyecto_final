@@ -8,19 +8,19 @@
       <Unit>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="31" Y="12"/>
-        <UsageCount Value="161"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="9" Y="28"/>
+        <UsageCount Value="164"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="analizadorsintectico.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="AnalizadorSintectico"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="916"/>
-        <CursorPos X="20" Y="947"/>
-        <UsageCount Value="153"/>
+        <TopLine Value="83"/>
+        <CursorPos X="49" Y="90"/>
+        <UsageCount Value="156"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -28,9 +28,9 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Arbol"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="31"/>
-        <CursorPos Y="50"/>
-        <UsageCount Value="58"/>
+        <TopLine Value="2"/>
+        <CursorPos X="13" Y="11"/>
+        <UsageCount Value="61"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -39,25 +39,25 @@
         <UnitName Value="Pila"/>
         <EditorIndex Value="5"/>
         <CursorPos Y="41"/>
-        <UsageCount Value="57"/>
+        <UsageCount Value="60"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="lexico.pas"/>
         <UnitName Value="Lexico"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="346"/>
-        <CursorPos X="38" Y="485"/>
-        <FoldState Value=" T3X0v22111 PoIpU0O"/>
-        <UsageCount Value="78"/>
+        <TopLine Value="41"/>
+        <CursorPos X="20" Y="79"/>
+        <FoldState Value=" T3qO0yp"/>
+        <UsageCount Value="80"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="tipo.pas"/>
         <UnitName Value="Tipo"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="22" Y="17"/>
-        <UsageCount Value="78"/>
+        <CursorPos X="80" Y="20"/>
+        <UsageCount Value="80"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -66,7 +66,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="33"/>
         <CursorPos Y="50"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="80"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -74,7 +74,7 @@
         <UnitName Value="Archivo"/>
         <EditorIndex Value="4"/>
         <CursorPos X="84" Y="2"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="80"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -140,24 +140,17 @@
         <CursorPos X="93" Y="620"/>
         <UsageCount Value="8"/>
       </Unit>
+      <Unit>
+        <Filename Value="evaluador.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Evaluador"/>
+        <EditorIndex Value="8"/>
+        <CursorPos X="6" Y="3"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="960" TopLine="936"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="961" TopLine="936"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="957" TopLine="936"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="959" TopLine="936"/>
-      </Position>
       <Position>
         <Filename Value="analizadorsintectico.pas"/>
         <Caret Line="960" TopLine="936"/>
@@ -260,7 +253,23 @@
       </Position>
       <Position>
         <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="934" TopLine="916"/>
+        <Caret Line="98" Column="27" TopLine="75"/>
+      </Position>
+      <Position>
+        <Filename Value="analizadorsintectico.pas"/>
+        <Caret Line="126" Column="59" TopLine="107"/>
+      </Position>
+      <Position>
+        <Filename Value="analizadorsintectico.pas"/>
+        <Caret Line="1124" TopLine="1081"/>
+      </Position>
+      <Position>
+        <Filename Value="analizadorsintectico.pas"/>
+        <Caret Line="1034" Column="54" TopLine="1011"/>
+      </Position>
+      <Position>
+        <Filename Value="project1.lpr"/>
+        <Caret Line="28" Column="19"/>
       </Position>
     </JumpHistory>
     <RunParams>
@@ -268,22 +277,4 @@
       <Modes ActiveMode=""/>
     </RunParams>
   </ProjectSession>
-  <Debugging>
-    <BreakPoints>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="analizadorsintectico.pas"/>
-        <Line Value="947"/>
-      </Item>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="analizadorsintectico.pas"/>
-        <Line Value="936"/>
-      </Item>
-    </BreakPoints>
-  </Debugging>
 </CONFIG>

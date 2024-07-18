@@ -6,13 +6,13 @@ Uses
   Crt;
 Type  // Simbolos gramaticales
   GramaticalSymbol=(VPrograma, VDec, VVariable, VMatrizReal, VCuerpo, VSeguido,VSent,
-  VAsignacion, VOperacionASig, VEA1, VEA2 ,VEA3 , VEA4, VE1, VE2 ,VE3 , VE4, VEM, VM1, VM2 , VEM1 ,VEM2 , VEM3, VEMM,
+  VAsignacion, VOperacionAsig, VEA1, VEA2 ,VEA3 , VEA4, VE1, VE2 ,VE3 , VE4, VEM, VM1, VM2 , VEM1 ,VEM2 , VEM3, VEMM,
   VConstMatriz, VFilas, VFacFilas, VColumnas,VFacColumnas, VLectura, VEscritura, VListaElementos, VFacListElem, VElemento,
   VCondicional, VFacCondicional, VCiclo, VCond, VFTAM,
 
   TProgram, TllaveL, TllaveR, Tid, Tdospuntos, Tpuntocoma {;}, TReal, TcorcheteL{[},TconstReal, TNumeral, TcorcheteR{]},
   Tasignacion{=}, TasigMatriz{:==}, TComa, {TIgual,} TMas, TMenos, TMult{*}, TDiv{/}, TExp{^}, TParentesisL{(}, TParentesisR{)},
-  TSumMat, TRestMat, TMultMat , TTr, TProdEscMat, TRead, TConstCad, TPrint, TIf, TThen, TElse, TWhile , TDo , TOPR, TfTam, TCad,pesos,lexicerror;
+  TSumMat, TRestMat, TMultMat , TTr, TProdEscMat, TRead, TConstCad, TPrint, TIf, TThen, TElse, TWhile , TDo , TOPR, TfTam, TCad,pesos,lexicerror);
 
   TipoVariable=Vprograma..VFTAM;
 

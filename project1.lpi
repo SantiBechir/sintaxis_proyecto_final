@@ -44,6 +44,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Pila"/>
       </Unit>
+      <Unit>
+        <Filename Value="evaluador.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Evaluador"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

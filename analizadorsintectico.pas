@@ -19,7 +19,7 @@ Type
 
 
  Procedure AnalizadorPredictivo(Var Fuente:t_arch; Var Raiz:TApuntNodo; Var Error:Boolean);
- Procedure AnalizadorSintactico(Var FFuente:t_arch);
+ Procedure TestingAnalizadorSintactico(Var FFuente:t_arch);
  procedure MOSTRAR_TAS(var TAS: TTAS);
 
 Implementation
@@ -277,8 +277,12 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VE1,TMenos]^.Cant:= 3;
 
 
-   {//E1 -> Epsilon
-   New(TAS[VE1,TComa]);                     ///--------EPS--------
+   //E1 -> Epsilon
+   New(TAS[VE1,TOPR]);                     ///--------EPS--------
+   TAS[VE1,TOPR]^.Cant:=0;
+
+   //E1 -> Epsilon
+   New(TAS[VE1,TComa]);
    TAS[VE1,TComa]^.Cant:=0;
 
    //E1 -> Epsilon
@@ -286,31 +290,20 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VE1,TcorcheteR]^.Cant:=0;
 
    //E1 -> Epsilon
+   New(TAS[VE1,TParentesisR]);
+   TAS[VE1,TParentesisR]^.Cant:=0;
+
+   //E1 -> Epsilon
    New(TAS[VE1,Tpuntocoma]);
    TAS[VE1,Tpuntocoma]^.Cant:=0;
-
-   //E1 -> Epsilon
-   New(TAS[VE1,TOPR]);
-   TAS[VE1,TOPR]^.Cant:=0;
-
-   //E1 -> Epsilon
-   New(TAS[VE1,TDo]);
-   TAS[VE1,TDo]^.Cant:=0;
 
    //E1 -> Epsilon
    New(TAS[VE1,TThen]);
    TAS[VE1,TThen]^.Cant:=0;
 
    //E1 -> Epsilon
-   New(TAS[VE1,]);
-   TAS[VE1,]^.Cant:=0;
-
-   //E1 -> Epsilon
-   New(TAS[VE1,]);
-   TAS[VE1,]^.Cant:=0;
-
-                            }
-
+   New(TAS[VE1,TDo]);
+   TAS[VE1,TDo]^.Cant:=0;
 
    //EA2 -> <EA3> <E2>
    New(TAS[VEA2,TconstReal]);
@@ -355,25 +348,39 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VE2,TDiv]^.Cant:= 2;
 
    //E2 -> Epsilon
-  { New(TAS[VE2,TMenos]);
+   New(TAS[VE2,TMas]);
+   TAS[VE2,TMas]^.Cant:=0;
+
+   New(TAS[VE2,TMenos]);
    TAS[VE2,TMenos]^.Cant:=0;
 
-   New(TAS[VE2,TMas]);
-   TAS[VE2,TMas]^.Cant:=0
+   //E2 -> Epsilon
+   //EA1 -> Epsilon
 
-   New(TAS[VE2,]);
-   TAS[VE2,]^.Cant:=0
-                                             //SIG DE E1
-   New(TAS[VE2,]);
-   TAS[VE2,]^.Cant:=0
+   New(TAS[VE2,TOPR]);
+   TAS[VE2,TOPR]^.Cant:=0;
 
-   New(TAS[VE2,]);
-   TAS[VE2,]^.Cant:=0
+   New(TAS[VE2,TComa]);
+   TAS[VE2,TComa]^.Cant:=0;
 
+   New(TAS[VE2,TcorcheteR]);
+   TAS[VE2,TcorcheteR]^.Cant:=0;
 
-   }
+   New(TAS[VE2,TParentesisR]);
+   TAS[VE2,TParentesisR]^.Cant:=0;
 
-   //EA3 -> <EA4> <E3>                                      --- SANTI G ---
+   New(TAS[VE2,Tpuntocoma]);
+   TAS[VE2,Tpuntocoma]^.Cant:=0;
+
+   New(TAS[VE2,TThen]);
+   TAS[VE2,TThen]^.Cant:=0;
+
+   New(TAS[VE2,TDo]);
+   TAS[VE2,TDo]^.Cant:=0;
+
+   ///  S
+
+   //EA3 -> <EA4> <E3>
    New(TAS[VEA3,TconstReal]);
    TAS[VEA3,TconstReal]^.Elem[1]:= VEA4;
    TAS[VEA3,TconstReal]^.Elem[2]:= VE3;
@@ -409,25 +416,45 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VE3,TExp]^.Elem[2]:= VEA4;
    TAS[VE3,TExp]^.Cant:= 2;
 
-   //E3 -> eps                        ///NO SE QUE PONER
- {  New(TAS[VE3,]);
-   TAS[VEA3,]^.Cant:= 0;
+   //E3 -> eps
+   New(TAS[VE3,TMult]);
+   TAS[VE3,TMult]^.Cant:= 0;
 
-    New(TAS[VE3,]);
-   TAS[VEA3,]^.Cant:= 0;
+    New(TAS[VE3,TDiv]);
+   TAS[VE3,TDiv]^.Cant:= 0;
 
-    New(TAS[VE3,]);
-   TAS[VEA3,]^.Cant:= 0;
+    New(TAS[VE3,TMenos]);
+   TAS[VE3,TMenos]^.Cant:= 0;
 
-    New(TAS[VE3,]);
-   TAS[VEA3,]^.Cant:= 0;
+    New(TAS[VE3,TMas]);
+   TAS[VE3,TMas]^.Cant:= 0;
 
-    New(TAS[VE3,]);
-   TAS[VEA3,]^.Cant:= 0;
+   //E3 -> Epsilon
+   //EA1 -> Epsilon
 
-    New(TAS[VE3,]);
-   TAS[VEA3,]^.Cant:= 0;
-   }
+    New(TAS[VE3,TOPR]);
+   TAS[VE3,TOPR]^.Cant:= 0;
+
+    New(TAS[VE3,TComa]);
+   TAS[VE3,TComa]^.Cant:= 0;
+
+   New(TAS[VE3,TcorcheteR]);
+   TAS[VE3,TcorcheteR]^.Cant:= 0;
+
+    New(TAS[VE3,TParentesisR]);
+   TAS[VE3,TParentesisR]^.Cant:= 0;
+
+    New(TAS[VE3,Tpuntocoma]);
+   TAS[VE3,Tpuntocoma]^.Cant:= 0;
+
+    New(TAS[VE3,TThen]);
+   TAS[VE3,TThen]^.Cant:= 0;
+
+    New(TAS[VE3,TDo]);
+   TAS[VE3,TDo]^.Cant:= 0;
+
+
+   ///
 
    //EA4 -> "constReal"
    New(TAS[VEA4,TconstReal]);
@@ -458,9 +485,50 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VEA4,TMenos]^.Elem[2]:= VEA4;
    TAS[VEA4,TMenos]^.Cant:= 2;
 
-   //E4 -> eps                  ///NO SE QUE PONER
- {  New(TAS[VE4,]);
-   TAS[VE4,]^.Cant:= 0;       }
+   //E4 -> eps                  ///---EPS---
+   New(TAS[VE4,TExp]);
+   TAS[VE4,TExp]^.Cant:= 0;
+
+   New(TAS[VE4,TMult]);
+   TAS[VE4,TMult]^.Cant:= 0;
+
+   New(TAS[VE4,TMult]);
+   TAS[VE4,TMult]^.Cant:= 0;
+
+   New(TAS[VE4,TDiv]);
+   TAS[VE4,TDiv]^.Cant:= 0;
+
+   New(TAS[VE4,TMenos]);
+   TAS[VE4,TMenos]^.Cant:= 0;
+
+   New(TAS[VE4,TMas]);
+   TAS[VE4,TMas]^.Cant:= 0;
+
+    //E4 -> Epsilon
+   //EA1 -> Epsilon
+
+   New(TAS[VE4,TOPR]);
+   TAS[VE4,TOPR]^.Cant:= 0;
+
+   New(TAS[VE4,TComa]);
+   TAS[VE4,TComa]^.Cant:= 0;
+
+   New(TAS[VE4,TcorcheteR]);
+   TAS[VE4,TcorcheteR]^.Cant:= 0;
+
+   New(TAS[VE4,TParentesisR]);
+   TAS[VE4,TParentesisR]^.Cant:= 0;
+
+   New(TAS[VE4,Tpuntocoma]);
+   TAS[VE4,Tpuntocoma]^.Cant:= 0;
+
+   New(TAS[VE4,TThen]);
+   TAS[VE4,TThen]^.Cant:= 0;
+
+   New(TAS[VE4,TDo]);
+   TAS[VE4,TDo]^.Cant:= 0;
+
+   ///
 
    //E4 -> "[" <EA1> "," <EA1> "]"
    New(TAS[VE4,TcorcheteL]);
@@ -522,8 +590,16 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VM1,TRestMat]^.Cant:= 6;
 
    //M1 -> eps                      //NO ESTOY SEGURO DE eps
+   New(TAS[VM1,TParentesisR]);
+   TAS[VM1,TParentesisR]^.Cant:=0;
+
+   New(TAS[VM1,TComa]);
+   TAS[VM1,TComa]^.Cant:=0;
+
    New(TAS[VM1,Tpuntocoma]);
    TAS[VM1,Tpuntocoma]^.Cant:=0;
+
+   ///
 
    //EM1 -> <EM2> <M2>
    New(TAS[VEM1,TTr]);
@@ -569,6 +645,14 @@ Procedure CargarTAS(Var TAS:TTAS);
 
    New(TAS[VM2,Tpuntocoma]);
    TAS[VM2,Tpuntocoma]^.Cant:= 0;
+
+   New(TAS[VM2,TComa]);
+   TAS[VM2,TComa]^.Cant:= 0;
+
+   New(TAS[VM2,TParentesisR]);
+   TAS[VM2,TParentesisR]^.Cant:= 0;
+
+   ///
 
    //EM2 -> "Tr" "(" <EM> ")"
    New(TAS[VEM2,TTr]);
@@ -704,7 +788,7 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VEscritura,TPrint]^.Elem[4]:= TParentesisR;
    TAS[VEscritura,TPrint]^.Cant:= 4;
 
-   //listaElementos -> <Elemento> <FacListElem>
+   //listaElementos -> <Elemento> <FacListElem>      //falta constreal
    New(TAS[VListaElementos,TConstCad]);
    TAS[VListaElementos,TConstCad]^.Elem[1]:= VElemento;
    TAS[VListaElementos,TConstCad]^.Elem[2]:= VFacListElem;
@@ -754,9 +838,9 @@ Procedure CargarTAS(Var TAS:TTAS);
 
    //Elemento -> <EA1>
 
-   New(TAS[VElemento,TConstCad]);
-   TAS[VElemento,TConstCad]^.Elem[1]:= VEA1;
-   TAS[VElemento,TConstCad]^.Cant:= 1;
+   New(TAS[VElemento,TConstReal]);
+   TAS[VElemento,TConstReal]^.Elem[1]:= VEA1;
+   TAS[VElemento,TConstReal]^.Cant:= 1;
 
    New(TAS[VElemento,Tid]);
    TAS[VElemento,Tid]^.Elem[1]:= VEA1;
@@ -804,7 +888,23 @@ Procedure CargarTAS(Var TAS:TTAS);
 
    // FacCondicional -> eps
 
+   New(TAS[VFacCondicional,Tid]);
+   TAS[VFacCondicional,Tid]^.Cant:= 0;
 
+   New(TAS[VFacCondicional,TRead]);
+   TAS[VFacCondicional,TRead]^.Cant:= 0;
+
+   New(TAS[VFacCondicional,TPrint]);
+   TAS[VFacCondicional,TPrint]^.Cant:= 0;
+
+   New(TAS[VFacCondicional,TIf]);
+   TAS[VFacCondicional,TIf]^.Cant:= 0;
+
+   New(TAS[VFacCondicional,TWhile]);
+   TAS[VFacCondicional,TWhile]^.Cant:= 0;
+
+   New(TAS[VFacCondicional,TllaveR]);
+   TAS[VFacCondicional,TllaveR]^.Cant:= 0;
 
    // Ciclo -> "While" <Cond> "do" "{" <Cuerpo> "}"
 
@@ -856,9 +956,9 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VFTAM,TElse]^.Elem[2]:= TParentesisL;
    TAS[VFTAM,TElse]^.Elem[3]:= Tid;
    TAS[VFTAM,TElse]^.Elem[4]:= TComa;
-   TAS[VFTAM,TElse]^.Elem[4]:= TconstReal;
-   TAS[VFTAM,TElse]^.Elem[4]:= TParentesisR;
-   TAS[VFTAM,TElse]^.Cant:= 4;
+   TAS[VFTAM,TElse]^.Elem[5]:= TconstReal;
+   TAS[VFTAM,TElse]^.Elem[6]:= TParentesisR;
+   TAS[VFTAM,TElse]^.Cant:= 6;
 
   End;
 
@@ -868,7 +968,7 @@ Procedure CrearTAS(Var TAS: TTAS);
   CargarTAS(TAS);
  End;
 
-Procedure AnalizadorSintactico(Var FFuente:t_arch);
+Procedure TestingAnalizadorSintactico(Var FFuente:t_arch);
 Const
  RutaArbol= 'C:\Users\Nicol\OneDrive\Escritorio\Proyecto Final SSL\sintaxis_proyecto_final\Arbol.txt';
 Var
@@ -929,7 +1029,7 @@ Procedure AnalizadorPredictivo(Var Fuente:t_arch; Var Raiz:TApuntNodo; Var Error
    While Estado=EnProceso do    // while estado <> exito or estado <> errorsintactico do
     Begin
      Desapilar(Pila,ElementoPila);      //Desapilar X
-      If ElementoPila.Simbolo In [Tprogram..TCad] Then   //Si X es terminal
+      If ElementoPila.Simbolo In [Tprogram..TfTam] Then   //Si X es terminal
        Begin
         If  ElementoPila.Simbolo=Complex then        //Si X=a
          Begin
@@ -970,7 +1070,6 @@ Procedure AnalizadorPredictivo(Var Fuente:t_arch; Var Raiz:TApuntNodo; Var Error
          Begin                                                           //y el ultimo elemento de la pila desapilado es igual a pesos
           Estado:=Exito;                                                 //entonces se reconocio la cadena
           writeln('El lenguaje ha sido reconocido');
-          readkey;
         End;
     End;
 

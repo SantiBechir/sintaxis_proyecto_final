@@ -88,6 +88,10 @@ Begin
      palabra.Lexema:='ProdEscMat';
      palabra.compLex:=TProdEscMat;
      InsertarEnLista(TS,palabra);
+
+     palabra.Lexema:='Real';
+     palabra.compLex:=TReal;
+     InsertarEnLista(TS,palabra);
   End;
 
 Procedure InstalarenTS (Var TS:TablaSimbolos; Var Lexema:String; Var complex:GramaticalSymbol);
@@ -100,12 +104,12 @@ existe := false;
 aux := TS.cab;
 While (aux <> nil) and (not existe) DO
       Begin
-      If aux^.info.Lexema <> Lexema Then
+      If  Upcase(aux^.info.Lexema) <> Upcase(Lexema) Then
          Begin
               aux := aux^.sig
          End
       Else
-          If aux^.info.Lexema = Lexema Then
+          If UpCase(aux^.info.Lexema) = Upcase(Lexema) Then
           Begin
                existe := true;
                CompLex := aux^.info.CompLex;
@@ -493,7 +497,7 @@ Begin
 		          CompLex:=treal
                          Else
                               If EsCadena(Fuente,Control,Lexema) then
-		                         CompLex:=tcad
+		                         CompLex:=TConstCad
                               Else   
                                    if (Not EsSimboloEspecial(Lexema,CompLex,Fuente,Control)) then
                                    Begin
