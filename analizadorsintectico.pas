@@ -1,4 +1,4 @@
-Unit AnalizadorSintectico ;
+Unit AnalizadorSintactico ;
 
 Interface
 

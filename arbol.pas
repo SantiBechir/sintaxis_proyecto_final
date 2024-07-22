@@ -10,7 +10,7 @@ Const
 Type
   TApuntNodo = ^TNodoArbol;
 
-  TipoHIjos = Record
+  TipoHijos = Record
     Elem: Array[1..Max] of TApuntNodo;
     Cant:0..Max;        //cantidad de hijos.
               End;
