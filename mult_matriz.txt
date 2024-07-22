@@ -1,0 +1,12 @@
+Program
+	matriz1 : [2#2];
+	matriz2 : [2#2];
+	res : [2#2];
+{
+	matriz1 :== [[1,2],[4,5]];
+	matriz1 :== [[1,2],[3,4]];	
+
+	res :== MultMat(matriz1,matriz2);
+
+	print(res);
+}
