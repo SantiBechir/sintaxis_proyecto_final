@@ -8,8 +8,7 @@
       <Unit>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <CursorPos X="9" Y="28"/>
+        <CursorPos X="73" Y="23"/>
         <UsageCount Value="164"/>
         <Loaded Value="True"/>
       </Unit>
@@ -17,6 +16,7 @@
         <Filename Value="analizadorsintectico.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="AnalizadorSintectico"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
         <TopLine Value="83"/>
         <CursorPos X="49" Y="90"/>
