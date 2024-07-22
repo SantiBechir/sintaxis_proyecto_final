@@ -8,129 +8,131 @@
       <Unit>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="73" Y="23"/>
-        <UsageCount Value="164"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="174"/>
       </Unit>
       <Unit>
         <Filename Value="analizadorsintectico.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="AnalizadorSintectico"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="7"/>
-        <TopLine Value="83"/>
-        <CursorPos X="49" Y="90"/>
-        <UsageCount Value="156"/>
+        <TopLine Value="114"/>
+        <CursorPos X="11" Y="266"/>
+        <UsageCount Value="166"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="arbol.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Arbol"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="2"/>
         <CursorPos X="13" Y="11"/>
-        <UsageCount Value="61"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="71"/>
       </Unit>
       <Unit>
         <Filename Value="pila.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Pila"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="-1"/>
         <CursorPos Y="41"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="70"/>
+      </Unit>
+      <Unit>
+        <Filename Value="evaluador.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Evaluador"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="6" Y="3"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="lexico.pas"/>
         <UnitName Value="Lexico"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="41"/>
         <CursorPos X="20" Y="79"/>
-        <FoldState Value=" T3qO0yp"/>
-        <UsageCount Value="80"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="79"/>
       </Unit>
       <Unit>
         <Filename Value="tipo.pas"/>
         <UnitName Value="Tipo"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="80" Y="20"/>
-        <UsageCount Value="80"/>
+        <CursorPos X="30" Y="14"/>
+        <UsageCount Value="85"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="lista.pas"/>
         <UnitName Value="Lista"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="33"/>
         <CursorPos Y="50"/>
-        <UsageCount Value="80"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="79"/>
       </Unit>
       <Unit>
         <Filename Value="archivo.pas"/>
         <UnitName Value="Archivo"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="84" Y="2"/>
-        <UsageCount Value="80"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="79"/>
       </Unit>
       <Unit>
         <Filename Value="..\Escritorio\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\analizador_sintactico_unit.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="93"/>
         <CursorPos X="49" Y="95"/>
-        <UsageCount Value="54"/>
+        <UsageCount Value="53"/>
       </Unit>
       <Unit>
         <Filename Value="..\Escritorio\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\u_arbol.pas"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="54"/>
+        <UsageCount Value="53"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\u_arbol.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="37"/>
         <CursorPos X="68" Y="26"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\analizador_sintactico_unit.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1032"/>
         <CursorPos X="43" Y="1040"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\u_archivos.pas"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\lista_ts.pas"/>
         <UnitName Value="lista_TS"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="50" Y="14"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\u_lista.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="18" Y="44"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\analizador_lexico_unit.pas"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
       </Unit>
       <Unit>
         <Filename Value="sintactico.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="44"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\evaluador.pas"/>
@@ -138,19 +140,17 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="605"/>
         <CursorPos X="93" Y="620"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
-        <Filename Value="evaluador.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="Evaluador"/>
-        <EditorIndex Value="8"/>
-        <CursorPos X="6" Y="3"/>
-        <UsageCount Value="22"/>
-        <Loaded Value="True"/>
+        <Filename Value="backup\tipo.pas"/>
+        <UnitName Value="Tipo"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="7"/>
+        <UsageCount Value="9"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
+    <JumpHistory HistoryIndex="28">
       <Position>
         <Filename Value="analizadorsintectico.pas"/>
         <Caret Line="960" TopLine="936"/>
@@ -266,10 +266,6 @@
       <Position>
         <Filename Value="analizadorsintectico.pas"/>
         <Caret Line="1034" Column="54" TopLine="1011"/>
-      </Position>
-      <Position>
-        <Filename Value="project1.lpr"/>
-        <Caret Line="28" Column="19"/>
       </Position>
     </JumpHistory>
     <RunParams>
