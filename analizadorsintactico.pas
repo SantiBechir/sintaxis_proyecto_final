@@ -492,6 +492,9 @@ Procedure CargarTAS(Var TAS:TTAS);
    New(TAS[VE4,TMult]);
    TAS[VE4,TMult]^.Cant:= 0;
 
+   New(TAS[VE4,TMult]);
+   TAS[VE4,TMult]^.Cant:= 0;
+
    New(TAS[VE4,TDiv]);
    TAS[VE4,TDiv]^.Cant:= 0;
 
@@ -586,7 +589,7 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VM1,TRestMat]^.Elem[6]:= TParentesisR;
    TAS[VM1,TRestMat]^.Cant:= 6;
 
-   //M1 -> eps
+   //M1 -> eps                      //NO ESTOY SEGURO DE eps
    New(TAS[VM1,TParentesisR]);
    TAS[VM1,TParentesisR]^.Cant:=0;
 
@@ -596,6 +599,7 @@ Procedure CargarTAS(Var TAS:TTAS);
    New(TAS[VM1,Tpuntocoma]);
    TAS[VM1,Tpuntocoma]^.Cant:=0;
 
+   ///
 
    //EM1 -> <EM2> <M2>
    New(TAS[VEM1,TTr]);
@@ -943,18 +947,18 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VCond,TMenos]^.Elem[1]:= VEA1;
    TAS[VCond,TMenos]^.Elem[2]:= TOPR;
    TAS[VCond,TMenos]^.Elem[3]:= VEA1;
-   TAS[VCond,TMenos]^.Cant:= 3;  0
+   TAS[VCond,TMenos]^.Cant:= 3;
 
    // FTAM -> "fTam" "(" "id" "," "constReal" ")"
 
-   New(TAS[VFTAM,TFTAM]);
-   TAS[VFTAM,TFTAM]^.Elem[1]:= TfTam;
-   TAS[VFTAM,TFTAM]^.Elem[2]:= TParentesisL;
-   TAS[VFTAM,TFTAM]^.Elem[3]:= Tid;
-   TAS[VFTAM,TFTAM]^.Elem[4]:= TComa;
-   TAS[VFTAM,TFTAM]^.Elem[5]:= TconstReal;
-   TAS[VFTAM,TFTAM]^.Elem[6]:= TParentesisR;
-   TAS[VFTAM,TFTAM]^.Cant:= 6;
+   New(TAS[VFTAM,TElse]);
+   TAS[VFTAM,TElse]^.Elem[1]:= TfTam;
+   TAS[VFTAM,TElse]^.Elem[2]:= TParentesisL;
+   TAS[VFTAM,TElse]^.Elem[3]:= Tid;
+   TAS[VFTAM,TElse]^.Elem[4]:= TComa;
+   TAS[VFTAM,TElse]^.Elem[5]:= TconstReal;
+   TAS[VFTAM,TElse]^.Elem[6]:= TParentesisR;
+   TAS[VFTAM,TElse]^.Cant:= 6;
 
   End;
 

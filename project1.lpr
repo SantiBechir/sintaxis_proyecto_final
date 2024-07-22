@@ -1,6 +1,6 @@
 program project1;
 uses
-    Crt,Tipo,lexico, AnalizadorSintectico;
+    Crt,Tipo,lexico, AnalizadorSintactico;
 var
   fuente:Archtexto;
   control:longint;
