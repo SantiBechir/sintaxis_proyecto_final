@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
-  <Compiler Value="C:\lazarus\fpc\3.2.2\bin\x86_64-win64\fpc.exe" Date="1482330472"/>
-  <Params Value=" -MObjFPC -Scghi -O1 -gw2 -godwarfsets -gl -l -vewnhibq &quot;-FiC:\Users\Nicol\OneDrive\Escritorio\Proyecto Final SSL\sintaxis_proyecto_final\lib\x86_64-win64&quot; &quot;-FuC:\Users\Nicol\OneDrive\Escritorio\Proyecto Final SSL\sintaxis_proyecto_final\&quot; &quot;-FUC:\Users\Nicol\OneDrive\Escritorio\Proyecto Final SSL\sintaxis_proyecto_final\lib\x86_64-win64\&quot; &quot;-FEC:\Users\Nicol\OneDrive\Escritorio\Proyecto Final SSL\sintaxis_proyecto_final\&quot; &quot;-oC:\Users\Nicol\OneDrive\Escritorio\Proyecto Final SSL\sintaxis_proyecto_final\project1.exe&quot; project1.lpr"/>
+  <Compiler Value="C:\lazarus\fpc\3.2.2\bin\x86_64-win64\fpc.exe" Date="1449427374"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -gw2 -godwarfsets -gl -l -vewnhibq -FiC:\Users\USUARIO\sintaxis_proyecto_final\lib\x86_64-win64 -FuC:\Users\USUARIO\sintaxis_proyecto_final\ -FUC:\Users\USUARIO\sintaxis_proyecto_final\lib\x86_64-win64\ -FEC:\Users\USUARIO\sintaxis_proyecto_final\ -oC:\Users\USUARIO\sintaxis_proyecto_final\project1.exe project1.lpr"/>
 </CONFIG>
