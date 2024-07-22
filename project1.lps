@@ -8,82 +8,155 @@
       <Unit>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
+<<<<<<< HEAD
         <CursorPos X="18" Y="26"/>
         <UsageCount Value="174"/>
+=======
+        <EditorIndex Value="-1"/>
+        <CursorPos X="73" Y="23"/>
+<<<<<<< HEAD
+        <UsageCount Value="174"/>
+=======
+        <UsageCount Value="165"/>
+>>>>>>> ac4db0fb8e7848df50b7e62de095d5473da4cd23
         <Loaded Value="True"/>
+>>>>>>> e1bf9aa8b2f8986048966810ec2b6c2003689b42
       </Unit>
       <Unit>
         <Filename Value="analizadorsintectico.pas"/>
         <IsPartOfProject Value="True"/>
+<<<<<<< HEAD
         <UnitName Value="AnalizadorSintactico"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
         <TopLine Value="661"/>
         <CursorPos X="36" Y="589"/>
         <UsageCount Value="166"/>
+=======
+        <UnitName Value="AnalizadorSintectico"/>
+<<<<<<< HEAD
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="114"/>
+        <CursorPos X="11" Y="266"/>
+        <UsageCount Value="166"/>
+=======
+        <EditorIndex Value="7"/>
+        <CursorPos X="21"/>
+        <UsageCount Value="157"/>
+>>>>>>> e1bf9aa8b2f8986048966810ec2b6c2003689b42
+>>>>>>> ac4db0fb8e7848df50b7e62de095d5473da4cd23
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="arbol.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Arbol"/>
+<<<<<<< HEAD
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2"/>
+        <CursorPos X="13" Y="11"/>
+        <UsageCount Value="71"/>
+=======
         <EditorIndex Value="6"/>
         <CursorPos X="20" Y="20"/>
         <UsageCount Value="71"/>
         <Loaded Value="True"/>
+>>>>>>> e1bf9aa8b2f8986048966810ec2b6c2003689b42
       </Unit>
       <Unit>
         <Filename Value="pila.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Pila"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="-1"/>
         <CursorPos Y="41"/>
+<<<<<<< HEAD
         <UsageCount Value="70"/>
+=======
+<<<<<<< HEAD
+        <UsageCount Value="70"/>
+=======
+        <UsageCount Value="61"/>
+>>>>>>> ac4db0fb8e7848df50b7e62de095d5473da4cd23
         <Loaded Value="True"/>
+>>>>>>> e1bf9aa8b2f8986048966810ec2b6c2003689b42
       </Unit>
       <Unit>
         <Filename Value="evaluador.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Evaluador"/>
+<<<<<<< HEAD
         <EditorIndex Value="8"/>
         <CursorPos X="50" Y="151"/>
         <UsageCount Value="32"/>
+=======
+<<<<<<< HEAD
+        <EditorIndex Value="2"/>
+        <CursorPos X="6" Y="3"/>
+        <UsageCount Value="32"/>
+=======
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="22"/>
+        <CursorPos X="47" Y="28"/>
+        <UsageCount Value="23"/>
+>>>>>>> e1bf9aa8b2f8986048966810ec2b6c2003689b42
+>>>>>>> ac4db0fb8e7848df50b7e62de095d5473da4cd23
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="lexico.pas"/>
         <UnitName Value="Lexico"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="41"/>
         <CursorPos X="20" Y="79"/>
+<<<<<<< HEAD
         <UsageCount Value="85"/>
+=======
+<<<<<<< HEAD
+        <UsageCount Value="79"/>
+=======
+        <UsageCount Value="80"/>
+>>>>>>> ac4db0fb8e7848df50b7e62de095d5473da4cd23
         <Loaded Value="True"/>
+>>>>>>> e1bf9aa8b2f8986048966810ec2b6c2003689b42
       </Unit>
       <Unit>
         <Filename Value="tipo.pas"/>
         <UnitName Value="Tipo"/>
         <EditorIndex Value="1"/>
+<<<<<<< HEAD
         <TopLine Value="3"/>
         <CursorPos X="80" Y="20"/>
+=======
+        <CursorPos X="30" Y="14"/>
+>>>>>>> ac4db0fb8e7848df50b7e62de095d5473da4cd23
         <UsageCount Value="85"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="lista.pas"/>
         <UnitName Value="Lista"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="33"/>
         <CursorPos Y="50"/>
+<<<<<<< HEAD
         <UsageCount Value="85"/>
         <Loaded Value="True"/>
+=======
+        <UsageCount Value="79"/>
+>>>>>>> ac4db0fb8e7848df50b7e62de095d5473da4cd23
       </Unit>
       <Unit>
         <Filename Value="archivo.pas"/>
         <UnitName Value="Archivo"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="84" Y="2"/>
+<<<<<<< HEAD
         <UsageCount Value="85"/>
         <Loaded Value="True"/>
+=======
+        <UsageCount Value="79"/>
+>>>>>>> ac4db0fb8e7848df50b7e62de095d5473da4cd23
       </Unit>
       <Unit>
         <Filename Value="..\Escritorio\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\analizador_sintactico_unit.pas"/>
@@ -146,10 +219,26 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="605"/>
         <CursorPos X="93" Y="620"/>
+<<<<<<< HEAD
+        <UsageCount Value="7"/>
+=======
+<<<<<<< HEAD
         <UsageCount Value="7"/>
       </Unit>
+      <Unit>
+        <Filename Value="backup\tipo.pas"/>
+        <UnitName Value="Tipo"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="7"/>
+        <UsageCount Value="9"/>
+=======
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+>>>>>>> e1bf9aa8b2f8986048966810ec2b6c2003689b42
+>>>>>>> ac4db0fb8e7848df50b7e62de095d5473da4cd23
+      </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
+    <JumpHistory HistoryIndex="28">
       <Position>
         <Filename Value="analizadorsintectico.pas"/>
         <Caret Line="960" TopLine="936"/>
@@ -265,10 +354,6 @@
       <Position>
         <Filename Value="analizadorsintectico.pas"/>
         <Caret Line="1034" Column="54" TopLine="1011"/>
-      </Position>
-      <Position>
-        <Filename Value="project1.lpr"/>
-        <Caret Line="28" Column="19"/>
       </Position>
     </JumpHistory>
     <RunParams>
