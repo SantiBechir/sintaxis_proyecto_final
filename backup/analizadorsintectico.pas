@@ -1070,7 +1070,6 @@ Procedure AnalizadorPredictivo(Var Fuente:t_arch; Var Raiz:TApuntNodo; Var Error
          Begin                                                           //y el ultimo elemento de la pila desapilado es igual a pesos
           Estado:=Exito;                                                 //entonces se reconocio la cadena
           writeln('El lenguaje ha sido reconocido');
-          readkey;
         End;
     End;
 

@@ -9,18 +9,16 @@
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
         <CursorPos X="73" Y="23"/>
-        <UsageCount Value="164"/>
+        <UsageCount Value="165"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="analizadorsintectico.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="AnalizadorSintectico"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="83"/>
-        <CursorPos X="49" Y="90"/>
-        <UsageCount Value="156"/>
+        <CursorPos X="21"/>
+        <UsageCount Value="157"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -28,9 +26,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Arbol"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="2"/>
-        <CursorPos X="13" Y="11"/>
-        <UsageCount Value="61"/>
+        <CursorPos X="10" Y="21"/>
+        <UsageCount Value="62"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -39,7 +36,18 @@
         <UnitName Value="Pila"/>
         <EditorIndex Value="5"/>
         <CursorPos Y="41"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="evaluador.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Evaluador"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="22"/>
+        <CursorPos X="47" Y="28"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -48,7 +56,6 @@
         <EditorIndex Value="3"/>
         <TopLine Value="41"/>
         <CursorPos X="20" Y="79"/>
-        <FoldState Value=" T3qO0yp"/>
         <UsageCount Value="80"/>
         <Loaded Value="True"/>
       </Unit>
@@ -135,18 +142,10 @@
       <Unit>
         <Filename Value="..\..\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\evaluador.pas"/>
         <UnitName Value="Evaluador"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="605"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="121"/>
         <CursorPos X="93" Y="620"/>
-        <UsageCount Value="8"/>
-      </Unit>
-      <Unit>
-        <Filename Value="evaluador.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="Evaluador"/>
-        <EditorIndex Value="8"/>
-        <CursorPos X="6" Y="3"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="10"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>

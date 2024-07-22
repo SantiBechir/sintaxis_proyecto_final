@@ -37,7 +37,7 @@ Procedure CrearArbol(Var Arbol:TApuntNodo );    {crea raiz del arbol}
 
 Procedure CrearNodo(Complex:GramaticalSymbol; Var Arbol : TApuntNodo);{crea un nodo e inicializa todas las celdas del vector hijo mediante nil}
  Var
-  Ii: Integer;
+  I: Integer;
  Begin
   New(Arbol);
   Arbol^.Simbolo:=Complex;
