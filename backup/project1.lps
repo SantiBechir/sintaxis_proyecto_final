@@ -8,267 +8,38 @@
       <Unit>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
-<<<<<<< HEAD
-        <EditorIndex Value="-1"/>
-=======
->>>>>>> e1bf9aa8b2f8986048966810ec2b6c2003689b42
-        <CursorPos X="73" Y="23"/>
-        <UsageCount Value="164"/>
+        <UsageCount Value="20"/>
       </Unit>
       <Unit>
         <Filename Value="analizadorsintectico.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="AnalizadorSintectico"/>
-<<<<<<< HEAD
-=======
+        <UnitName Value="AnalizadorSintactico"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="7"/>
->>>>>>> e1bf9aa8b2f8986048966810ec2b6c2003689b42
-        <TopLine Value="83"/>
-        <CursorPos X="49" Y="90"/>
-        <UsageCount Value="156"/>
+        <TopLine Value="206"/>
+        <CursorPos X="66" Y="220"/>
+        <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="arbol.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Arbol"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="2"/>
-        <CursorPos X="13" Y="11"/>
-        <UsageCount Value="61"/>
+        <UsageCount Value="20"/>
       </Unit>
       <Unit>
         <Filename Value="pila.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Pila"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos Y="41"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="20"/>
       </Unit>
       <Unit>
         <Filename Value="evaluador.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Evaluador"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="50"/>
-        <CursorPos X="6" Y="3"/>
-        <UsageCount Value="22"/>
-        <Loaded Value="True"/>
-      </Unit>
-      <Unit>
-        <Filename Value="lexico.pas"/>
-        <UnitName Value="Lexico"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="41"/>
-        <CursorPos X="20" Y="79"/>
-        <UsageCount Value="80"/>
-      </Unit>
-      <Unit>
-        <Filename Value="tipo.pas"/>
-        <UnitName Value="Tipo"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="80" Y="20"/>
-        <UsageCount Value="80"/>
-      </Unit>
-      <Unit>
-        <Filename Value="lista.pas"/>
-        <UnitName Value="Lista"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="33"/>
-        <CursorPos Y="50"/>
-        <UsageCount Value="80"/>
-      </Unit>
-      <Unit>
-        <Filename Value="archivo.pas"/>
-        <UnitName Value="Archivo"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="84" Y="2"/>
-        <UsageCount Value="80"/>
-      </Unit>
-      <Unit>
-        <Filename Value="..\Escritorio\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\analizador_sintactico_unit.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="93"/>
-        <CursorPos X="49" Y="95"/>
-        <UsageCount Value="54"/>
-      </Unit>
-      <Unit>
-        <Filename Value="..\Escritorio\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\u_arbol.pas"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="54"/>
-      </Unit>
-      <Unit>
-        <Filename Value="..\..\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\u_arbol.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="37"/>
-        <CursorPos X="68" Y="26"/>
-        <UsageCount Value="7"/>
-      </Unit>
-      <Unit>
-        <Filename Value="..\..\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\analizador_sintactico_unit.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="1032"/>
-        <CursorPos X="43" Y="1040"/>
-        <UsageCount Value="8"/>
-      </Unit>
-      <Unit>
-        <Filename Value="..\..\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\u_archivos.pas"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="7"/>
-      </Unit>
-      <Unit>
-        <Filename Value="..\..\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\lista_ts.pas"/>
-        <UnitName Value="lista_TS"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="50" Y="14"/>
-        <UsageCount Value="7"/>
-      </Unit>
-      <Unit>
-        <Filename Value="..\..\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\u_lista.pas"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="18" Y="44"/>
-        <UsageCount Value="7"/>
-      </Unit>
-      <Unit>
-        <Filename Value="..\..\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\analizador_lexico_unit.pas"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="7"/>
-      </Unit>
-      <Unit>
-        <Filename Value="sintactico.pas"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="44"/>
-        <UsageCount Value="7"/>
-      </Unit>
-      <Unit>
-        <Filename Value="..\..\Nueva carpeta\TP FINAL SINTAXIS-Grupo 3\Codigo\evaluador.pas"/>
-        <UnitName Value="Evaluador"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="605"/>
-        <CursorPos X="93" Y="620"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="20"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="28">
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="960" TopLine="936"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="961" TopLine="936"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="957" TopLine="936"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="959" TopLine="936"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="960" TopLine="936"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="961" TopLine="936"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="957" TopLine="936"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="964" TopLine="936"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="929" TopLine="908"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="931" TopLine="908"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="932" TopLine="908"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="934" TopLine="908"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="936" TopLine="908"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="937" TopLine="908"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="929" TopLine="908"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="931" TopLine="908"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="932" TopLine="908"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="934" TopLine="908"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="936" TopLine="908"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="937" TopLine="908"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="929" TopLine="908"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="931" TopLine="908"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="932" TopLine="908"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="947" TopLine="912"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="949" TopLine="914"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="98" Column="27" TopLine="75"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="126" Column="59" TopLine="107"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="1124" TopLine="1081"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintectico.pas"/>
-        <Caret Line="1034" Column="54" TopLine="1011"/>
-      </Position>
-    </JumpHistory>
+    <JumpHistory HistoryIndex="-1"/>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode=""/>
