@@ -14,15 +14,9 @@
         <Filename Value="analizadorsintectico.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="AnalizadorSintactico"/>
-<<<<<<< HEAD
-        <EditorIndex Value="2"/>
-=======
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="623"/>
-        <CursorPos X="7" Y="623"/>
->>>>>>> d76e32ac9509554ef57a6f47abb1720755b4bda4
+        <EditorIndex Value="-1"/>
+        <TopLine Value="327"/>
         <UsageCount Value="20"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="arbol.pas"/>
@@ -40,34 +34,12 @@
         <Filename Value="evaluador.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Evaluador"/>
-<<<<<<< HEAD
-        <TopLine Value="25"/>
         <UsageCount Value="20"/>
-        <Loaded Value="True"/>
-=======
-        <UsageCount Value="20"/>
->>>>>>> d76e32ac9509554ef57a6f47abb1720755b4bda4
       </Unit>
       <Unit>
         <Filename Value="analizadorsintactico.pas"/>
         <UnitName Value="AnalizadorSintactico"/>
-<<<<<<< HEAD
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="940"/>
-        <CursorPos X="31" Y="961"/>
-=======
-        <EditorIndex Value="1"/>
-        <TopLine Value="886"/>
-        <UsageCount Value="10"/>
-        <Loaded Value="True"/>
-      </Unit>
-      <Unit>
-        <Filename Value="..\..\analizadorsintectico.pas"/>
-        <UnitName Value="AnalizadorSintactico"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="1000"/>
->>>>>>> d76e32ac9509554ef57a6f47abb1720755b4bda4
         <UsageCount Value="10"/>
         <Loaded Value="True"/>
       </Unit>
