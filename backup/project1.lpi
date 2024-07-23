@@ -32,7 +32,7 @@
       <Unit>
         <Filename Value="analizadorsintectico.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="AnalizadorSintectico"/>
+        <UnitName Value="AnalizadorSintactico"/>
       </Unit>
       <Unit>
         <Filename Value="arbol.pas"/>
