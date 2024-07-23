@@ -17,8 +17,10 @@ begin
   while (complex <> pesos) and (complex <> LexicError) do
   begin
     writeln(control,':',complex,' ',lexema);
+    readln();
     ObtenerSiguienteCompLex(fuente,Control,CompLex,Lexema,TS);
-  end; }
+  end;
+  writeln(control,':',complex,' ',lexema);}
   //MOSTRAR_TAS(TAS);
   TestingAnalizadorSintactico(fuente);
   readln();

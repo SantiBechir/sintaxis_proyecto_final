@@ -215,7 +215,7 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VOperacionAsig,TAsignacion]^.Elem[2]:=VEA1;
    TAS[VOperacionAsig,TAsignacion]^.Cant:=2;
 
-   //--OperacionAsig -> ":==" <EM>                                    --- ERROR ----
+   //--OperacionAsig -> ":==" <EM>
    New(TAS[VOperacionAsig,TasigMatriz]);
    TAS[VOperacionAsig,TasigMatriz]^.Elem[1]:=TAsigMatriz;
    TAS[VOperacionAsig,TasigMatriz]^.Elem[2]:=VEM;
@@ -338,17 +338,19 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VEA2,TMenos]^.Elem[2]:= VE2;
    TAS[VEA2,TMenos]^.Cant:= 2;
 
-   //-E2 -> "*" <EA3>
+   //-E2 -> "*" <EA3><E2>
    New(TAS[VE2,TMult]);
    TAS[VE2,TMult]^.Elem[1]:= TMult;
    TAS[VE2,TMult]^.Elem[2]:= VEA3;
-   TAS[VE2,TMult]^.Cant:= 2;
+   TAS[VE2,TMult]^.Elem[3]:= VE2;
+   TAS[VE2,TMult]^.Cant:= 3;
 
-   //-E2 -> "/" <EA3>
+   //-E2 -> "/" <EA3><E2>
    New(TAS[VE2,TDiv]);
    TAS[VE2,TDiv]^.Elem[1]:= TDiv;
    TAS[VE2,TDiv]^.Elem[2]:= VEA3;
-   TAS[VE2,TDiv]^.Cant:= 2;
+   TAS[VE2,TDiv]^.Elem[3]:= VE2;
+   TAS[VE2,TDiv]^.Cant:= 3;
 
    //E2 -> Epsilon
    //
@@ -417,11 +419,12 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VEA3,TMenos]^.Elem[2]:= VE3;
    TAS[VEA3,TMenos]^.Cant:= 2;
 
-   //-E3 -> "^" <EA4>
+   //-E3 -> "^" <EA4><E3>
    New(TAS[VE3,TExp]);
    TAS[VE3,TExp]^.Elem[1]:= TExp;
    TAS[VE3,TExp]^.Elem[2]:= VEA4;
-   TAS[VE3,TExp]^.Cant:= 2;
+   TAS[VE3,TExp]^.Elem[3]:= VE3;
+   TAS[VE3,TExp]^.Cant:= 3;
 
    //E3 -> eps
    //
@@ -503,10 +506,6 @@ Procedure CargarTAS(Var TAS:TTAS);
    //
    New(TAS[VE4,TExp]);
    TAS[VE4,TExp]^.Cant:= 0;
-
-   //
-   New(TAS[VE4,TMult]);
-   TAS[VE4,TMult]^.Cant:= 0;
 
    //
    New(TAS[VE4,TMult]);
@@ -695,7 +694,7 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VEM2,Tid]^.Cant:= 1;
 
    //EM2 -> <EM3>
-   New(TAS[VEM2,TcorcheteL]);                      --- ERROR ---
+   New(TAS[VEM2,TcorcheteL]);
    TAS[VEM2,TcorcheteL]^.Elem[1]:= VEM3;
    TAS[VEM2,TcorcheteL]^.Cant:= 1;
 

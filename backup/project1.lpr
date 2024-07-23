@@ -9,7 +9,7 @@ var
   lexema:string;
   TAS:TTAS;
 begin
-  {assign(fuente,'prueba.txt');
+  assign(fuente,'prueba.txt');
   reset(fuente);
   control:= 0;
   CargarTS(TS);
@@ -17,10 +17,12 @@ begin
   while (complex <> pesos) and (complex <> LexicError) do
   begin
     writeln(control,':',complex,' ',lexema);
+    readln();
     ObtenerSiguienteCompLex(fuente,Control,CompLex,Lexema,TS);
-  end; }
-  MOSTRAR_TAS(TAS);
-  TestingAnalizadorSintactico(fuente);
+  end;
+  writeln(control,':',complex,' ',lexema);
+  //MOSTRAR_TAS(TAS);
+  //TestingAnalizadorSintactico(fuente);
   readln();
 end.
 
