@@ -494,7 +494,7 @@ Begin
       End
          Else
                If EsConstanteReal(Fuente,Control,Lexema) then
-		          CompLex:=treal
+		          CompLex:=tConstReal
                          Else
                               If EsCadena(Fuente,Control,Lexema) then
 		                         CompLex:=TConstCad

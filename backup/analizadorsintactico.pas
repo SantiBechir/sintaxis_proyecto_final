@@ -1098,7 +1098,7 @@ Procedure AnalizadorPredictivo(Var Fuente:t_arch; Var Raiz:TApuntNodo; Var Error
         Else                           //Sino, Error
          Begin
           Estado:=ErrorSintactico;
-          WriteLn('Error Sintactico: se esperaba ', ElementoPila.Simbolo, ' y se encontro ', Complex);
+          WriteLn('Error Sintactico: se esperaba ', ElementoPila.Simbolo, ' y se encontro ', complex);
           WriteLn(Control);
          End
        end

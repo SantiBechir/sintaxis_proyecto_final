@@ -1,5 +1,6 @@
-Program 
-a:Real;
-{print ("Hola");}
-{ 
-{
+Program
+j : real;
+{print ("Hola");
+j = 5;
+print(j);
+}

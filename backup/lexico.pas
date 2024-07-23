@@ -88,6 +88,10 @@ Begin
      palabra.Lexema:='ProdEscMat';
      palabra.compLex:=TProdEscMat;
      InsertarEnLista(TS,palabra);
+
+     palabra.Lexema:='Real';
+     palabra.compLex:=TReal;
+     InsertarEnLista(TS,palabra);
   End;
 
 Procedure InstalarenTS (Var TS:TablaSimbolos; Var Lexema:String; Var complex:GramaticalSymbol);

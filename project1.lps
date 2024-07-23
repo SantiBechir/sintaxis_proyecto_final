@@ -8,7 +8,9 @@
       <Unit>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="20"/>
+        <CursorPos X="5" Y="22"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="analizadorsintectico.pas"/>
@@ -16,35 +18,123 @@
         <UnitName Value="AnalizadorSintactico"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="327"/>
-        <UsageCount Value="20"/>
+        <UsageCount Value="22"/>
       </Unit>
       <Unit>
         <Filename Value="arbol.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Arbol"/>
-        <UsageCount Value="20"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="56"/>
+        <CursorPos X="9" Y="56"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="pila.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Pila"/>
-        <UsageCount Value="20"/>
+        <EditorIndex Value="7"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="evaluador.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Evaluador"/>
-        <UsageCount Value="20"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="594"/>
+        <CursorPos Y="621"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="analizadorsintactico.pas"/>
         <UnitName Value="AnalizadorSintactico"/>
-        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="211"/>
+        <CursorPos X="51" Y="232"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="archivo.pas"/>
+        <UnitName Value="Archivo"/>
+        <EditorIndex Value="3"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="lexico.pas"/>
+        <UnitName Value="Lexico"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="481"/>
+        <CursorPos X="37" Y="497"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="lista.pas"/>
+        <UnitName Value="Lista"/>
+        <EditorIndex Value="6"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="project1.lpi"/>
+        <EditorIndex Value="-1"/>
         <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="XML"/>
+      </Unit>
+      <Unit>
+        <Filename Value="tipo.pas"/>
+        <UnitName Value="Tipo"/>
+        <EditorIndex Value="8"/>
+        <CursorPos X="38" Y="2"/>
+        <UsageCount Value="11"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory HistoryIndex="9">
+      <Position>
+        <Filename Value="analizadorsintactico.pas"/>
+      </Position>
+      <Position>
+        <Filename Value="analizadorsintactico.pas"/>
+        <Caret Line="839" Column="46" TopLine="828"/>
+      </Position>
+      <Position>
+        <Filename Value="evaluador.pas"/>
+        <Caret TopLine="67"/>
+      </Position>
+      <Position>
+        <Filename Value="analizadorsintactico.pas"/>
+        <Caret Line="839" Column="46" TopLine="1118"/>
+      </Position>
+      <Position>
+        <Filename Value="analizadorsintactico.pas"/>
+        <Caret Line="1032" Column="54" TopLine="1027"/>
+      </Position>
+      <Position>
+        <Filename Value="tipo.pas"/>
+      </Position>
+      <Position>
+        <Filename Value="project1.lpr"/>
+        <Caret Line="25" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="project1.lpr"/>
+        <Caret Line="21" Column="9"/>
+      </Position>
+      <Position>
+        <Filename Value="project1.lpr"/>
+        <Caret Line="22" Column="5"/>
+      </Position>
+      <Position>
+        <Filename Value="evaluador.pas"/>
+      </Position>
+    </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode=""/>

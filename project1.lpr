@@ -18,11 +18,9 @@ begin
   begin
     writeln(control,':',complex,' ',lexema);
     ObtenerSiguienteCompLex(fuente,Control,CompLex,Lexema,TS);
-  end;
-  //MOSTRAR_TAS(TAS);}
+  end; }
+  //MOSTRAR_TAS(TAS);
   TestingAnalizadorSintactico(fuente);
-  Readkey;
   readln();
-  close(fuente);
 end.
 
