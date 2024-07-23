@@ -387,8 +387,6 @@ Procedure CargarTAS(Var TAS:TTAS);
    New(TAS[VE2,TDo]);
    TAS[VE2,TDo]^.Cant:=0;
 
-   ///
-
    //-EA3 -> <EA4> <E3>
    New(TAS[VEA3,TconstReal]);
    TAS[VEA3,TconstReal]^.Elem[1]:= VEA4;
@@ -470,8 +468,6 @@ Procedure CargarTAS(Var TAS:TTAS);
    New(TAS[VE3,TDo]);
    TAS[VE3,TDo]^.Cant:= 0;
 
-
-   ///
 
    //-EA4 -> "constReal"
    New(TAS[VEA4,TconstReal]);
@@ -698,10 +694,10 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VEM2,Tid]^.Elem[1]:= VEM3;
    TAS[VEM2,Tid]^.Cant:= 1;
 
-   {//EM2 -> <EM3>
-   New(TAS[VEM2,TcorcheteL]);                      --- ERROR ---
+   //EM2 -> <EM3>
+   New(TAS[VEM2,TcorcheteL]);
    TAS[VEM2,TcorcheteL]^.Elem[1]:= VEM3;
-   TAS[VEM2,TcorcheteL]^.Cant:= 1;  }
+   TAS[VEM2,TcorcheteL]^.Cant:= 1;
 
    //-EM3 -> "ProdEscMat" ( <EA1> "," <EM> )
    New(TAS[VEM3,TProdEscMat]);
