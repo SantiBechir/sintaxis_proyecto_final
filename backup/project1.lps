@@ -53,9 +53,13 @@
         <Filename Value="analizadorsintactico.pas"/>
         <UnitName Value="AnalizadorSintactico"/>
         <EditorIndex Value="1"/>
+
         <TopLine Value="49"/>
         <CursorPos X="15" Y="25"/>
         <UsageCount Value="34"/>
+        <TopLine Value="1103"/>
+        <CursorPos Y="1118"/>
+        <UsageCount Value="15"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -63,6 +67,7 @@
         <UnitName Value="Archivo"/>
         <EditorIndex Value="3"/>
         <UsageCount Value="34"/>
+        <UsageCount Value="15"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -72,6 +77,7 @@
         <TopLine Value="435"/>
         <CursorPos X="37" Y="497"/>
         <UsageCount Value="34"/>
+        <UsageCount Value="15"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -79,6 +85,7 @@
         <UnitName Value="Lista"/>
         <EditorIndex Value="6"/>
         <UsageCount Value="34"/>
+        <UsageCount Value="15"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -91,8 +98,12 @@
         <Filename Value="tipo.pas"/>
         <UnitName Value="Tipo"/>
         <EditorIndex Value="8"/>
+
         <CursorPos X="82" Y="9"/>
         <UsageCount Value="34"/>
+        <CursorPos X="38" Y="2"/>
+        <UsageCount Value="15"/>
+
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -104,6 +115,7 @@
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="27">
+    <JumpHistory HistoryIndex="23">
       <Position>
         <Filename Value="analizadorsintactico.pas"/>
       </Position>

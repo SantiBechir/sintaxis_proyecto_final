@@ -409,98 +409,23 @@ Procedure EvalE3 (Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real;Var Base
      EvalEA1(Arbol^.Hijos.Elem[4],Estado,Res);
     End;
   End;
-
-
- //<EM>::= "SumMat" "(" <EM> "," <EM> )" | "RestMat" "(" <EM> "," <EM> )"  | "MultMat" "(" <EM> "," <EM> )" | "Tr" "(" <EM> ")" | "ProdEscMat" ( <EA1> "," <EM> ) | "id" | <constMatriz>
-
-Procedure EvalEM (Var Arbol:TApuntNodo; Var Estado:TEstado; Var ResMat:VARMatriz);
- Var
-  Op1,Op2:VARMatriz;
-  F,C:1..MaxMatriz;
+                      Arbol^.Hijos^.Elem[2],Estado, ValMatriz
+//<EM>::= <EM1> <M1>
+Procedure EvalEM (Var Arbol:TApuntNodo; Var Estado:TEstado; Var ResMat:NOTENGOCLARO);
  Begin
-  Case Arbol^.Hijos.Elem[1]^.Simbolo of
-   TSumMat:Begin
-            EvalEM(Arbol^.Hijos.Elem[3],Estado,Op1);
-            EvalEM(Arbol^.Hijos.Elem[5],Estado,Op2);
-             If (Op1.Fil = Op2.Fil) and (Op1.Col = Op2.Col) then
-              Begin
-               For F:= 1 to Op1.Fil do
-                Begin
-                 For C:= 1 to Op1.Col do
-                  ResMat^.MatrizReal[F,C]:= Op1.MatrizReal[F,C] + Op2.MatrizReal[F,C];
-                End;
-              End;
-           End;
-   TRestMat:Begin
-             EvalEM(Arbol^.Hijos.Elem[3],Estado,Op1);
-             EvalEM(Arbol^.Hijos.Elem[5],Estado,Op2);
-              If (Op1.Fil = Op2.Fil) and (Op1.Col = Op2.Col) then
-               Begin
-                For F:= 1 to Op1.Fil do
-                 Begin
-                  For C:= 1 to Op1.Col do
-                   ResMat^.MatrizReal[F,C]:= Op1.MatrizReal[F,C] - Op2.MatrizReal[F,C];
-                 End;
-               End
-              Else
-               WriteLn('Tamaño de matrices incomaptibles');
-            End;
-   TMultMat:Begin
-             EvalEM(Arbol^.Hijos.Elem[3],Estado,Op1);
-             EvalEM(Arbol^.Hijos.Elem[5],Estado,Op2);
-              If Op1.Col <> Op2.Fil then
-               WriteLn('Col de Matriz 1 no coinciden con Fil Matriz 2 ')
-              Else
-               Begin
-                For F:=1 to Op1.Fil do
-                 Begin
-                  For C:=1 to Op2.Col do
-                   Begin
-                    For K := 1 to Op1.Col do
-                     ResMat.MatrizReal[F,C]:=Op1.MatrizReal[F,K]*Op2.MatrizReal[K,C];
-                   End;
-                 End;
-               End;
-            End;
-   TTr:Begin
-        EvalEM(Arbol^.Hijos.Elem[3],Estado,Op1);
-         For F:= 1 to Op1.Fil do
-          Begin
-           For C:= 1 to Op1.Col do
-                  ResMat^.MatrizReal[C,F]:= Op1.MatrizReal[F,C]
-                End;
-              End;
-           End;
-   TProdEscMat:
-   Tid:
-   VConstMatriz:EvalConstMatriz(Arbol^.Hijos.Elem[1],Estado,ResMat);
-
-  End;
- End;
-  //Case Hijo 1
-  //Segun este EvalEM
-  //Op1 y Op2
-  //llamar proced que sume y reste.... probablemente con dimensiones
-
-
-{//<EM>::= <EM1> <M1>
-Procedure EvalEM (Var Arbol:TApuntNodo; Var Estado:TEstado; Var ResMat:VARMatriz);
- Var
-  Op1:VARMatriz;
- Begin
-  EvalEM1(Arbol^.Hijos.Elem[1],Estado,Op1);
-  EvalM1(Arbol^.Hijos.Elem[1],Estado,ResMat,Op1);
+  EvalEM1(Arbol^.Hijos.Elem[1],Estado,ResMat);
+  EvalM1(Arbol^.Hijos.Elem[1],Estado,ResMat);
  End;
 
 
 //<M1>::= "SumMat" "(" <EM> "," <EM> )" | "RestMat" "(" <EM> "," <EM> )"  | eps
-Procedure EvalM1 (Var Arbol:TApuntNodo; Var Estado:TEstado; Var ResMat,Op1:VARMatriz);
+Procedure EvalM1 (Var Arbol:TApuntNodo; Var Estado:TEstado; Var ResMat:NOTENGOCLARO);
  Begin
   If Arbol^.Hijos.Cant <> 0 then
    Begin
     Case Arbol^.Hijos.Elem[1]^.Simbolo of
      TSumMat:Begin
-              EvalEM(Arbol^.Hijos.Elem[3],Estado,ResMat);
+              EvalEM(Arbol^.Hijos.Elem[3],Estado,ResMat);      //Como diferencio summat y restmat
               EvalEM(Arbol^.Hijos.Elem[5],Estado,ResMat);
              End;
      TRestMat:Begin
@@ -508,8 +433,7 @@ Procedure EvalM1 (Var Arbol:TApuntNodo; Var Estado:TEstado; Var ResMat,Op1:VARMa
               EvalEM(Arbol^.Hijos.Elem[5],Estado,ResMat);
              End;
     End;
-   End
-
+   End;
  End;
 
 
@@ -571,7 +495,7 @@ Procedure EvalEMM(Var Arbol:TApuntNodo; Var Estado:TEstado; Var ResMat:NOTENGOCL
      Begin
       EvalConstMatriz(Arbol^.Hijos.Elem[1],Estado,ResMat);
      End;
- End; }
+ End;
 
 //<constMatriz> ::= "[" <Filas> "]"
 Procedure EvalConstMatriz (Var Arbol:TApuntNodo; Var Estado:TEstado;Var ResMat:VARMatriz);

@@ -43,19 +43,28 @@
         <Filename Value="evaluador.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Evaluador"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
         <TopLine Value="4"/>
         <CursorPos X="5" Y="754"/>
         <UsageCount Value="67"/>
+        <TopLine Value="620"/>
+        <CursorPos X="57" Y="627"/>
+        <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="analizadorsintactico.pas"/>
         <UnitName Value="AnalizadorSintactico"/>
         <EditorIndex Value="1"/>
+
         <TopLine Value="49"/>
         <CursorPos X="15" Y="25"/>
         <UsageCount Value="34"/>
+
+        <TopLine Value="1103"/>
+        <CursorPos X="14" Y="1109"/>
+        <UsageCount Value="15"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -143,10 +152,6 @@
       </Position>
       <Position>
         <Filename Value="analizadorsintactico.pas"/>
-        <Caret Line="15" Column="24" TopLine="16"/>
-      </Position>
-      <Position>
-        <Filename Value="analizadorsintactico.pas"/>
         <Caret Line="31" Column="22" TopLine="16"/>
       </Position>
       <Position>
@@ -212,6 +217,8 @@
       <Position>
         <Filename Value="evaluador.pas"/>
         <Caret Line="183" Column="35" TopLine="181"/>
+        <Filename Value="evaluador.pas"/>
+        <Caret Line="52" Column="55" TopLine="42"/>
       </Position>
     </JumpHistory>
     <RunParams>
