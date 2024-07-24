@@ -9,7 +9,7 @@
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
         <CursorPos X="3" Y="25"/>
-        <UsageCount Value="28"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -18,7 +18,7 @@
         <UnitName Value="AnalizadorSintactico"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="327"/>
-        <UsageCount Value="28"/>
+        <UsageCount Value="31"/>
       </Unit>
       <Unit>
         <Filename Value="arbol.pas"/>
@@ -27,7 +27,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="56"/>
         <CursorPos X="9" Y="56"/>
-        <UsageCount Value="28"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -35,7 +35,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Pila"/>
         <EditorIndex Value="7"/>
-        <UsageCount Value="28"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -45,24 +45,23 @@
         <EditorIndex Value="4"/>
         <TopLine Value="42"/>
         <CursorPos Y="621"/>
-        <UsageCount Value="28"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="analizadorsintactico.pas"/>
         <UnitName Value="AnalizadorSintactico"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="1102"/>
-        <CursorPos Y="1118"/>
-        <UsageCount Value="14"/>
+        <TopLine Value="545"/>
+        <CursorPos X="15" Y="564"/>
+        <UsageCount Value="16"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="archivo.pas"/>
         <UnitName Value="Archivo"/>
         <EditorIndex Value="3"/>
-        <UsageCount Value="14"/>
+        <UsageCount Value="16"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -71,14 +70,14 @@
         <EditorIndex Value="5"/>
         <TopLine Value="481"/>
         <CursorPos X="37" Y="497"/>
-        <UsageCount Value="14"/>
+        <UsageCount Value="16"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="lista.pas"/>
         <UnitName Value="Lista"/>
         <EditorIndex Value="6"/>
-        <UsageCount Value="14"/>
+        <UsageCount Value="16"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -90,13 +89,14 @@
       <Unit>
         <Filename Value="tipo.pas"/>
         <UnitName Value="Tipo"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="8"/>
-        <CursorPos X="38" Y="2"/>
-        <UsageCount Value="14"/>
+        <CursorPos X="82" Y="9"/>
+        <UsageCount Value="16"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="21">
+    <JumpHistory HistoryIndex="26">
       <Position>
         <Filename Value="analizadorsintactico.pas"/>
       </Position>
@@ -182,21 +182,30 @@
         <Filename Value="analizadorsintactico.pas"/>
         <Caret Line="1102" Column="47" TopLine="1079"/>
       </Position>
+      <Position>
+        <Filename Value="analizadorsintactico.pas"/>
+        <Caret Line="1121" Column="54" TopLine="1102"/>
+      </Position>
+      <Position>
+        <Filename Value="analizadorsintactico.pas"/>
+        <Caret Line="1122" Column="79" TopLine="1102"/>
+      </Position>
+      <Position>
+        <Filename Value="analizadorsintactico.pas"/>
+        <Caret Line="566" Column="10" TopLine="589"/>
+      </Position>
+      <Position>
+        <Filename Value="analizadorsintactico.pas"/>
+        <Caret Line="584" Column="14" TopLine="571"/>
+      </Position>
+      <Position>
+        <Filename Value="tipo.pas"/>
+        <Caret Line="9" Column="82"/>
+      </Position>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode=""/>
     </RunParams>
   </ProjectSession>
-  <Debugging>
-    <BreakPoints>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="analizadorsintactico.pas"/>
-        <Line Value="1118"/>
-      </Item>
-    </BreakPoints>
-  </Debugging>
 </CONFIG>

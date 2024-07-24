@@ -560,173 +560,63 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VE4,TcorcheteL]^.Elem[5]:= TcorcheteR;
    TAS[VE4,TcorcheteL]^.Cant:= 5;
 
-   //-EM -> <EM1> <M1>
+   //-EM -> "SumMat" "(" <EM> "," <EM> ")"
+   New(TAS[VEM,TSumMat]);
+   TAS[VEM,TSumMat]^.Elem[1]:= TSumMat;
+   TAS[VEM,TSumMat]^.Elem[2]:= TParentesisL;
+   TAS[VEM,TSumMat]^.Elem[3]:= VEM;
+   TAS[VEM,TSumMat]^.Elem[4]:= TComa;
+   TAS[VEM,TSumMat]^.Elem[5]:= VEM;
+   TAS[VEM,TSumMat]^.Elem[6]:= TParentesisR;
+   TAS[VEM,TSumMat]^.Cant:= 6;
+
+   //-EM -> "RestMat" "(" <EM> "," <EM> ")"
+   New(TAS[VEM,TRestMat]);
+   TAS[VEM,TRestMat]^.Elem[1]:= TRestMat;
+   TAS[VEM,TRestMat]^.Elem[2]:= TParentesisL;
+   TAS[VEM,TRestMat]^.Elem[3]:= VEM;
+   TAS[VEM,TRestMat]^.Elem[4]:= TComa;
+   TAS[VEM,TRestMat]^.Elem[5]:= VEM;
+   TAS[VEM,TRestMat]^.Elem[6]:= TParentesisR;
+   TAS[VEM,TRestMat]^.Cant:= 6;
+
+   //-EM -> "MultMat" "(" <EM> "," <EM> )"
+   New(TAS[VEM,TMultMat]);
+   TAS[VEM,TMultMat]^.Elem[1]:= TMultMat;
+   TAS[VEM,TMultMat]^.Elem[2]:= TParentesisL;
+   TAS[VEM,TMultMat]^.Elem[3]:= VEM;
+   TAS[VEM,TMultMat]^.Elem[4]:= TComa;
+   TAS[VEM,TMultMat]^.Elem[5]:= VEM;
+   TAS[VEM,TMultMat]^.Elem[6]:= TParentesisR;
+   TAS[VEM,TMultMat]^.Cant:= 6;
+
+   //-EM -> "Tr" "(" <EM> ")"
    New(TAS[VEM,TTr]);
-   TAS[VEM,TTr]^.Elem[1]:= VEM1;
-   TAS[VEM,TTr]^.Elem[2]:= VM1;
-   TAS[VEM,TTr]^.Cant:= 2;
+   TAS[VEM,TTr]^.Elem[1]:= TTr;
+   TAS[VEM,TTr]^.Elem[2]:= TParentesisL;
+   TAS[VEM,TTr]^.Elem[3]:= VEM;
+   TAS[VEM,TTr]^.Elem[4]:= TParentesisR;
+   TAS[VEM,TTr]^.Cant:= 4;
 
-   //-EM -> <EM1> <M1>
+   //-EM -> "ProdEscMat" ( <EA1> "," <EM> )
    New(TAS[VEM,TProdEscMat]);
-   TAS[VEM,TProdEscMat]^.Elem[1]:= VEM1;
-   TAS[VEM,TProdEscMat]^.Elem[2]:= VM1;
-   TAS[VEM,TProdEscMat]^.Cant:= 2;
+   TAS[VEM,TProdEscMat]^.Elem[1]:= TProdEscMat;
+   TAS[VEM,TProdEscMat]^.Elem[2]:= TParentesisL;
+   TAS[VEM,TProdEscMat]^.Elem[3]:= VEA1;
+   TAS[VEM,TProdEscMat]^.Elem[4]:= TComa;
+   TAS[VEM,TProdEscMat]^.Elem[5]:= VEM;
+   TAS[VEM,TProdEscMat]^.Elem[6]:= TParentesisR;
+   TAS[VEM,TProdEscMat]^.Cant:= 6;
 
-   //-EM -> <EM1> <M1>
+   //-EM -> "id"
    New(TAS[VEM,Tid]);
-   TAS[VEM,Tid]^.Elem[1]:= VEM1;
-   TAS[VEM,Tid]^.Elem[2]:= VM1;
-   TAS[VEM,Tid]^.Cant:= 2;
+   TAS[VEM,Tid]^.Elem[1]:= Tid;
+   TAS[VEM,Tid]^.Cant:= 1;
 
-   //-EM -> <EM1> <M1>
+   //-EM -> <constMatriz>
    New(TAS[VEM,TcorcheteL]);
-   TAS[VEM,TcorcheteL]^.Elem[1]:= VEM1;
-   TAS[VEM,TcorcheteL]^.Elem[2]:= VM1;
-   TAS[VEM,TcorcheteL]^.Cant:= 2;
-
-   //-M1 -> "SumMat" "(" <EM> "," <EM> ")"
-   New(TAS[VM1,TSumMat]);
-   TAS[VM1,TSumMat]^.Elem[1]:= TSumMat;
-   TAS[VM1,TSumMat]^.Elem[2]:= TParentesisL;
-   TAS[VM1,TSumMat]^.Elem[3]:= VEM;
-   TAS[VM1,TSumMat]^.Elem[4]:= TComa;
-   TAS[VM1,TSumMat]^.Elem[5]:= VEM;
-   TAS[VM1,TSumMat]^.Elem[6]:= TParentesisR;
-   TAS[VM1,TSumMat]^.Cant:= 6;
-
-   //-M1 -> "RestMat" "(" <EM> "," <EM> ")"
-   New(TAS[VM1,TRestMat]);
-   TAS[VM1,TRestMat]^.Elem[1]:= TRestMat;
-   TAS[VM1,TRestMat]^.Elem[2]:= TParentesisL;
-   TAS[VM1,TRestMat]^.Elem[3]:= VEM;
-   TAS[VM1,TRestMat]^.Elem[4]:= TComa;
-   TAS[VM1,TRestMat]^.Elem[5]:= VEM;
-   TAS[VM1,TRestMat]^.Elem[6]:= TParentesisR;
-   TAS[VM1,TRestMat]^.Cant:= 6;
-
-   //M1 -> eps
-   //
-   New(TAS[VM1,TParentesisR]);
-   TAS[VM1,TParentesisR]^.Cant:=0;
-
-   //
-   New(TAS[VM1,TComa]);
-   TAS[VM1,TComa]^.Cant:=0;
-
-   //
-   New(TAS[VM1,Tpuntocoma]);
-   TAS[VM1,Tpuntocoma]^.Cant:=0;
-
-   //-EM1 -> <EM2> <M2>
-   New(TAS[VEM1,TTr]);
-   TAS[VEM1,TTr]^.Elem[1]:= VEM2;
-   TAS[VEM1,TTr]^.Elem[2]:= VM2;
-   TAS[VEM1,TTr]^.Cant:= 2;
-
-   //-EM1 -> <EM2> <M2>
-   New(TAS[VEM1,TProdEscMat]);
-   TAS[VEM1,TProdEscMat]^.Elem[1]:= VEM2;
-   TAS[VEM1,TProdEscMat]^.Elem[2]:= VM2;
-   TAS[VEM1,TProdEscMat]^.Cant:= 2;
-
-   //-EM1 -> <EM2> <M2>
-   New(TAS[VEM1,Tid]);
-   TAS[VEM1,Tid]^.Elem[1]:= VEM2;
-   TAS[VEM1,Tid]^.Elem[2]:= VM2;
-   TAS[VEM1,Tid]^.Cant:= 2;
-
-   //-EM1 -> <EM2> <M2>
-   New(TAS[VEM1,TcorcheteL]);
-   TAS[VEM1,TcorcheteL]^.Elem[1]:= VEM2;
-   TAS[VEM1,TcorcheteL]^.Elem[2]:= VM2;
-   TAS[VEM1,TcorcheteL]^.Cant:= 2;
-
-   //-M2 -> "MultMat" "(" <EM> "," <EM> )"
-   New(TAS[VM2,TMultMat]);
-   TAS[VM2,TMultMat]^.Elem[1]:= TMultMat;
-   TAS[VM2,TMultMat]^.Elem[2]:= TParentesisL;
-   TAS[VM2,TMultMat]^.Elem[3]:= VEM;
-   TAS[VM2,TMultMat]^.Elem[4]:= TComa;
-   TAS[VM2,TMultMat]^.Elem[5]:= VEM;
-   TAS[VM2,TMultMat]^.Elem[6]:= TParentesisR;
-   TAS[VM2,TMultMat]^.Cant:= 6;
-
-   //M2 -> eps
-
-   //
-   New(TAS[VM2,TSumMat]);
-   TAS[VM2,TSumMat]^.Cant:= 0;
-
-   //
-   New(TAS[VM2,TRestMat]);
-   TAS[VM2,TRestMat]^.Cant:= 0;
-
-   //
-   New(TAS[VM2,Tpuntocoma]);
-   TAS[VM2,Tpuntocoma]^.Cant:= 0;
-
-   //
-   New(TAS[VM2,TComa]);
-   TAS[VM2,TComa]^.Cant:= 0;
-
-   //
-   New(TAS[VM2,TParentesisR]);
-   TAS[VM2,TParentesisR]^.Cant:= 0;
-
-   ///
-
-   //-EM2 -> "Tr" "(" <EM> ")"
-   New(TAS[VEM2,TTr]);
-   TAS[VEM2,TTr]^.Elem[1]:= TTr;
-   TAS[VEM2,TTr]^.Elem[2]:= TParentesisL;
-   TAS[VEM2,TTr]^.Elem[3]:= VEM;
-   TAS[VEM2,TTr]^.Elem[4]:= TParentesisR;
-   TAS[VEM2,TTr]^.Cant:= 4;
-
-   //-EM2 -> <EM3>
-   New(TAS[VEM2,TProdEscMat]);
-   TAS[VEM2,TProdEscMat]^.Elem[1]:= VEM3;
-   TAS[VEM2,TProdEscMat]^.Cant:= 1;
-
-   //-EM2 -> <EM3>
-   New(TAS[VEM2,Tid]);
-   TAS[VEM2,Tid]^.Elem[1]:= VEM3;
-   TAS[VEM2,Tid]^.Cant:= 1;
-
-   //EM2 -> <EM3>
-   New(TAS[VEM2,TcorcheteL]);
-   TAS[VEM2,TcorcheteL]^.Elem[1]:= VEM3;
-   TAS[VEM2,TcorcheteL]^.Cant:= 1;
-
-   //-EM3 -> "ProdEscMat" ( <EA1> "," <EM> )
-   New(TAS[VEM3,TProdEscMat]);
-   TAS[VEM3,TProdEscMat]^.Elem[1]:= TProdEscMat;
-   TAS[VEM3,TProdEscMat]^.Elem[2]:= TParentesisL;
-   TAS[VEM3,TProdEscMat]^.Elem[3]:= VEA1;
-   TAS[VEM3,TProdEscMat]^.Elem[4]:= TComa;
-   TAS[VEM3,TProdEscMat]^.Elem[5]:= VEM;
-   TAS[VEM3,TProdEscMat]^.Elem[6]:= TParentesisR;
-   TAS[VEM3,TProdEscMat]^.Cant:= 6;
-
-   //-EM3 -> <EMM>
-   New(TAS[VEM3,Tid]);
-   TAS[VEM3,Tid]^.Elem[1]:= VEMM;
-   TAS[VEM3,Tid]^.Cant:= 1;
-
-   //-EM3 -> <EMM>
-   New(TAS[VEM3,TcorcheteL]);
-   TAS[VEM3,TcorcheteL]^.Elem[1]:= VEMM;
-   TAS[VEM3,TcorcheteL]^.Cant:= 1;
-
-   //-EMM -> "id"
-   New(TAS[VEMM,Tid]);
-   TAS[VEMM,Tid]^.Elem[1]:= Tid;
-   TAS[VEMM,Tid]^.Cant:= 1;
-
-   //-EMM -> <constMatriz>
-   New(TAS[VEMM,TcorcheteL]);
-   TAS[VEMM,TcorcheteL]^.Elem[1]:= VConstMatriz;
-   TAS[VEMM,TcorcheteL]^.Cant:= 1;
+   TAS[VEM,TcorcheteL]^.Elem[1]:= VConstMatriz;
+   TAS[VEM,TcorcheteL]^.Cant:= 1;
 
    //-constMatriz -> "["<Filas>"]"
    New(TAS[VConstMatriz,TcorcheteL]);

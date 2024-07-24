@@ -6,8 +6,7 @@ Uses
   Crt;
 Type  // Simbolos gramaticales
   GramaticalSymbol=(VPrograma, VDec, VVariable, VMatrizReal, VCuerpo, VSeguido,VSent,
-  VAsignacion, VOperacionAsig, VEA1, VEA2 ,VEA3 , VEA4, VE1, VE2 ,VE3 , VE4, VEM, VM1, VM2 , VEM1 ,VEM2 , VEM3, VEMM,
-  VConstMatriz, VFilas, VFacFilas, VColumnas,VFacColumnas, VLectura, VEscritura, VListaElementos, VFacListElem, VElemento,
+  VAsignacion, VOperacionAsig, VEA1, VEA2 ,VEA3 , VEA4, VE1, VE2 ,VE3 , VE4, VEM,VConstMatriz, VFilas, VFacFilas, VColumnas,VFacColumnas, VLectura, VEscritura, VListaElementos, VFacListElem, VElemento,
   VCondicional, VFacCondicional, VCiclo, VCond, VFTAM,
 
   TProgram, TllaveL, TllaveR, Tid, Tdospuntos, Tpuntocoma {;}, TReal, TcorcheteL{[},TconstReal, TNumeral, TcorcheteR{]},
