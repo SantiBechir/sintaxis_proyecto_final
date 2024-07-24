@@ -19,7 +19,7 @@ Forma BNF:
 // HACER CONSTANTES REALES SÓLO POSITIVAS.
 
 <EA1>::= <EA2> <E1>
-<E1>::= "+" <EA2> <E1> | "-" <EA2> <E1> | eps	
+<E1>::= "+" <EA2> <E1> | "-" <EA2> <E1> | eps
 <EA2>::= <EA3> <E2>
 <E2>::= "*" <EA3> | "/" <EA3> | eps 
 <EA3>::= <EA4> <E3>
@@ -29,13 +29,7 @@ Forma BNF:
 
 // PUEDE CONVENIR DIFERENCIAR LOS OPERADORES ARITMETICOS DE LOS MATRICIALES.
 
-<EM>::= <EM1> <M1>
-<M1>::= "SumMat" "(" <EM> "," <EM> )" | "RestMat" "(" <EM> "," <EM> )"  | eps
-<EM1>::= <EM2> <M2> 
-<M2>::= "MultMat" "(" <EM> "," <EM> )"  | eps	
-<EM2>::= "Tr" "(" <EM> ")" | <EM3>
-<EM3>::= "ProdEscMat" ( <EA1> "," <EM> )  | <EMM>				 	
-<EMM>::= "id" | <constMatriz>
+<EM>::= "SumMat" "(" <EM> "," <EM> )" | "RestMat" "(" <EM> "," <EM> )" | "MultMat" "(" <EM> "," <EM> )" |"Tr" "(" <EM> ")" | "ProdEscMat" ( <EA1> "," <EM> ) | "id" | <constMatriz>
 
 //A :== [[1,2,3],[4,5,6]]
 
@@ -66,11 +60,6 @@ Forma BNF:
 
 // LISTA DE VARIABLES Y TERMINALES
 
-Variables: Programa , Dec , Variable , MatrizReal , Cuerpo , Sent , Asignacion , EA1 , EA2 , EA3 , EA4 , EM , EM1 , EM2 , EM3 , EMM , Lectura , Escritura , Condicional , Ciclo , Cond , FTAM , Seguido , OperacionAsig , E1 , E2 , E3 , E4 , M1 , M2 , constMatriz , Filas , FacFilas , Columnas , FacColumnas , listaElementos , FacListElem , Elemento , FacCondicional
-
-
-<<<<<<< HEAD
-Terminales: {  , } , print, constReal , id , , , : , Program , While , do , If , then , else , read , ( , ) , constCad , + , - , / , ^ , * , Tr , [ , ] , # , ;  , fTam, real, = , :== , ** , constMatriz , OPR , ProdEscMat
+Variables: Programa , Dec , Variable , MatrizReal , Cuerpo , Sent , Asignacion , EA1 , EA2 , EA3 , EA4 , EM , Lectura , Escritura , Condicional , Ciclo , Cond , FTAM , Seguido , OperacionAsig , E1 , E2 , E3 , E4 , constMatriz , Filas , FacFilas , Columnas , FacColumnas , listaElementos , FacListElem , Elemento , FacCondicional
 =======
 Terminales: { , } , print, constReal , id , , , : , Program , While , do , If , then , else , read , ( , ) , constCad , + , - , / , ^ , * , Tr , [ , ] , # , ; , fTam, = , :== , OPR, real, SumMat, RestMat, MultMat, ProdEscMat
->>>>>>> 6bfdacf690f7988dce891b2dc00fbc786736baeb

@@ -13,13 +13,18 @@ Const
 Type
  TTipo = (Treal,TMatrizReal);
 
+ VARMatriz = Record
+  MatrizReal:Array[1..MaxMatriz,1..MaxMatriz] Of Real;
+  Fil:Integer;
+  Col:Integer;
+             End;
+
+
  TElemEstado = Record
   LexemaId:String;
   Tipo:TTipo;
   ValReal:Real;
-  ValMatrizReal:Array[1..MaxMatriz,1..MaxMatriz] Of Real;
-  CantFil:Integer;
-  CantCol:Integer;
+  ValMatrizReal:VARMatriz;
                End;
 
  TEstado = Record
@@ -32,7 +37,7 @@ Procedure InicializadorEst(Var Estado:TEstado); //Pone en 0 la cantidad de eleme
 Function ValorDeTReal(Var E:TEstado; Lexemaid:String; Indice:byte): Real;   //Devuelve el valor real de una variable identificador)?
 Procedure AgregarVar(Var E:TEstado; Var LexemaId:String; Var Tipo:TTipo; Var TamFil:Integer; Var TamCol:Integer);  //Inicializa con los valores en 0
 Procedure AsignarReal (Var E:TEstado; Var LexemaId:String; Valor:Real);   //Asigna un ValReal
-Procedure AsignarMatriz (Var E:TEstado; Var LexemaId:String; Valor:Real);    //A un id le asigna una matriz
+Procedure AsignarMatriz (Var E:TEstado; Var LexemaId:String; Valor:VARMatriz);    //A un id le asigna una matriz
 Procedure AsignarCeldaMat (Var E:TEstado; Var LexemaId:String; Fil,Col:Integer; Valor:Real);   //Asigna un valor a una celda de la matriz
 
 
@@ -41,21 +46,26 @@ Procedure evaluador_semantico(Var FFuente:t_arch);
 //Evaluadores:
 Procedure EvalProgram (Var Arbol:TApuntNodo; Var Estado:TEstado);
 Procedure EvalDec (Var Arbol:TApuntNodo; Var Estado:TEstado);
-Procedure EvalVariable (Var Arbol:TApuntNodo; Var Estado:TEstado; Identif:String ; Var Tipo:TTipo ;Var TamFil:Integer ; Var TamCol: Integer);
-Procedure EvalMatrizReal(Var Arbol:TApuntNodo; Var Fil: Integer; Var Col:Integer);   //CantCol y CantFil a la larga son integer
+Procedure EvalVariable (Var Arbol:TApuntNodo; Var Estado:TEstado; Identif:String ; Var Tipo:TTipo ;Var TamFil,TamCol: Integer);
+Procedure EvalMatrizReal(Var Arbol:TApuntNodo; Var Fil,Col: Integer );
 Procedure EvalCuerpo (Var Arbol:TApuntNodo; Var Estado:TEstado);
 Procedure EvalSeguido (Var Arbol:TApuntNodo; Var Estado:TEstado);
 Procedure EvalSent (Var Arbol:TApuntNodo; Var Estado:TEstado);
 Procedure EvalAsignacion (Var Arbol:TApuntNodo;Var Estado:TEstado);
 Procedure EvalOperacionAsig(Var Arbol:TApuntNodo;Var Estado:TEstado; NombreVar:String);
 Procedure EvalEA1 (Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real);
-Procedure EvalE1 (Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real);
+Procedure EvalE1 (Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real; Var Op1:Real);
 Procedure EvalEA2(Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real);
-Procedure EvalE2(Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real);
+Procedure EvalE2 (Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real; Var Op1:Real);
 Procedure EvalEA3(Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real);
-Procedure EvalE3(Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real);
-Procedure EvalEA4(Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real);
-Procedure EvalE4(Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real);
+Procedure EvalE3 (Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real;Var Base:Real);
+Procedure EvalEA4 (Var Arbol:TApuntNodo; Var Estado:TEstado; Var Res:Real);
+Procedure EvalE4(Var Arbol:TApuntNodo; Var Estado:TEstado; Var Res:Real);
+Procedure EvalConstMatriz (Var Arbol:TApuntNodo; Var Estado:TEstado;Var ResMat:VARMatriz);
+Procedure EvalFilas(Var Arbol:TApuntNodo; Var Estado:TEstado;Var ResMat:VARMatriz );
+Procedure EvalFacFilas(Var Arbol:TApuntNodo; Var Estado:TEstado;Var ResMat:VARMatriz );
+Procedure EvalColumnas (Var Arbol:TApuntNodo; Var Estado:TEstado;Var ResMat:VARMatriz);
+Procedure EvalFacColumnas (Var Arbol:TApuntNodo; Var Estado:TEstado;Var ResMat:VARMatriz);
 Procedure EvalLectura (Var Arbol:TApuntNodo; Var Estado:TEstado);
 Procedure EvalEscritura(Var Arbol:TApuntNodo; Var Estado:TEstado);
 Procedure EvalListaElementos (Var Arbol:TApuntNodo; Var Estado:TEstado);
@@ -65,6 +75,8 @@ Procedure EvalCondicional (Var Arbol:TApuntNodo; Var Estado:TEstado);
 Procedure EvalFacCondicional (Var Arbol:TApuntNodo; Var Estado:TEstado);
 Procedure EvalCiclo (Var Arbol:TApuntNodo; Var Estado:TEstado);
 Procedure EvalCond (Var Arbol:TApuntNodo; Var Estado:TEstado);
+
+Procedure EvalFTAM (Var Arbol:TApuntNodo; Var Estado:TEstado; Var Res:Real);
 Implementation
 
  Procedure InicializadorEst(Var Estado:TEstado);
@@ -94,12 +106,14 @@ Function ValorDeTReal (Var E:TEstado; Lexemaid:String; Indice: Byte): Real;     
    E.Elementos[E.Cant].LexemaId := lexemaId;
    E.Elementos[E.Cant].Tipo:= Tipo;
    E.Elementos[E.Cant].Valreal:= 0;
-   E.Elementos[E.Cant].CantFil:=0;
-   E.Elementos[E.Cant].CantCol:=0;
+
+///
+   E.Elementos[E.Cant].ValMatrizReal.CantFil:=0;
+   E.Elementos[E.Cant].ValMatrizReal.CantCol:=0;
    For I:= 1 to TamFil do
     Begin
      For J:= 1 to TamCol do
-      E.Elementos[E.Cant].ValMatrizReal[I,J]:= 00; //Con doble cero se que la celda esta inicializada y que no es un elemento
+      E.Elementos[E.Cant].ValMatrizReal.MatrizReal[I,J]:= 0;
     End;
   End;
 
@@ -117,7 +131,7 @@ Function ValorDeTReal (Var E:TEstado; Lexemaid:String; Indice: Byte): Real;     
    End;
  End;
 
-Procedure AsignarMatriz (Var E:TEstado; Var LexemaId:String; Valor:Real);
+Procedure AsignarMatriz (Var E:TEstado; Var LexemaId:String; Valor:VARMatriz);
  Var
   I :1..MaxVar;
  Begin
@@ -125,7 +139,7 @@ Procedure AsignarMatriz (Var E:TEstado; Var LexemaId:String; Valor:Real);
    Begin
     If Upcase(E.Elementos[I].LexemaId) = Upcase(LexemaId) then //Busco el lexema (El id)
      Begin
-      E.Elemento[I].LexemaId.Tipo:= TMatrizReal;
+      E.Elemento[I].ValMatrizReal:= Valor;
      End;
    End;
  End;
@@ -246,14 +260,14 @@ Procedure EvalOperacionAsig(Var Arbol:TApuntNodo;Var Estado:TEstado; NombreVar:S
  Var
   Resultado,ResultadoFila,ResultadoCol:Real;
   Fil,Col:Integer;
-  ValMatriz:TMatrizReal; //TTipo?   // Estaba como TMatriz?????????
+  ValMatriz:VARMatriz;
  Begin
   Case Arbol^.Hijos.Elem[1]^.Simbolo of
    TAsignacion:Begin
                 EvalEA1(Arbol^.Hijos.Elem[2],Estado,Resultado);
                 AsignarReal(Estado, NombreVar, Resultado);
                End;
-   TAsigMatriz:Begin  //No deberia hacer un for desde 1 hasta la cant de fil/col que tenga para que me devuelva el real que tiene esa celda y poder asignarlo en "AsignarMatriz"
+   TAsigMatriz:Begin
                 EvalEM(Arbol^.Hijos^.Elem[2],Estado, ValMatriz);  //No tengo claro como funcionaria
                 AsignarMatriz(Estado, NombreVar, ValMatriz);
                End;
@@ -272,31 +286,38 @@ Procedure EvalOperacionAsig(Var Arbol:TApuntNodo;Var Estado:TEstado; NombreVar:S
 
 //<EA1>::= <EA2> <E1>
 Procedure EvalEA1 (Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real);
+ Var
+  Op1:Real
  Begin
-  EvalEA2(Arbol^.Hijos.Elem[1],Estado,Res);
-  EvalE1(Arbol^.Hijos.Elem[1],Estado,Res);
+  EvalEA2(Arbol^.Hijos.Elem[1],Estado,Op1);
+  EvalE1(Arbol^.Hijos.Elem[1],Estado,Res,Op1);
  End;
 
 
 
 //<E1>::= "+" <EA2> <E1> | "-" <EA2> <E1> | eps
-Procedure EvalE1 (Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real);
+
+Procedure EvalE1 (Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real; Var Op1:Real);
+ Var
+  Op2:Real;
  Begin
   If Arbol^.Hijos.Cant <> 0 then
    Begin
     Case Arbol^.Hijos.Elem[1]^.Simbolo of
     TMas:Begin
-          EvalEA2(Arbol^.Hijos.Elem[2],Estado,Res);
-          EvalE1(Arbol^.Hijos.Elem[2],Estado,Res);
-          //Como digo que se trata de una suma?
+          EvalEA2(Arbol^.Hijos.Elem[2],Estado,Op2);
+          Op1:=Op1+Op2;
+          EvalE1(Arbol^.Hijos.Elem[2],Estado,Res,Op1);
          End;
      TMenos:Begin
-          EvalEA2(Arbol^.Hijos.Elem[2],Estado,Res);
-          EvalE1(Arbol^.Hijos.Elem[2],Estado,Res);
-          //Como digo que se trata de una resta?
+          EvalEA2(Arbol^.Hijos.Elem[2],Estado,Op2);
+          Op1:=Op1-Op2;
+          EvalE1(Arbol^.Hijos.Elem[2],Estado,Res,Op1);
          End;
     End;
-   End;
+   End
+    Else
+     Res:=Op1;
  End;
 
 
@@ -307,41 +328,52 @@ Procedure EvalEA2(Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real);
   EvalE2(Arbol^.Hijos.Elem[2],Estado,Res);
  End;
 
-//<E2>::= "*" <EA3> | "/" <EA3> | eps
-Procedure EvalE2 (Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real);
+//<E2>::= "*" <EA3> <E2> | "/" <EA3> <E2> | eps
+Procedure EvalE2 (Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real; Var Op1:Real);
+ Var
+  Op2:Real;
  Begin
   If Arbol^.Hijos.Cant <> 0 then
    Begin
     Case Arbol^.Hijos.Elem[1]^.Simbolo of
      TMult:Begin
-          EvalEA2(Arbol^.Hijos.Elem[2],Estado,Res);
-          EvalE1(Arbol^.Hijos.Elem[2],Estado,Res);
-          //Como digo que se trata de una mul?
+          EvalEA3(Arbol^.Hijos.Elem[2],Estado,Op2);
+          Op1:=Op1*Op2;
+          EvalE2(Arbol^.Hijos.Elem[2],Estado,Res,Op1);
          End;
      TDiv:Begin
-          EvalEA2(Arbol^.Hijos.Elem[2],Estado,Res);
-          EvalE1(Arbol^.Hijos.Elem[2],Estado,Res);
-          //Como digo que se trata de una div?
+          EvalEA2(Arbol^.Hijos.Elem[2],Estado,Op2);
+          Op1:=Op1/Op2;
+          EvalE2(Arbol^.Hijos.Elem[2],Estado,Res,Op1);
          End;
     End;
-   End;
+   End
+    Else
+     Res:=Op1;
  End;
 
 //<EA3>::= <EA4> <E3>
 Procedure EvalEA3(Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real);
+ Var
+  Op1:Real;
  Begin
-  EvalEA4(Arbol^.Hijos.Elem[1],Estado,Res);
-  EvalE3(Arbol^.Hijos.Elem[2],Estado,Res);
+  EvalEA4(Arbol^.Hijos.Elem[1],Estado,Op1);
+  EvalE3(Arbol^.Hijos.Elem[2],Estado,Res,Op1);
  End;
 
-//<E3>::= "^" <EA4> | eps
-Procedure EvalE3 (Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real);
+//<E3>::= "^" <EA4> <E3> | eps
+Procedure EvalE3 (Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real;Var Base:Real);
+ Var
+  Exp:Real;
  Begin
   If Arbol^.Hijos.Cant <> 0 then
    Begin
-    //Como digo que es una potencia?
-    EvalEA4(Arbol^.Hijos.Elem[2],Estado,Res);
-   End;
+    EvalEA4(Arbol^.Hijos.Elem[2],Estado,Exp);
+    Base:=Power(Base,Exp);
+    EvalE3(Arbol^.Hijos.Elem[3],Estado,Res,Base);
+   End
+    Else
+     Res:=Base;
  End;
 
 
@@ -377,23 +409,98 @@ Procedure EvalE3 (Var Arbol:TApuntNodo; Var Estado:TEstado;Var Res:Real);
      EvalEA1(Arbol^.Hijos.Elem[4],Estado,Res);
     End;
   End;
-                      Arbol^.Hijos^.Elem[2],Estado, ValMatriz
-//<EM>::= <EM1> <M1>
-Procedure EvalEM (Var Arbol:TApuntNodo; Var Estado:TEstado; Var ResMat:NOTENGOCLARO);
+
+
+ //<EM>::= "SumMat" "(" <EM> "," <EM> )" | "RestMat" "(" <EM> "," <EM> )"  | "MultMat" "(" <EM> "," <EM> )" | "Tr" "(" <EM> ")" | "ProdEscMat" ( <EA1> "," <EM> ) | "id" | <constMatriz>
+
+Procedure EvalEM (Var Arbol:TApuntNodo; Var Estado:TEstado; Var ResMat:VARMatriz);
+ Var
+  Op1,Op2:VARMatriz;
+  F,C:1..MaxMatriz;
  Begin
-  EvalEM1(Arbol^.Hijos.Elem[1],Estado,ResMat);
-  EvalM1(Arbol^.Hijos.Elem[1],Estado,ResMat);
+  Case Arbol^.Hijos.Elem[1]^.Simbolo of
+   TSumMat:Begin
+            EvalEM(Arbol^.Hijos.Elem[3],Estado,Op1);
+            EvalEM(Arbol^.Hijos.Elem[5],Estado,Op2);
+             If (Op1.Fil = Op2.Fil) and (Op1.Col = Op2.Col) then
+              Begin
+               For F:= 1 to Op1.Fil do
+                Begin
+                 For C:= 1 to Op1.Col do
+                  ResMat^.MatrizReal[F,C]:= Op1.MatrizReal[F,C] + Op2.MatrizReal[F,C];
+                End;
+              End;
+           End;
+   TRestMat:Begin
+             EvalEM(Arbol^.Hijos.Elem[3],Estado,Op1);
+             EvalEM(Arbol^.Hijos.Elem[5],Estado,Op2);
+              If (Op1.Fil = Op2.Fil) and (Op1.Col = Op2.Col) then
+               Begin
+                For F:= 1 to Op1.Fil do
+                 Begin
+                  For C:= 1 to Op1.Col do
+                   ResMat^.MatrizReal[F,C]:= Op1.MatrizReal[F,C] - Op2.MatrizReal[F,C];
+                 End;
+               End
+              Else
+               WriteLn('Tamaño de matrices incomaptibles');
+            End;
+   TMultMat:Begin
+             EvalEM(Arbol^.Hijos.Elem[3],Estado,Op1);
+             EvalEM(Arbol^.Hijos.Elem[5],Estado,Op2);
+              If Op1.Col <> Op2.Fil then
+               WriteLn('Col de Matriz 1 no coinciden con Fil Matriz 2 ')
+              Else
+               Begin
+                For F:=1 to Op1.Fil do
+                 Begin
+                  For C:=1 to Op2.Col do
+                   Begin
+                    For K := 1 to Op1.Col do
+                     ResMat.MatrizReal[F,C]:=Op1.MatrizReal[F,K]*Op2.MatrizReal[K,C];
+                   End;
+                 End;
+               End;
+            End;
+   TTr:Begin
+        EvalEM(Arbol^.Hijos.Elem[3],Estado,Op1);
+         For F:= 1 to Op1.Fil do
+          Begin
+           For C:= 1 to Op1.Col do
+                  ResMat^.MatrizReal[C,F]:= Op1.MatrizReal[F,C]
+                End;
+              End;
+           End;
+   TProdEscMat:
+   Tid:
+   VConstMatriz:EvalConstMatriz(Arbol^.Hijos.Elem[1],Estado,ResMat);
+
+  End;
+ End;
+  //Case Hijo 1
+  //Segun este EvalEM
+  //Op1 y Op2
+  //llamar proced que sume y reste.... probablemente con dimensiones
+
+
+{//<EM>::= <EM1> <M1>
+Procedure EvalEM (Var Arbol:TApuntNodo; Var Estado:TEstado; Var ResMat:VARMatriz);
+ Var
+  Op1:VARMatriz;
+ Begin
+  EvalEM1(Arbol^.Hijos.Elem[1],Estado,Op1);
+  EvalM1(Arbol^.Hijos.Elem[1],Estado,ResMat,Op1);
  End;
 
 
 //<M1>::= "SumMat" "(" <EM> "," <EM> )" | "RestMat" "(" <EM> "," <EM> )"  | eps
-Procedure EvalM1 (Var Arbol:TApuntNodo; Var Estado:TEstado; Var ResMat:NOTENGOCLARO);
+Procedure EvalM1 (Var Arbol:TApuntNodo; Var Estado:TEstado; Var ResMat,Op1:VARMatriz);
  Begin
   If Arbol^.Hijos.Cant <> 0 then
    Begin
     Case Arbol^.Hijos.Elem[1]^.Simbolo of
      TSumMat:Begin
-              EvalEM(Arbol^.Hijos.Elem[3],Estado,ResMat);      //Como diferencio summat y restmat
+              EvalEM(Arbol^.Hijos.Elem[3],Estado,ResMat);
               EvalEM(Arbol^.Hijos.Elem[5],Estado,ResMat);
              End;
      TRestMat:Begin
@@ -401,7 +508,8 @@ Procedure EvalM1 (Var Arbol:TApuntNodo; Var Estado:TEstado; Var ResMat:NOTENGOCL
               EvalEM(Arbol^.Hijos.Elem[5],Estado,ResMat);
              End;
     End;
-   End;
+   End
+
  End;
 
 
@@ -463,44 +571,51 @@ Procedure EvalEMM(Var Arbol:TApuntNodo; Var Estado:TEstado; Var ResMat:NOTENGOCL
      Begin
       EvalConstMatriz(Arbol^.Hijos.Elem[1],Estado,ResMat);
      End;
- End;
+ End; }
 
 //<constMatriz> ::= "[" <Filas> "]"
-Procedure EvalConstMatriz (Var Arbol:TApuntNodo; Var Estado:TEstado;Var ResMat:NOTENGOCLARO);
+Procedure EvalConstMatriz (Var Arbol:TApuntNodo; Var Estado:TEstado;Var ResMat:VARMatriz);
  Begin
+  ResMat.Fil:=0;
   EvalFilas(Arbol^.Hijos.Elem[2],Estado,ResMat);
  End;
 
 //<Filas> ::= "[" <Columnas> "]" <FacFilas>
-Procedure EvalFilas(Var Arbol:TApuntNodo; Var Estado:TEstado;Var ResMat:NOTENGOCLARO );
+Procedure EvalFilas(Var Arbol:TApuntNodo; Var Estado:TEstado;Var ResMat:VARMatriz );
  Begin
+  ResMat.Fil:= ResMat.Fil + 1;
   EvalColumnas(Arbol^.Hijos.Elem[2],Estado,ResMat);
   EvalFacFilas(Arbol^.Hijos.Elem[4],Estado,ResMat);
  End;
 
 //<FacFilas>::= eps | "," <Filas>
-Procedure EvalFacFilas(Var Arbol:TApuntNodo; Var Estado:TEstado;Var ResMat:NOTENGOCLARO );
+Procedure EvalFacFilas(Var Arbol:TApuntNodo; Var Estado:TEstado;Var ResMat:VARMatriz );
  Begin
   If Arbol^.Hijos.Cant <> 0 then
    Begin
+    ResMat.Col:=0;
+    ResMat.Fil:= ResMat.Fil + 1;
     EvalFilas(Arbol^.Hijos.Elem[2],Estado,ResMat);
    End;
  End;
 
 //<Columnas> ::= <EA1> <FacColumnas>
-Procedure EvalColumnas (Var Arbol:TApuntNodo; Var Estado:TEstado;Var ResMat:NOTENGOCLARO);
+Procedure EvalColumnas (Var Arbol:TApuntNodo; Var Estado:TEstado;Var ResMat:VARMatriz);
  Var
   Resultado:Real;
  Begin
+  ResMat.Col:= ResMat.Col + 1;
   EvalEA1(Arbol^.Hijos.Elem[1],Estado,Resultado);
+  ResMat.MatrizReal[ResMat.Fil,ResMat.Col]:=Resultado;
   EvalFacColumnas(Arbol^.Hijos.Elem[2],Estado,ResMat);
  End;
 
 //<FacColumnas>::= eps | "," <Columnas>
-Procedure EvalFacColumnas (Var Arbol:TApuntNodo; Var Estado:TEstado;Var ResMat:NOTENGOCLARO);
+Procedure EvalFacColumnas (Var Arbol:TApuntNodo; Var Estado:TEstado;Var ResMat:VARMatriz);
  Begin
   If Arbol^.Hijos.Cant <> 0 then
    Begin
+    ResMat.Col:= ResMat.Col + 1;
     EvalColumnas(Arbol^.Hijos.Elem[2],Estado,ResMat);
    End;
  End;
@@ -541,16 +656,28 @@ Procedure EvalFacListElem (Var Arbol:TApuntNodo; Var Estado:TEstado);
 Procedure EvalElemento(Var Arbol:TApuntNodo; Var Estado:TEstado);
  Var
   Res:Real;
+  Matriz:VARMatriz;
+  F,C:1..MaxMatriz;
  Begin
   Case Arbol^.Hijos.Elem[1]^.Simbolo of
    TConstCad:Begin
-              Write(Arbol^.Hijos.Elem[1]^.Lexema);      //???
+              WriteLn(Arbol^.Hijos.Elem[1]^.Lexema);
              End;
    VEA1:Begin
          EvalEA1(Arbol^.Hijos.Elem[1],Estado,Res)
+         WriteLn(Res:15:3);
         End;
    VConstMatriz:Begin
-                 EvalConstMatriz(Arbol^.Hijos^.Elem[1],Estado);
+                 EvalConstMatriz(Arbol^.Hijos^.Elem[1],Estado,Matriz);
+                 WriteLn('[');
+                  For F := 1 to Fil do
+                   Begin
+                    WriteLn('[');
+                    For C := 1 to Col do
+                     Write(Matriz.MatrizReal[F,C]:10:3, '  ');
+                     WriteLn(']');
+                   End;
+                    WriteLn(']');
                 End;
   End;
  End;
@@ -588,14 +715,19 @@ Procedure EvalCond (Var Arbol:TApuntNodo; Var Estado:TEstado);
   EvalEA1(Arbol^.Hijos.Elem[1],Estado,Res1);
   EvalEA1(Arbol^.Hijos.Elem[3],Estado,Res2);
  End;
-
-//<FTAM>::= "fTam" "(" "id" "," "constReal" ")"                  ????????????????????????????????????
+                                  // 1,2
+//<FTAM>::= "fTam" "(" "id" "," "constReal" ")"
 Procedure EvalFTAM (Var Arbol:TApuntNodo; Var Estado:TEstado; Var Res:Real);
+ Var
+  Matriz:VARMatriz;
+  FoC:Real;
  Begin
-
-
-
-
+  ValorDeMatriz(Arbol^.Hijos.Elem[3]^.Lexema,Estado,Matriz);
+  FoC:=ConvertirEnReal(Arbol^.Hijos.Elem[5]^.Lexema,);
+   IF FoC =1 then
+    Res:=Matriz.Fil
+   Else
+    Res:=Matriz.Col;
  End;
 
 
@@ -617,6 +749,6 @@ estado:TEstado;
 
 
         readln;
-  end;
+  end;
 
 End.

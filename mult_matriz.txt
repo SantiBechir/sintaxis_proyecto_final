@@ -1,4 +1,4 @@
-Program
+Program 
 	matriz1 : [2#2];
 	matriz2 : [2#2];
 	res : [2#2];

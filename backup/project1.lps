@@ -8,8 +8,9 @@
       <Unit>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="3" Y="25"/>
-        <UsageCount Value="31"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="5" Y="12"/>
+        <UsageCount Value="67"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -18,7 +19,7 @@
         <UnitName Value="AnalizadorSintactico"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="327"/>
-        <UsageCount Value="31"/>
+        <UsageCount Value="67"/>
       </Unit>
       <Unit>
         <Filename Value="arbol.pas"/>
@@ -27,7 +28,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="56"/>
         <CursorPos X="9" Y="56"/>
-        <UsageCount Value="31"/>
+        <UsageCount Value="67"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -35,7 +36,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Pila"/>
         <EditorIndex Value="7"/>
-        <UsageCount Value="31"/>
+        <UsageCount Value="67"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -43,60 +44,66 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Evaluador"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="42"/>
-        <CursorPos Y="621"/>
-        <UsageCount Value="31"/>
+        <TopLine Value="4"/>
+        <CursorPos X="5" Y="754"/>
+        <UsageCount Value="67"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="analizadorsintactico.pas"/>
         <UnitName Value="AnalizadorSintactico"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="545"/>
-        <CursorPos X="15" Y="564"/>
-        <UsageCount Value="16"/>
+        <TopLine Value="49"/>
+        <CursorPos X="15" Y="25"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="archivo.pas"/>
         <UnitName Value="Archivo"/>
         <EditorIndex Value="3"/>
-        <UsageCount Value="16"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="lexico.pas"/>
         <UnitName Value="Lexico"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="481"/>
+        <TopLine Value="435"/>
         <CursorPos X="37" Y="497"/>
-        <UsageCount Value="16"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="lista.pas"/>
         <UnitName Value="Lista"/>
         <EditorIndex Value="6"/>
-        <UsageCount Value="16"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="project1.lpi"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="5"/>
         <DefaultSyntaxHighlighter Value="XML"/>
       </Unit>
       <Unit>
         <Filename Value="tipo.pas"/>
         <UnitName Value="Tipo"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="8"/>
         <CursorPos X="82" Y="9"/>
-        <UsageCount Value="16"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
       </Unit>
+      <Unit>
+        <Filename Value="..\AppData\Local\Microsoft\Windows\INetCache\IE\LI48JCN6\analizadorsintactico[1].pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="308"/>
+        <CursorPos X="22" Y="44"/>
+        <UsageCount Value="10"/>
+      </Unit>
     </Units>
-    <JumpHistory HistoryIndex="26">
+    <JumpHistory HistoryIndex="27">
       <Position>
         <Filename Value="analizadorsintactico.pas"/>
       </Position>
@@ -201,6 +208,10 @@
       <Position>
         <Filename Value="tipo.pas"/>
         <Caret Line="9" Column="82"/>
+      </Position>
+      <Position>
+        <Filename Value="evaluador.pas"/>
+        <Caret Line="183" Column="35" TopLine="181"/>
       </Position>
     </JumpHistory>
     <RunParams>

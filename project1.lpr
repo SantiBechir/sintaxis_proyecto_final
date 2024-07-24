@@ -9,8 +9,8 @@ var
   lexema:string;
   TAS:TTAS;
 begin
-  {assign(fuente,'prueba.txt');
-  reset(fuente);
+  //assign(fuente,'mult_matriz.txt');
+  {reset(fuente);
   control:= 0;
   CargarTS(TS);
   ObtenerSiguienteCompLex(fuente,Control,CompLex,Lexema,TS);

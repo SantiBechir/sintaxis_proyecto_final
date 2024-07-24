@@ -23,8 +23,6 @@ Type
  procedure MOSTRAR_TAS(var TAS: TTAS);
 
 Implementation
-
-
 Procedure InicializarTAS(Var TAS: TTAS);
  Var I,J:GramaticalSymbol;
   Begin

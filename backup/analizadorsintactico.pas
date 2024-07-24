@@ -561,7 +561,7 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VE4,TcorcheteL]^.Cant:= 5;
 
    //-EM -> "SumMat" "(" <EM> "," <EM> ")"
-   New(TAS[VM1,TSumMat]);
+   New(TAS[VEM,TSumMat]);
    TAS[VEM,TSumMat]^.Elem[1]:= TSumMat;
    TAS[VEM,TSumMat]^.Elem[2]:= TParentesisL;
    TAS[VEM,TSumMat]^.Elem[3]:= VEM;
@@ -571,7 +571,7 @@ Procedure CargarTAS(Var TAS:TTAS);
    TAS[VEM,TSumMat]^.Cant:= 6;
 
    //-EM -> "RestMat" "(" <EM> "," <EM> ")"
-   New(TAS[VM1,TRestMat]);
+   New(TAS[VEM,TRestMat]);
    TAS[VEM,TRestMat]^.Elem[1]:= TRestMat;
    TAS[VEM,TRestMat]^.Elem[2]:= TParentesisL;
    TAS[VEM,TRestMat]^.Elem[3]:= VEM;

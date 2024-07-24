@@ -9,8 +9,8 @@ var
   lexema:string;
   TAS:TTAS;
 begin
-  assign(fuente,'prueba.txt');
-  reset(fuente);
+  assign(fuente,'mult_matriz.txt');
+  {reset(fuente);
   control:= 0;
   CargarTS(TS);
   ObtenerSiguienteCompLex(fuente,Control,CompLex,Lexema,TS);
@@ -20,9 +20,9 @@ begin
     readln();
     ObtenerSiguienteCompLex(fuente,Control,CompLex,Lexema,TS);
   end;
-  writeln(control,':',complex,' ',lexema);
+  writeln(control,':',complex,' ',lexema);}
   //MOSTRAR_TAS(TAS);
-  //TestingAnalizadorSintactico(fuente);
+  TestingAnalizadorSintactico(fuente);
   readln();
 end.
 
